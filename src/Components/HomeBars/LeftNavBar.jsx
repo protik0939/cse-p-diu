@@ -85,10 +85,3 @@ const LeftNavBar = () => {
 export default LeftNavBar;
 
 
-// <iframe className="rounded-2xl"
-//                         src="https://open.spotify.com/embed/track/5ihDGnhQgMA0F0tk9fNLlA?utm_source=generator"
-//                         width="100%"
-//                         height="80"
-//                         allow="encrypted-media"
-//                         title="Spotify Player"
-//                     ></iframe>
