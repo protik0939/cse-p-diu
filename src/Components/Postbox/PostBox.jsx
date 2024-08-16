@@ -128,7 +128,7 @@ const PostBox = ({ post, onDelete }) => {
 
 
     return (
-        <div className="">
+        <div className="w-full">
             <div className="flex flex-col w-full rounded-2xl shadow-lg p-3 sm:p-[2px] cursor-pointer transition duration-150 mt-2 ease-in-out ">
                 <div className="flex justify-between p-5 font-bold border-l border-t border-r border-[#414141] rounded-t-lg text-center">
                     <p className=" ">{post?.postTitle}</p>

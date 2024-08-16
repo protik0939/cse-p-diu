@@ -2,14 +2,20 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import ProfileSkeleton from "../Skeleton/ProfileSkeleton";
+import TimelineSkeleton from "../Skeleton/TimelineSkeleton";
+import PostBox from "../Postbox/PostBox";
 
 const Profile = () => {
     const { id } = useParams();
     const [userProInfo, setUserProInfo] = useState({});
     const { user, uploadNameImageID } = useContext(AuthContext);
+    const [usersPost, setUsersPost] = useState([]);
     const [loader, setLoader] = useState(true);
+    const [postLoading, setPostLoading] = useState(true);
 
     useEffect(() => {
+    setUserProInfo({});
+    setLoader(true); 
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${id}`)
             .then((res) => res.json())
             .then((data) => {
@@ -23,6 +29,10 @@ const Profile = () => {
             });
     }, [id]);
 
+    const handleDeletePost = (postId) => {
+        usersPost(prevPosts => prevPosts.filter(post => post._id !== postId));
+    };
+
     const updateInfoHandler = e => {
         e.preventDefault();
         const form = e.target;
@@ -32,7 +42,8 @@ const Profile = () => {
         const batchNo = form.batchNo.value;
         const section = form.section.value;
         const uid = userProInfo.uid;
-        const updatedInfo = { name, photourl, studentId, batchNo, section, uid }
+        const mId = userProInfo._id;
+        const updatedInfo = { name, photourl, studentId, batchNo, section, uid, mId }
         // console.log(updatedInfo);
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${uid}`, {
             method: 'PUT',
@@ -49,14 +60,23 @@ const Profile = () => {
                 setLoader(false);
                 document.getElementById('update Info').close();
             })
-
     }
+
+    useEffect(() => {
+        fetch(`https://cse-p-diu-server.vercel.app/profile/${id}/posts`)
+            .then(res => res.json())
+            .then(data => {
+                setUsersPost(data);
+                console.log(data);
+                setPostLoading(false);
+            })
+    }, [id]);
 
     return (
         <div>
             <div className="py-8" />
             <div className="flex p-4 sm:flex-col">
-                <div className="w-1/3 sm:w-full">
+                <div className="w-1/3 sm:w-full fixed sm:relative">
                     {loader ?
                         <>
                             <ProfileSkeleton></ProfileSkeleton>
@@ -161,9 +181,24 @@ const Profile = () => {
                         </div>
                     }
                 </div>
-                <div className="w-2/3 sm:w-full col-span-2 flex flex-col p-4 items-center justify-center">
 
-                    <h2>No Post Yet!</h2>
+                <div className="fixed sm:relative h-screen sm:h-auto overflow-y-auto col-span-2 auto right-0 w-2/3 sm:w-full px-10 sm:p-2">
+                    <div className="w-full flex flex-col p-4 items-center mb-20">
+
+                        <h2>Posts By {userProInfo.name}</h2>
+                        {postLoading ? (
+                            <>
+                                <TimelineSkeleton />
+                                <TimelineSkeleton />
+                                <TimelineSkeleton />
+                            </>
+                        ) : usersPost.length > 0 ? (
+                            usersPost.map(post => <PostBox key={post._id} post={post} onDelete={handleDeletePost} />)
+                        ) : (
+                            <h1>No Posts Yet</h1>
+                        )}
+
+                    </div>
                 </div>
             </div>
         </div>
