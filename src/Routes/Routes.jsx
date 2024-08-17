@@ -30,6 +30,10 @@ import ContactUs from "../Components/AboutUs/ContactUs";
 import DownloadAndroidApp from "../Components/AboutUs/DownloadAndroidApp";
 import DownloadIosApp from "../Components/AboutUs/DownloadIosApp";
 import Videos from "../Components/Videos/Videos";
+import Assignment from "../Components/OtherTools/CoverPageGenerator/Assignment/Assignment";
+import LabReport from "../Components/OtherTools/CoverPageGenerator/LabReport/LabReport";
+import FinalLabReport from "../Components/OtherTools/CoverPageGenerator/FinalLabReport/FinalLabReport";
+import LabReportIndex from "../Components/OtherTools/CoverPageGenerator/LabReportIndex/LabReportIndex";
 
 const Routes = createBrowserRouter([
     {
@@ -110,6 +114,22 @@ const Routes = createBrowserRouter([
             {
                 path: '/coverpagegenerator',
                 element: <CoverPageGenerator></CoverPageGenerator>
+            },
+            {
+                path: '/coverpagegenerator/assignment',
+                element: <Assignment></Assignment>
+            },
+            {
+                path: '/coverpagegenerator/labreport',
+                element: <LabReport></LabReport>
+            },
+            {
+                path: '/coverpagegenerator/finallabreport',
+                element: <FinalLabReport></FinalLabReport>
+            },
+            {
+                path: '/coverpagegenerator/labreportindex',
+                element: <LabReportIndex></LabReportIndex>
             },
             {
                 path: '/videolectures',

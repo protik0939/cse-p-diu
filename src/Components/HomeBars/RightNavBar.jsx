@@ -27,21 +27,21 @@ const RightNavBar = () => {
                 <h2 className="my-2 font-bold">Options</h2>
                 <div>
                     <Link to='/people'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <FcConferenceCall></FcConferenceCall>
                             <h2>People</h2>
                         </div>
                     </Link>
 
                     <Link to='/routine'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <FcNook></FcNook>
                             <h2>Routine</h2>
                         </div>
                     </Link>
 
                     <Link to='/allcr'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <FcBusinessman></FcBusinessman>
                             <h2>All CR</h2>
                         </div>
@@ -55,21 +55,21 @@ const RightNavBar = () => {
                 <div>
 
                     <Link to='/diumain'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <img className="w-4" src={diumain} alt="" />
                             <h2>DIU</h2>
                         </div>
                     </Link>
 
                     <Link to='/studentportal'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <img className="w-4" src={diulogo} alt="" />
                             <h2>DIU Student Portal</h2>
                         </div>
                     </Link>
 
                     <Link to='/blc'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <img className="w-4" src={blclogo} alt="" />
                             <h2>BLC</h2>
                         </div>
@@ -77,21 +77,21 @@ const RightNavBar = () => {
 
 
                     <Link to='/diunotice'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <FcViewDetails></FcViewDetails>
                             <h2>DIU Notice</h2>
                         </div>
                     </Link>
 
                     <Link to='/diulibrary'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <img className="w-4" src={diulibrarylogo} alt="" />
                             <h2>DIU Library</h2>
                         </div>
                     </Link>
 
                     <Link to='/diuinternship'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-gray-800 transition duration-150 mt-2 ease-in-out space-x-4">
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
                             <img className="w-4 rounded-2xl" src={diupti} alt="" />
                             <h2>DIU Internship</h2>
                         </div>

@@ -9,6 +9,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import { MdFullscreen } from "react-icons/md";
 import { HiOutlineDotsCircleHorizontal } from "react-icons/hi";
 import '../Home/Home.css';
+import YouTubeEmbed from '../YouTubeEmbed/YouTubeEmbed';
 
 const PostBox = ({ post, onDelete }) => {
 
@@ -126,6 +127,8 @@ const PostBox = ({ post, onDelete }) => {
         setLiveCommentCount(newCount);
     };
 
+    
+
 
     return (
         <div className="w-full">
@@ -154,7 +157,7 @@ const PostBox = ({ post, onDelete }) => {
 
                 <img src={post?.imageUrl} alt="" />
 
-                {post?.videoUrl ? <iframe className="w-full h-[400px]" src={post?.videoUrl} title="YouTube video player"  allow="rel=0; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen="true"></iframe> : ''}
+                {post?.videoUrl ? <YouTubeEmbed url={post?.videoUrl} /> : ''}
 
                 <div className="flex justify-center p-3 space-x-4 border-x border-[#414141]">
                     <Link to={`/profile/${id}`}><img className="w-14 rounded-[10px]" src={userProInfo.photourl} alt="" /></Link>

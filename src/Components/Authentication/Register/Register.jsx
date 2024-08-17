@@ -107,95 +107,95 @@ const Register = () => {
                 </div>
             )}
             <div>
-{user ? navigate(`/profile/${user.uid}`) :
-                <div className="hero bg-transparent min-h-screen text-white">
-                    <div className="hero-content flex-col lg:flex-row-reverse">
-                        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                            <h1 className="text-center font-bold text-3xl">Register</h1>
-                            <form onSubmit={handleRegister} className="card-body">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Email<span className="text-[#ff0000] text-2xl">*</span></span>
-                                    </label>
-                                    <input type="email" name="email" placeholder="protik0939@gmail.com" className="input input-bordered" required />
+                {user ? navigate(`/profile/${user.uid}`) :
+                    <div className="hero bg-transparent min-h-screen">
+                        <div className="hero-content flex-col lg:flex-row-reverse">
+                            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                                <h1 className="text-center font-bold text-3xl">Register</h1>
+                                <form onSubmit={handleRegister} className="card-body">
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Email<span className="text-[#ff0000] text-2xl">*</span></span>
+                                        </label>
+                                        <input type="email" name="email" placeholder="protik0939@gmail.com" className="input input-bordered" required />
 
-                                    <label className="label">
-                                        <span className="label-text">Name<span className="text-[#ff0000] text-2xl">*</span></span>
-                                    </label>
-                                    <input type="text" name="name" placeholder="Sadat Alam Protik" className="input input-bordered" required />
+                                        <label className="label">
+                                            <span className="label-text">Name<span className="text-[#ff0000] text-2xl">*</span></span>
+                                        </label>
+                                        <input type="text" name="name" placeholder="Sadat Alam Protik" className="input input-bordered" required />
 
-                                    <label className="label">
-                                        <span className="label-text">Student ID</span>
-                                    </label>
-                                    <input type="text" name="studentId" placeholder="0242220005101858" className="input input-bordered" />
+                                        <label className="label">
+                                            <span className="label-text">Student ID</span>
+                                        </label>
+                                        <input type="text" name="studentId" placeholder="0242220005101858" className="input input-bordered" />
 
-                                    <label className="label">
-                                        <span className="label-text">Batch&#40;61/62/63......&#41;</span>
-                                    </label>
-                                    <input type="number" name="batchNo" placeholder="63" className="input input-bordered" />
+                                        <label className="label">
+                                            <span className="label-text">Batch&#40;61/62/63......&#41;</span>
+                                        </label>
+                                        <input type="number" name="batchNo" placeholder="63" className="input input-bordered" />
 
-                                    <label className="label">
-                                        <span className="label-text">Section</span>
-                                    </label>
+                                        <label className="label">
+                                            <span className="label-text">Section</span>
+                                        </label>
 
-                                    <select name="section" className="select select-bordered w-full max-w-xs">
-                                        <option disabled selected>P</option>
-                                        <option>A</option>
-                                        <option>B</option>
-                                        <option>C</option>
-                                        <option>D</option>
-                                        <option>E</option>
-                                        <option>F</option>
-                                        <option>G</option>
-                                        <option>H</option>
-                                        <option>I</option>
-                                        <option>J</option>
-                                        <option>K</option>
-                                        <option>L</option>
-                                        <option>M</option>
-                                        <option>N</option>
-                                        <option>O</option>
-                                        <option>P</option>
-                                        <option>Q</option>
-                                        <option>R</option>
-                                        <option>S</option>
-                                        <option>T</option>
-                                        <option>U</option>
-                                        <option>V</option>
-                                        <option>W</option>
-                                        <option>X</option>
-                                        <option>Y</option>
-                                        <option>Z</option>
-                                    </select>
+                                        <select name="section" className="select select-bordered w-full max-w-xs">
+                                            <option disabled selected>P</option>
+                                            <option>A</option>
+                                            <option>B</option>
+                                            <option>C</option>
+                                            <option>D</option>
+                                            <option>E</option>
+                                            <option>F</option>
+                                            <option>G</option>
+                                            <option>H</option>
+                                            <option>I</option>
+                                            <option>J</option>
+                                            <option>K</option>
+                                            <option>L</option>
+                                            <option>M</option>
+                                            <option>N</option>
+                                            <option>O</option>
+                                            <option>P</option>
+                                            <option>Q</option>
+                                            <option>R</option>
+                                            <option>S</option>
+                                            <option>T</option>
+                                            <option>U</option>
+                                            <option>V</option>
+                                            <option>W</option>
+                                            <option>X</option>
+                                            <option>Y</option>
+                                            <option>Z</option>
+                                        </select>
 
-                                    <label className="label">
-                                        <span className="label-text">Photo URL<span className="text-[#ff0000] text-2xl">*</span></span>
-                                    </label>
-                                    <input type="text" name="photourl" placeholder="Photo URL" className="input input-bordered" required />
-                                    <label className="label">
-                                        <span className="label-text">Password<span className="text-[#ff0000] text-2xl">*</span></span>
-                                    </label>
-                                    <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
-                                    <label className="label">
-                                        <span className="label-text">Confirm Password<span className="text-[#ff0000] text-2xl">*</span></span>
-                                    </label>
-                                    <input type="password" name="confirmPassword" placeholder="Confirm Password" className="input input-bordered" required />
-                                    {/* <label className="label">
+                                        <label className="label">
+                                            <span className="label-text">Photo URL<span className="text-[#ff0000] text-2xl">*</span></span>
+                                        </label>
+                                        <input type="text" name="photourl" placeholder="Photo URL" className="input input-bordered" required />
+                                        <label className="label">
+                                            <span className="label-text">Password<span className="text-[#ff0000] text-2xl">*</span></span>
+                                        </label>
+                                        <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
+                                        <label className="label">
+                                            <span className="label-text">Confirm Password<span className="text-[#ff0000] text-2xl">*</span></span>
+                                        </label>
+                                        <input type="password" name="confirmPassword" placeholder="Confirm Password" className="input input-bordered" required />
+                                        {/* <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label> */}
+                                    </div>
+                                    <div className="form-control mt-6">
+                                        <button className="btn btn-primary">Register</button>
+                                    </div>
+                                </form>
+                                <h1 className="text-center p-4">Already have an account? <Link className="text-[#7480ff]" to='/login'>Log in</Link></h1>
+                                <h1 className="text-center">Or Register using</h1>
+                                <div className="flex w-full items-center justify-center my-5">
+                                    <FcGoogle onClick={handleGooglePopupLogin} className="p-1 text-5xl bg-white shadow-lg rounded-full cursor-pointer"></FcGoogle>
                                 </div>
-                                <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Register</button>
-                                </div>
-                            </form>
-                            <h1 className="text-center p-4">Already have an account? <Link className="text-[#7480ff]" to='/login'>Log in</Link></h1>
-                            <h1 className="text-center">Or Register using</h1>
-                            <div className="flex w-full items-center justify-center my-5">
-                                <FcGoogle onClick={handleGooglePopupLogin} className="p-1 text-5xl bg-white rounded-full cursor-pointer"></FcGoogle>
                             </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
         </div>

@@ -34,7 +34,7 @@ const Home = () => {
                 setLoading(false);
             })
             .catch(error => {
-                
+
                 setLoading(false);
                 // console.log('Error fetching posts:', error)
             });
@@ -132,104 +132,104 @@ const Home = () => {
                         {
                             user ? (
                                 user.emailVerified ?
-                                    <div onClick={() => document.getElementById('postUploadingModal').showModal()} className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-[#1a2026] cursor-pointer hover:bg-[#171d24] transition duration-150 ease-in-out space-x-4">
+                                    <div onClick={() => document.getElementById('postUploadingModal').showModal()} className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-white/10 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                                         <IoIosCreate className="text-2xl"></IoIosCreate>
                                         <h2>What&apos;s on your mind?</h2>
                                     </div>
                                     :
 
-                                    <div className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-[#1a2026] cursor-pointer hover:bg-[#171d24] transition duration-150 ease-in-out space-x-4">
+                                    <div className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-white/10 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                                         <IoIosCreate className="text-2xl"></IoIosCreate>
                                         <h2>Please verify your email first</h2>
                                     </div>
 
                             )
                                 :
-                                <div className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-[#1a2026] cursor-pointer hover:bg-[#171d24] transition duration-150 ease-in-out space-x-4">
+                                <div className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-white/10 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                                     <IoIosCreate className="text-2xl"></IoIosCreate>
                                     <h2>Login to Post</h2>
                                 </div>}
 
 
                     </div>
-                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                        <dialog id="postUploadingModal" className="modal">
-                            <div className="modal-box">
-                                <form onSubmit={postSubmission}>
-                                    <form method="dialog">
-                                        {/* if there is a button in form, it will close the modal */}
-                                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
-                                    </form>
-                                    <h3 className="font-bold text-lg">Create Post</h3>
-
-                                    <label className="form-control w-full">
-                                        <div className="label">
-                                            <span className="label-text">Post Title</span>
-                                        </div>
-                                        <input type="text" name="postTitle" placeholder="Post Title" className="input input-bordered w-full" required />
-                                    </label>
-
-                                    <label className="form-control w-full">
-                                        <div className="label">
-                                            <span className="label-text">Post Details</span>
-                                        </div>
-                                        <textarea name="postDetails" className="textarea textarea-bordered" placeholder="Post Details........."></textarea>
-                                    </label>
-
-                                    <label className="form-control w-full">
-                                        <div className="label">
-                                            <span className="label-text">Want to upload Image/video?</span>
-                                        </div>
-                                        <select
-                                            name="infoTypeSelection"
-                                            className="select select-bordered"
-                                            onChange={handleSelectionChange}
-                                            value={selectedOption} // This ensures the correct option is selected
-                                        >
-                                            <option value="No">No</option>
-                                            <option value="Image">Image</option>
-                                            <option value="Video">Video</option>
-                                        </select>
-                                    </label>
-
-                                    {selectedOption === "Image" && (
-                                        <label className="form-control w-full">
-                                            <div className="label">
-                                                <span className="label-text">Image URL</span>
-                                            </div>
-                                            <input
-                                                type="text"
-                                                name="imageUrl"
-                                                placeholder="Image URL"
-                                                className="input input-bordered w-full"
-                                                required
-                                            />
-                                        </label>
-                                    )}
-
-                                    {selectedOption === "Video" && (
-                                        <label className="form-control w-full">
-                                            <div className="label">
-                                                <span className="label-text">Video URL</span>
-                                            </div>
-                                            <input
-                                                type="text"
-                                                name="videoUrl"
-                                                placeholder="Video URL"
-                                                className="input input-bordered w-full"
-                                                required
-                                            />
-                                        </label>
-                                    )}
-                                    <div className="text-center">
-                                        <input className="btn mt-6" type="submit" value="Submit" />
-                                    </div>
+                    {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                    <dialog id="postUploadingModal" className="modal">
+                        <div className="modal-box">
+                            <form onSubmit={postSubmission}>
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
                                 </form>
+                                <h3 className="font-bold text-lg">Create Post</h3>
+
+                                <label className="form-control w-full">
+                                    <div className="label">
+                                        <span className="label-text">Post Title</span>
+                                    </div>
+                                    <input type="text" name="postTitle" placeholder="Post Title" className="input input-bordered w-full" required />
+                                </label>
+
+                                <label className="form-control w-full">
+                                    <div className="label">
+                                        <span className="label-text">Post Details</span>
+                                    </div>
+                                    <textarea name="postDetails" className="textarea textarea-bordered" placeholder="Post Details........."></textarea>
+                                </label>
+
+                                <label className="form-control w-full">
+                                    <div className="label">
+                                        <span className="label-text">Want to upload Image/video?</span>
+                                    </div>
+                                    <select
+                                        name="infoTypeSelection"
+                                        className="select select-bordered"
+                                        onChange={handleSelectionChange}
+                                        value={selectedOption} // This ensures the correct option is selected
+                                    >
+                                        <option value="No">No</option>
+                                        <option value="Image">Image</option>
+                                        <option value="Video">Video</option>
+                                    </select>
+                                </label>
+
+                                {selectedOption === "Image" && (
+                                    <label className="form-control w-full">
+                                        <div className="label">
+                                            <span className="label-text">Image URL</span>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            name="imageUrl"
+                                            placeholder="Image URL"
+                                            className="input input-bordered w-full"
+                                            required
+                                        />
+                                    </label>
+                                )}
+
+                                {selectedOption === "Video" && (
+                                    <label className="form-control w-full">
+                                        <div className="label">
+                                            <span className="label-text">Video URL</span>
+                                        </div>
+                                        <input
+                                            type="text"
+                                            name="videoUrl"
+                                            placeholder="Video URL"
+                                            className="input input-bordered w-full"
+                                            required
+                                        />
+                                    </label>
+                                )}
+                                <div className="text-center">
+                                    <input className="btn mt-6" type="submit" value="Submit" />
+                                </div>
+                            </form>
 
 
 
-                            </div>
-                        </dialog>
+                        </div>
+                    </dialog>
                 </div>
 
                 <div className="w-full rounded-3xl shadow-lg p-4 sm:p-[2px] ">

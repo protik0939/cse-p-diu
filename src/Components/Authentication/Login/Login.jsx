@@ -126,7 +126,7 @@ const Login = () => {
                             <h1 className="text-center p-4">Have no account? <Link className="text-[#7480ff]" to='/register'>Register</Link></h1>
                             <h1 className="text-center">Or Log in using</h1>
                             <div className="flex w-full items-center justify-center my-5">
-                                <FcGoogle onClick={handleGooglePopupLogin} className="p-1 text-5xl bg-white rounded-full cursor-pointer"></FcGoogle>
+                                <FcGoogle onClick={handleGooglePopupLogin} className="p-1 text-5xl rounded-full cursor-pointer"></FcGoogle>
                             </div>
                         </div>
                     </div>

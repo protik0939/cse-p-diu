@@ -97,7 +97,7 @@ const Profile = () => {
                                 <div>
                                     {user.uid === userProInfo.uid ? <button onClick={() => document.getElementById('update Info').showModal()} className="btn">Update Info</button> : ''}
                                     <dialog id="update Info" className="modal">
-                                        <div className="modal-box text-white">
+                                        <div className="modal-box">
 
                                             <h1 className="text-center font-bold text-2xl">Update Info</h1>
                                             <form onSubmit={updateInfoHandler} className="card-body">

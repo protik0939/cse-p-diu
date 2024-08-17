@@ -41,7 +41,7 @@ const Navbar = () => {
 
     return (
         <div className="fixed flex w-full justify-center items-center h-[70px] top-0 z-10">
-            <div className={`flex justify-between w-[98%]  bg-zinc-950/30 text-white backdrop-blur-md p-2 px-6 rounded-2xl transition duration-700 ease-in-out`}>
+            <div className={`flex justify-between w-[98%]  bg-black/10 backdrop-blur-md p-2 px-6 rounded-2xl transition duration-700 ease-in-out`}>
                 <NavLink to='/'><div>
                     <img className="w-[80px]" src={Logo} alt="" />
                 </div></NavLink>
