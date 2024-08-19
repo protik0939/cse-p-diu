@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import '../Home.css';
 import PostComments from "../../OtherPostRelated/PostComments/PostComments";
 import { AuthContext } from "../../../Providers/AuthProvider";
@@ -7,6 +7,7 @@ import Loading from "../../Loading/Loading";
 import { IoCopyOutline } from "react-icons/io5";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { MdFullscreenExit } from "react-icons/md";
+import Swal from 'sweetalert2'
 
 const DetailsPost = () => {
     const { id } = useParams();
@@ -109,7 +110,17 @@ const DetailsPost = () => {
     function copyLink(link) {
         navigator.clipboard.writeText(link)
             .then(() => {
-                alert('Link copied to clipboard!');
+                Swal.fire({
+                    position: "bottom",
+                    title: "Link Copied",
+                    showConfirmButton: false,
+                    color: '#ffffff',
+                    background: '#1d232a60',
+                    timer: 1000,
+                    backdrop: false,
+                    timerProgressBar: true,
+                    width: 'auto',
+                });
             })
             .catch(err => {
                 console.error('Failed to copy link: ', err);
@@ -165,7 +176,7 @@ const DetailsPost = () => {
 
                 ) : (
                     <div className=" text-center rounded-2xl shadow-lg w-full h-1/2 overflow-scroll overlay-scrollbar p-6">
-                        Please login to comment
+                        Please <Link className='text-[#4444ff] font-bold' to='/login'>Login</Link> to comment
                     </div>
 
                 )}

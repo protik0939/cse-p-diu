@@ -61,10 +61,13 @@ const RightNavBar = () => {
                         </div>
                     </Link>
 
-                    <Link to='/studentportal'>
-                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
-                            <img className="w-4" src={diulogo} alt="" />
-                            <h2>DIU Student Portal</h2>
+                    <Link target="_blank" to='http://studentportal.diu.edu.bd/'>
+                        <div className="flex justify-between items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
+                            <div className="flex items-center w-full space-x-4">
+                                <img className="w-4" src={diulogo} alt="" />
+                                <h2>DIU Student Portal</h2>
+                            </div>
+                            <IoLogOutOutline className="ml-2"></IoLogOutOutline>
                         </div>
                     </Link>
 

@@ -1,0 +1,8 @@
+.swal2-popup.swal2-modal.swal2-icon-warning.swal2-show {
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+}
+div:where(.swal2-container).swal2-center>.swal2-popup{
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+}

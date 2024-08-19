@@ -5,6 +5,9 @@ import ProfileSkeleton from "../Skeleton/ProfileSkeleton";
 import TimelineSkeleton from "../Skeleton/TimelineSkeleton";
 import PostBox from "../Postbox/PostBox";
 
+const imageHostingKey = import.meta.env.VITE_API_KEY;
+const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+
 const Profile = () => {
     const { id } = useParams();
     const [userProInfo, setUserProInfo] = useState({});
@@ -12,10 +15,12 @@ const Profile = () => {
     const [usersPost, setUsersPost] = useState([]);
     const [loader, setLoader] = useState(true);
     const [postLoading, setPostLoading] = useState(true);
+    const [updatingData, setUpdatingData] = useState(false);
+    const [updatingProPic, setUpdatingProPic] = useState(false);
 
     useEffect(() => {
-    setUserProInfo({});
-    setLoader(true); 
+        setUserProInfo({});
+        setLoader(true);
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${id}`)
             .then((res) => res.json())
             .then((data) => {
@@ -37,13 +42,14 @@ const Profile = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const photourl = form.photourl.value;
+        const photourl = userProInfo.photourl;
         const studentId = form.studentId.value;
         const batchNo = form.batchNo.value;
         const section = form.section.value;
         const uid = userProInfo.uid;
         const mId = userProInfo._id;
         const updatedInfo = { name, photourl, studentId, batchNo, section, uid, mId }
+        setUpdatingData(true);
         // console.log(updatedInfo);
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${uid}`, {
             method: 'PUT',
@@ -58,9 +64,63 @@ const Profile = () => {
                 uploadNameImageID(name, photourl);
                 setUserProInfo(data);
                 setLoader(false);
+                setUpdatingData(false);
                 document.getElementById('update Info').close();
             })
     }
+
+
+    const profilePictureUpload = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = userProInfo.name;
+        const studentId = userProInfo.studentId;
+        const batchNo = userProInfo.batchNo;
+        const section = userProInfo.section;
+        const uid = userProInfo.uid;
+        const mId = userProInfo._id;
+        setUpdatingProPic(true);
+        const photourl = form.photourl.files[0];
+        const formData = new FormData();
+        formData.append('image', photourl);
+
+        try {
+            const response = await fetch(imageUploadApi, {
+                method: 'POST',
+                body: formData
+            });
+            const imgData = await response.json();
+
+            if (imgData.success) {
+                const imageUrl = imgData.data.display_url;
+                const updatedInfo = { name, photourl: imageUrl, studentId, batchNo, section, uid, mId }
+                console.log(updatedInfo);
+                fetch(`https://cse-p-diu-server.vercel.app/users/uid/${uid}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        uploadNameImageID(name, photourl);
+                        setUserProInfo(data);
+                        setLoader(false);
+                        setUpdatingProPic(false);
+                        document.getElementById('update Info').close();
+                    })
+
+            } else {
+                setUpdatingProPic(false);
+                console.error('Image upload failed');
+            }
+        } catch (error) {  
+            setUpdatingProPic(false);
+            console.error('Error uploading image', error);
+        }
+    };
 
     useEffect(() => {
         fetch(`https://cse-p-diu-server.vercel.app/profile/${id}/posts`)
@@ -86,6 +146,34 @@ const Profile = () => {
                             <div className="indicator w-full">
                                 {userProInfo?.classRepresentative === "true" ? <span className="indicator-item badge text-2xl font-bold">CR</span> : ''}
                                 <img className="w-full rounded-[20px]" src={userProInfo.photourl} alt="" />
+                                {user.uid === userProInfo.uid ?
+                                    <>
+                                        <button onClick={() => document.getElementById('updateProPic').showModal()} style={{ borderRadius: '0px 10px 0px 10px' }} className="btn absolute bottom-0">Update Profile Picture</button>
+                                        <dialog id="updateProPic" className="modal">
+                                            <div className="modal-box">
+
+                                                <h1 className="text-center font-bold text-2xl">Update Profile Picture</h1>
+                                                <form onSubmit={profilePictureUpload} className="card-body">
+                                                    <div className="form-control">
+                                                        <label className="label">
+                                                            <span className="label-text">Pofile Picture (less than 32MB)<span className="text-[#ff0000] text-2xl">*</span></span>
+                                                        </label>
+                                                        <input type="file" name="photourl" placeholder="Photo URL" className="file-input file-input-bordered w-full" required />
+                                                    </div>
+                                                    <div className="form-control mt-6">
+                                                    {updatingProPic && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
+                                                        <button className="btn btn-primary">Update</button>
+                                                    </div>
+                                                </form>
+
+                                                <form method="dialog" className="text-center">
+                                                    {/* if there is a button in form, it will close the modal */}
+                                                    <button className="btn">Cancel</button>
+                                                </form>
+                                            </div>
+                                        </dialog>
+                                    </>
+                                    : ''}
                             </div>
                             <div className="flex items-center justify-between">
                                 <div>
@@ -95,8 +183,8 @@ const Profile = () => {
                                     <h2>Section: {userProInfo.batchNo}_{userProInfo.section}</h2>
                                 </div>
                                 <div>
-                                    {user.uid === userProInfo.uid ? <button onClick={() => document.getElementById('update Info').showModal()} className="btn">Update Info</button> : ''}
-                                    <dialog id="update Info" className="modal">
+                                    {user.uid === userProInfo.uid ? <button onClick={() => document.getElementById('update_Info').showModal()} className="btn">Update Info</button> : ''}
+                                    <dialog id="update_Info" className="modal">
                                         <div className="modal-box">
 
                                             <h1 className="text-center font-bold text-2xl">Update Info</h1>
@@ -157,15 +245,9 @@ const Profile = () => {
                                                     </select>
 
 
-
-
-
-                                                    <label className="label">
-                                                        <span className="label-text">Photo URL<span className="text-[#ff0000] text-2xl">*</span></span>
-                                                    </label>
-                                                    <input defaultValue={userProInfo.photourl} type="text" name="photourl" placeholder="Photo URL" className="input input-bordered" required />
                                                 </div>
                                                 <div className="form-control mt-6">
+                                                {updatingData && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
                                                     <button className="btn btn-primary">Update</button>
                                                 </div>
                                             </form>

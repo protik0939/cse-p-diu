@@ -13,6 +13,7 @@ import LeftNavBar from "../HomeBars/LeftNavBar";
 import { AiOutlineClose } from "react-icons/ai";
 import '../Home/Home.css';
 import { GoVideo } from "react-icons/go";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
@@ -35,7 +36,22 @@ const Navbar = () => {
                     setLoading(false);
                 });
         }
-    }, [uid]);
+    }, [uid, photoUrl]);
+
+    const handleLogOut = () => {
+        logOut();
+        Swal.fire({
+            position: "top-end",
+            toast: true,
+            title: "logged Out",
+            showConfirmButton: false,
+            color: '#ffffff',
+            background: '#00ff0090',
+            timer: 2000,
+            timerProgressBar: true,
+            width: 'auto',
+        });
+    }
 
 
 
@@ -103,7 +119,7 @@ const Navbar = () => {
                                             </button>
                                             </Link>
 
-                                            <button onClick={logOut}>
+                                            <button onClick={handleLogOut}>
                                                 <div className="flex flex-col items-center hover:scale-110">
                                                     <IoMdLogOut className="text-3xl" /><h1 className="text-[8px]">LogOut</h1>
                                                 </div>

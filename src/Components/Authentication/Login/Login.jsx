@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import axios from "axios";
+import Swal from 'sweetalert2'
 
 
 
@@ -10,14 +11,16 @@ import axios from "axios";
 const Login = () => {
 
 
-    const { user, logIn, googleSignIn } = useContext(AuthContext);
+    const { user, logIn, googleSignIn, passwordReset } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [logginIn, setLoggingIn] = useState(false);
 
     // console.log(location);
 
     const handleLogIn = e => {
         e.preventDefault();
+        setLoggingIn(true);
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -31,15 +34,49 @@ const Login = () => {
                     .then(res => {
                         // console.log(res);
                         if (res.data.success) {
+                            setLoggingIn(false);
+                            Swal.fire({
+                                position: "top-end",
+                                toast: true,
+                                title: "Logged In",
+                                showConfirmButton: false,
+                                color: '#ffffff',
+                                background: '#00ff0090',
+                                timer: 2000,
+                                timerProgressBar: true,
+                                width: 'auto',
+                            });
                             navigate(location?.state ? location?.state : '/');
                         }
                     })
                     .catch(error => {
-                        // console.log(error);
+                        Swal.fire({
+                            position: "top-end",
+                            toast: true,
+                            title: "Something went wrong",
+                            showConfirmButton: false,
+                            color: '#ffffff',
+                            background: '#ff000090',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            width: 'auto',
+                        });
+                        setLoggingIn(false);
                     })
             })
             .catch(error => {
-                // console.log(error);
+                Swal.fire({
+                    position: "top-end",
+                    toast: true,
+                    title: "Wrong email/password",
+                    showConfirmButton: false,
+                    color: '#ffffff',
+                    background: '#ff000090',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    width: 'auto',
+                });
+                setLoggingIn(false);
             });
     }
 
@@ -74,21 +111,85 @@ const Login = () => {
                             })
                                 .then(res => res.json())
                                 .then(() => {
+                                    Swal.fire({
+                                        position: "top-end",
+                                        toast: true,
+                                        title: "Logged In",
+                                        showConfirmButton: false,
+                                        color: '#00ff00',
+                                        background: '#1d232a90',
+                                        timer: 2000,
+                                        timerProgressBar: true,
+                                        width: 'auto',
+                                    });
                                     navigate(location?.state ? location?.state : '/');
                                 })
                                 .catch(error => {
                                     console.error('Error saving new user:', error);
+                                    Swal.fire({
+                                        position: "top-end",
+                                        toast: true,
+                                        title: "Something went wrong",
+                                        showConfirmButton: false,
+                                        color: '#ff0000',
+                                        background: '#1d232a90',
+                                        timer: 2000,
+                                        timerProgressBar: true,
+                                        width: 'auto',
+                                    });
                                 });
                         }
                     })
                     .catch(error => {
                         console.error('Error checking user existence:', error);
+                        Swal.fire({
+                            position: "top-end",
+                            toast: true,
+                            title: "Something went wrong",
+                            showConfirmButton: false,
+                            color: '#ff0000',
+                            background: '#1d232a90',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            width: 'auto',
+                        });
                     });
             })
             .catch((error) => {
                 console.error('Error during Google sign-in:', error);
+                Swal.fire({
+                    position: "top-end",
+                    toast: true,
+                    title: "Something went wrong",
+                    showConfirmButton: false,
+                    color: '#ff0000',
+                    background: '#1d232a90',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    width: 'auto',
+                });
             });
     };
+
+
+    const handleResetPassword = async() => {
+        const { value: email } = await Swal.fire({
+            title: "Input email address",
+            input: "email",
+            inputLabel: "Your email address",
+            inputPlaceholder: "example@gmail.com",
+            background: "#1d232a90",
+            color: "#ffffff",
+          });
+          if (email) {
+            passwordReset(email);
+            Swal.fire({
+                title: `A Password Reset Mail has been sent to your email - ${email}`,
+                background: "#1d232a90",
+                color: "#ffffff",
+            });
+          }
+    }
 
 
 
@@ -116,10 +217,11 @@ const Login = () => {
                                     </label>
                                     <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                                     <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                        <div onClick={handleResetPassword} className="label-text-alt link link-hover">Forgot password?</div>
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
+                                    {logginIn && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                             </form>

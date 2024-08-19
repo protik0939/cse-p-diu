@@ -3,66 +3,133 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import './Register.css'
+import Swal from 'sweetalert2'
+
+const imageHostingKey = import.meta.env.VITE_API_KEY;
+const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const Register = () => {
 
     const { user, createUser, googleSignIn, emailVerification, uploadNameImageID } = useContext(AuthContext);
     const [showToast, setShowToast] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
+    const [logginIn, setLoggingIn] = useState(false);
 
 
     const location = useLocation();
     const navigate = useNavigate();
 
 
-    const handleRegister = e => {
+    const handleRegister = async (e) => {
         e.preventDefault();
+
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
         const name = form.name.value;
-        const photourl = form.photourl.value;
         const studentId = form.studentId.value;
         const batchNo = form.batchNo.value;
         const section = form.section.value;
         const classRepresentative = false;
+
         if (password !== confirmPassword) {
-            setShowToast(true);
-            setFadeOut(false);
-            setTimeout(() => {
-                setFadeOut(true);
-                setTimeout(() => {
-                    setShowToast(false);
-                }, 1000);
-            }, 4000);
-        } else {
-            createUser(email, password)
-                .then(result => {
-                    emailVerification();
-                    uploadNameImageID(name, photourl);
-                    // console.log(result.user);
-                    const uid = result.user.uid;
-                    const newUser = { uid, email, name, photourl, studentId, batchNo, section, classRepresentative }
-                    // // console.log(newUser);
-                    fetch('https://cse-p-diu-server.vercel.app/users', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(newUser)
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            // console.log(data);
+            Swal.fire({
+                position: "top-end",
+                toast: true,
+                title: "Password didn't matched",
+                showConfirmButton: false,
+                color: '#ffffff',
+                background: '#ff000090',
+                timer: 2000,
+                timerProgressBar: true,
+                width: 'auto',
+            });
+        }
+
+        const photourl = form.photourl.files[0];
+        const formData = new FormData();
+        formData.append('image', photourl);
+        setLoggingIn(true);
+        try {
+            const response = await fetch(imageUploadApi, {
+                method: 'POST',
+                body: formData
+            });
+            const imgData = await response.json();
+
+            if (imgData.success) {
+                const imageUrl = imgData.data.display_url;
+
+                createUser(email, password)
+                    .then(result => {
+                        emailVerification();
+                        uploadNameImageID(name, imageUrl);
+                        const uid = result.user.uid;
+                        const newUser = { uid, email, name, photourl: imageUrl, studentId, batchNo, section, classRepresentative };
+
+                        fetch('https://cse-p-diu-server.vercel.app/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(newUser)
                         })
-                    navigate(location?.state ? location?.state : '/');
-                })
-                .catch(error => {
-                    // console.log(error);
+                            .then(res => res.json())
+                            .then(data => {
+                                navigate(location?.state ? location?.state : '/');
+                                setLoggingIn(false);
+                            });
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            position: "top-end",
+                            toast: true,
+                            title: "Email already in use",
+                            showConfirmButton: false,
+                            color: '#ffffff',
+                            background: '#ff000090',
+                            timer: 2000,
+                            timerProgressBar: true,
+                            width: 'auto',
+                        });
+                        setLoggingIn(false);
+                    });
+            } else {
+                console.error('Image upload failed');
+                Swal.fire({
+                    position: "top-end",
+                    toast: true,
+                    title: "Invalid Image Format",
+                    showConfirmButton: false,
+                    color: '#ffffff',
+                    background: '#ff000090',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    width: 'auto',
                 });
+                setLoggingIn(false);
+
+            }
+        } catch (error) {
+            console.error('Error uploading image', error);
+            
+            Swal.fire({
+                position: "top-end",
+                toast: true,
+                title: "Something Went Wrong",
+                showConfirmButton: false,
+                color: '#ffffff',
+                background: '#ff000090',
+                timer: 2000,
+                timerProgressBar: true,
+                width: 'auto',
+            });
+            setLoggingIn(false);
+
         }
     };
+
 
     const handleGooglePopupLogin = () => {
         googleSignIn()
@@ -169,9 +236,9 @@ const Register = () => {
                                         </select>
 
                                         <label className="label">
-                                            <span className="label-text">Photo URL<span className="text-[#ff0000] text-2xl">*</span></span>
+                                            <span className="label-text">Pofile Picture (less than 32MB)<span className="text-[#ff0000] text-2xl">*</span></span>
                                         </label>
-                                        <input type="text" name="photourl" placeholder="Photo URL" className="input input-bordered" required />
+                                        <input type="file" name="photourl" placeholder="Photo URL" className="file-input file-input-bordered w-full" required />
                                         <label className="label">
                                             <span className="label-text">Password<span className="text-[#ff0000] text-2xl">*</span></span>
                                         </label>
@@ -185,6 +252,7 @@ const Register = () => {
                                     </label> */}
                                     </div>
                                     <div className="form-control mt-6">
+                                    {logginIn && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
                                         <button className="btn btn-primary">Register</button>
                                     </div>
                                 </form>

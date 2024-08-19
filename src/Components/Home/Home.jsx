@@ -19,12 +19,15 @@ const shuffleArray = (array) => {
     return array;
 };
 
-
+const imageHostingKey = import.meta.env.VITE_API_KEY;
+const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const Home = () => {
 
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch('https://cse-p-diu-server.vercel.app/posts')
@@ -53,19 +56,55 @@ const Home = () => {
 
     const { user } = useContext(AuthContext);
 
-    const postSubmission = e => {
+    const postSubmission = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
         const form = e.target;
         const postTitle = form.postTitle.value;
         const postDetails = form.postDetails.value;
-        const imageUrl = form.imageUrl ? form.imageUrl.value : null;
-        const videoUrl = form.videoUrl ? form.videoUrl.value : null;
+        const infoTypeSelection = form.infoTypeSelection.value;
+
+        let imageUrl = null;
+        let videoUrl = null;
+
+        if (infoTypeSelection === "Image") {
+            const imageFile = form.imageUrl.files[0];
+            if (imageFile) {
+                const formData = new FormData();
+                formData.append('image', imageFile);
+
+                try {
+                    const response = await fetch(imageUploadApi, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        imageUrl = data.data.url;
+                    } else {
+                        console.error('Image upload failed:', data.error);
+                        setError('Image upload failed. Please try again.');
+                        setIsSubmitting(false);
+                        return;
+                    }
+                } catch (error) {
+                    console.error('Error uploading image:', error);
+                    setError('Error uploading image. Please try again.');
+                    setIsSubmitting(false);
+                    return;
+                }
+            }
+        } else if (infoTypeSelection === "Video") {
+            videoUrl = form.videoUrl.value;
+        }
+
         const reactOnPost = [];
         const commentOnPost = [];
         const now = new Date();
         const uploadTime = now.toLocaleTimeString();
         const uploadDate = now.toLocaleDateString();
-
         const uploaderUid = user.uid;
 
         const newPost = {
@@ -79,22 +118,25 @@ const Home = () => {
             uploadDate,
             uploaderUid,
         };
-        // // console.log(newPost);
-        fetch('https://cse-p-diu-server.vercel.app/posts', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newPost)
-        })
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('postUploadingModal').close();
-                setPosts(prevPosts => [data, ...prevPosts]);
-            })
-            .catch(error => {
-                console.error('Error saving new user:', error);
+
+        try {
+            const res = await fetch('https://cse-p-diu-server.vercel.app/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newPost)
             });
+            const data = await res.json();
+            document.getElementById('postUploadingModal').close();
+            setPosts(prevPosts => [data, ...prevPosts]);
+            form.reset();
+            setSelectedOption("No");
+        } catch (error) {
+            console.error('Error saving new post:', error);
+            setError('Error saving new post. Please try again.');
+        }
+        setIsSubmitting(false);
     };
 
     const shuffledTimeline = shuffleArray([...posts]);
@@ -156,24 +198,37 @@ const Home = () => {
                     <dialog id="postUploadingModal" className="modal">
                         <div className="modal-box">
                             <form onSubmit={postSubmission}>
-                                <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
-                                </form>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                                    onClick={() => document.getElementById('postUploadingModal').close()}
+                                >
+                                    <AiOutlineClose />
+                                </button>
                                 <h3 className="font-bold text-lg">Create Post</h3>
 
                                 <label className="form-control w-full">
                                     <div className="label">
                                         <span className="label-text">Post Title</span>
                                     </div>
-                                    <input type="text" name="postTitle" placeholder="Post Title" className="input input-bordered w-full" required />
+                                    <input
+                                        type="text"
+                                        name="postTitle"
+                                        placeholder="Post Title"
+                                        className="input input-bordered w-full"
+                                        required
+                                    />
                                 </label>
 
                                 <label className="form-control w-full">
                                     <div className="label">
                                         <span className="label-text">Post Details</span>
                                     </div>
-                                    <textarea name="postDetails" className="textarea textarea-bordered" placeholder="Post Details........."></textarea>
+                                    <textarea
+                                        name="postDetails"
+                                        className="textarea textarea-bordered"
+                                        placeholder="Post Details........."
+                                    />
                                 </label>
 
                                 <label className="form-control w-full">
@@ -184,7 +239,7 @@ const Home = () => {
                                         name="infoTypeSelection"
                                         className="select select-bordered"
                                         onChange={handleSelectionChange}
-                                        value={selectedOption} // This ensures the correct option is selected
+                                        value={selectedOption}
                                     >
                                         <option value="No">No</option>
                                         <option value="Image">Image</option>
@@ -195,13 +250,13 @@ const Home = () => {
                                 {selectedOption === "Image" && (
                                     <label className="form-control w-full">
                                         <div className="label">
-                                            <span className="label-text">Image URL</span>
+                                            <span className="label-text">Image</span>
                                         </div>
                                         <input
-                                            type="text"
+                                            type="file"
                                             name="imageUrl"
-                                            placeholder="Image URL"
-                                            className="input input-bordered w-full"
+                                            accept="image/*"
+                                            className="file-input file-input-bordered w-full"
                                             required
                                         />
                                     </label>
@@ -210,7 +265,7 @@ const Home = () => {
                                 {selectedOption === "Video" && (
                                     <label className="form-control w-full">
                                         <div className="label">
-                                            <span className="label-text">Video URL</span>
+                                            <span className="label-text">Video URL (Upload on YouTube and share video link)</span>
                                         </div>
                                         <input
                                             type="text"
@@ -221,13 +276,16 @@ const Home = () => {
                                         />
                                     </label>
                                 )}
+
+                                {isSubmitting && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
+                                {error && <p className="text-red-500">{error}</p>}
+
                                 <div className="text-center">
-                                    <input className="btn mt-6" type="submit" value="Submit" />
+                                    <button type="submit" className="btn mt-6" disabled={isSubmitting}>
+                                        Submit
+                                    </button>
                                 </div>
                             </form>
-
-
-
                         </div>
                     </dialog>
                 </div>
