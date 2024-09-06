@@ -144,7 +144,7 @@ const DetailsPost = () => {
         <div className="flex h-screen sm:flex-col sm:h-auto p-2 pt-16 justify-between sm:justify-center sm:items-center space-x-2">
             <div className="flex justify-center items-center rounded-2xl shadow-lg w-2/3 sm:w-full h-full sm:h-auto overflow-hidden bg-[#ffffff10]">
                 {detailsPost.imageUrl ? <img className="max-h-full max-w-full object-contain" src={detailsPost.imageUrl} alt="" /> : ''}
-                {detailsPost?.videoUrl ? <iframe className="w-full h-full sm:h-[300px]" src={detailsPost?.videoUrl} title="YouTube video player" allow="rel=0; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen="true"></iframe> : ''}
+                {detailsPost?.videoUrl ? <iframe className="w-full h-full sm:h-[300px]" src={`${detailsPost?.videoUrl}?autoplay=1&rel=0`} title="YouTube video player" allow="rel=0; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen="true"></iframe> : ''}
             </div>
             <div className=" w-1/3 sm:w-full h-full sm:h-auto p-2">
                 <div className="p-4 rounded-2xl shadow-lg w-full h-1/2 sm:h-auto overflow-y-scroll overlay-scrollbar ">

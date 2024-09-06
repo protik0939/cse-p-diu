@@ -4,7 +4,7 @@ const YouTubeEmbed = ({ url }) => {
         const regex = /(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|embed)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/;
         const match = url.match(regex);
         const videoId = match ? match[1] : null;
-        return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+        return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0` : null;
     };
 
     const embedUrl = getYouTubeEmbedUrl(url);

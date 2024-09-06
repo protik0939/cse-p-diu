@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, deleteUser } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
 
@@ -71,6 +71,13 @@ const AuthProvider = ({ children }) => {
             });
     }
 
+    const dUser = () => {
+        deleteUser(auth.currentUser)
+            .then(() => {
+            }).catch(() => {
+            });
+    }
+
 
 
     useEffect(() => {
@@ -96,6 +103,7 @@ const AuthProvider = ({ children }) => {
         emailVerification,
         uploadNameImageID,
         passwordReset,
+        dUser,
     }
     return (
         <AuthContext.Provider value={userInfo}>

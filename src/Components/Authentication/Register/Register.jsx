@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
@@ -10,14 +10,33 @@ const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
 
 const Register = () => {
 
-    const { user, createUser, googleSignIn, emailVerification, uploadNameImageID } = useContext(AuthContext);
+    const { user, createUser, googleSignIn, emailVerification, uploadNameImageID, dUser } = useContext(AuthContext);
     const [showToast, setShowToast] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
     const [logginIn, setLoggingIn] = useState(false);
 
 
+    const [email, setEmail] = useState("");
+    const [isEmailValid, setIsEmailValid] = useState(false);
+
+
     const location = useLocation();
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        const emailDomain = "diu.edu.bd";
+        if (email.endsWith(`@${emailDomain}`)) {
+            setIsEmailValid(true);
+        } else {
+            setIsEmailValid(false);
+        }
+    }, [email]);
+
+
+    const handleButton = (e) => {
+        setEmail(e.target.value);
+    };
 
 
     const handleRegister = async (e) => {
@@ -113,7 +132,7 @@ const Register = () => {
             }
         } catch (error) {
             console.error('Error uploading image', error);
-            
+
             Swal.fire({
                 position: "top-end",
                 toast: true,
@@ -144,19 +163,37 @@ const Register = () => {
                 const section = null;
                 const classRepresentative = false;
                 const newUser = { uid, email, name, photourl, studentId, batchNo, section, classRepresentative }
-                // console.log(newUser);
-                fetch('https://cse-p-diu-server.vercel.app/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(newUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        // console.log(data);
+
+                const emailDomain = "diu.edu.bd";
+                if (email.endsWith(`@${emailDomain}`)) {
+                    // console.log(newUser);
+                    fetch('https://cse-p-diu-server.vercel.app/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(newUser)
                     })
-                navigate(location?.state ? location?.state : '/');
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data);
+                        })
+                    navigate(location?.state ? location?.state : '/');
+                }
+                else {
+                    Swal.fire({
+                        position: "top-end",
+                        toast: true,
+                        title: "Please Use Varsity Mail",
+                        showConfirmButton: false,
+                        color: '#ffffff',
+                        background: '#ff000090',
+                        timer: 4000,
+                        timerProgressBar: true,
+                        width: 'auto',
+                    });
+                    dUser();
+                }
             }).catch((error) => {
                 // console.log(error);
             });
@@ -184,8 +221,10 @@ const Register = () => {
                                         <label className="label">
                                             <span className="label-text">Email<span className="text-[#ff0000] text-2xl">*</span></span>
                                         </label>
-                                        <input type="email" name="email" placeholder="protik0939@gmail.com" className="input input-bordered" required />
-
+                                        <input type="email" name="email" onChange={handleButton} placeholder="protik22205101858@diu.edu.bd" className="input input-bordered" required />
+                                        {!isEmailValid && email && (
+                                            <p className="mt-3 text-center text-[#ff0000]">Use Varsity Mail</p>
+                                        )}
                                         <label className="label">
                                             <span className="label-text">Name<span className="text-[#ff0000] text-2xl">*</span></span>
                                         </label>
@@ -252,8 +291,8 @@ const Register = () => {
                                     </label> */}
                                     </div>
                                     <div className="form-control mt-6">
-                                    {logginIn && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
-                                        <button className="btn btn-primary">Register</button>
+                                        {logginIn && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
+                                        <button className="btn btn-primary" disabled={!isEmailValid}>Register</button>
                                     </div>
                                 </form>
                                 <h1 className="text-center p-4">Already have an account? <Link className="text-[#7480ff]" to='/login'>Log in</Link></h1>
