@@ -129,6 +129,54 @@ const VideoLectures = () => {
                 },
             ],
         },
+        
+        {
+            courseCode: "CSE313",
+            courseTitle: "Computer Networks",
+            lectureVideos: [
+                {
+                    lecCode: "cse313-l1",
+                    lecNo: "L-1",
+                    lecName: "Network Models &  Protocol Architectures",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-1 Slide", id: "https://docs.google.com/presentation/d/1fNGewoqa7FEcnC7rh25h2ZgOgbvujb6W/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "1-1 | Layering", id: "FewtLNsjtRA" },
+                        { type: "video", title: "1-2.1 | The OSI Reference Model (Part 1)", id: "qBXmbJZQ5rY" },
+                        { type: "video", title: "1-2.2 | The OSI Reference Model (Part 2)", id: "xiGgrQioF2E" },
+                        { type: "video", title: "1-2.3 | The OSI Reference Model (Part 3)", id: "oQzueBVyAM4" },
+                        { type: "video", title: "1-2.4 | The OSI Reference Model (Part 4)", id: "XI8kMBMMS6o" },
+                        { type: "video", title: "1-3 | Addressing in network", id: "yDTC6sbYFFE" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-l2",
+                    lecNo: "L-2",
+                    lecName: "Network Layer: IPv4 Functions",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-2 Slide", id: "https://docs.google.com/presentation/d/12o6kvztISXPDVE_egH2gU_I-kXwTEpnV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "2-1 | The Network Layer & functions", id: "FewtLNsjtRA" },
+                        { type: "video", title: "2-2.1 | Datagram Network", id: "n1f0iGNVGps" },
+                        { type: "video", title: "2-2.2 | Virtual Circuits", id: "naN6LNPBHAs" },
+                        { type: "video", title: "2-3 | IPV4 Datagram Format", id: "Yf0b6yn5IGA" },
+                        { type: "video", title: "2-4.1 | IPV4 Fragmentation and Reassembly", id: "v50UVJ10_po" },
+                        { type: "video", title: "2-4.2 | IPV4 Fragmentation and Reassembly Examples", id: "jueq0YLE8Qg" },
+                        { type: "video", title: "2-5.1 | ICMP", id: "xTqtm7-k25o" },
+                        { type: "video", title: "2-5.2 | Ping and Traceout", id: "vJV-GBZ6PeM" },
+                        { type: "video", title: "2-5.3 | Traceout Explained", id: "up3bcBLZS74" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-l3",
+                    lecNo: "L-2",
+                    lecName: "Network Layer: IPv4 Addressing",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-3 Slide", id: "https://docs.google.com/presentation/d/12o6kvztISXPDVE_egH2gU_I-kXwTEpnV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "3-1 | IPv4 Addressing (Sir's video)", id: "bzlsrfOeU-w" },
+                        { type: "video", title: "3-2 | FLSM And VLSM", id: "APnuoYI6tWQ" },
+                    ],
+                },
+            ],
+        },
 
     ];
 
@@ -237,6 +285,7 @@ const VideoLectures = () => {
                     </div>
                 </div>
             </div>
+            <div className="sm:mb-[60px]" />
         </div>
     );
 };

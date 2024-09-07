@@ -1,7 +1,7 @@
 const PrivacyPolicy = () => {
     return (
         <div className="p-6 text-left">
-            <div className="py-6"/>
+            <div className="py-6" />
             <h1 className="text-3xl font-bold mb-4">Privacy Policy for CSE P DIU</h1>
 
             <p className="mb-4">
@@ -69,6 +69,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy, please contact us at
                 <a href="mailto:protik0939@gmail.com" className="text-blue-600 hover:underline"> protik0939@gmail.com</a>.
             </p>
+            <div className="sm:mb-[60px]" />
         </div>
     );
 };

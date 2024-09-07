@@ -12,7 +12,8 @@ const ContactUs = () => {
             <Link target="_blank" to='https://www.facebook.com/protik0939/'><div className="flex items-center justify-center space-x-2"><FaFacebookSquare /><h1>protik0939</h1></div></Link>
             <Link target="_blank" to='mailto:protik0939@gmail.com'><div className="flex items-center justify-center space-x-2"><IoIosMail /><h1>protik0939@gmail.com</h1></div></Link>
             <Link target="_blank" to='tel:+8801721846361'><div className="flex items-center justify-center space-x-2"><IoCall /><h1>+8801721846361</h1></div></Link>
-        </div>
+            <div className="sm:mb-[60px]" />
+            </div>
     );
 };
 

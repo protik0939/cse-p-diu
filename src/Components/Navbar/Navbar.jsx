@@ -78,11 +78,11 @@ const Navbar = () => {
                         <li>People</li>
                     </NavLink>
                     <NavLink
-                        to="/videos"
+                        to="/videolectures"
                         activeClassName=""
                         className="sm:hidden"
                     >
-                        <li>Videos</li>
+                        <li>Video Lecture</li>
                     </NavLink>
                     <NavLink
                         to="/notice"
@@ -128,51 +128,6 @@ const Navbar = () => {
                                     </div> :
                                     <li className="flex justify-center items-center mb-4 font-bold"><Link className="sm:p-3" to='/login'><IoMdLogIn />Login</Link></li>
                                 }
-                                <span className="hidden sm:block">
-                                    <li><Link to='/'><FaHome />Home</Link></li>
-                                    <li><Link to='/people'><FaPeopleGroup />People</Link></li>
-                                    <li><Link to='/videos'><GoVideo />Videos</Link></li>
-                                    <li><Link to='/notice'><IoMdNotifications />Notice</Link></li>
-
-                                    <div className="w-full mt-4">
-                                        <h1 className="my-2 text-center">More</h1>
-                                        <div className="flex justify-center items-center space-x-8">
-                                            <button onClick={() => document.getElementById('rightNavModal').showModal()}>
-                                                <div className="flex flex-col items-center hover:scale-110">
-                                                    <IoMdOptions className="text-3xl" /><h1 className="text-[8px]">Options</h1>
-                                                </div>
-
-                                                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                                                <dialog id="rightNavModal" className="modal">
-                                                    <div className="modal-box overlay-scrollbar">
-                                                        <form method="dialog">
-                                                            {/* if there is a button in form, it will close the modal */}
-                                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
-                                                        </form>
-                                                        <RightNavBar></RightNavBar>
-                                                    </div>
-                                                </dialog>
-
-
-                                            </button>
-
-                                            <button onClick={() => document.getElementById('leftNavModal').showModal()}>
-                                                <div className="flex flex-col items-center hover:scale-110">
-                                                    <TbTools className="text-3xl" /><h1 className="text-[8px]">Tools & contact</h1>
-                                                </div>
-                                                <dialog id="leftNavModal" className="modal">
-                                                    <div className="modal-box overlay-scrollbar">
-                                                        <form method="dialog">
-                                                            {/* if there is a button in form, it will close the modal */}
-                                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
-                                                        </form>
-                                                        <LeftNavBar></LeftNavBar>
-                                                    </div>
-                                                </dialog>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </span>
                                 {/* <li><Link to='/login'>Login</Link></li> */}
 
                             </ul>

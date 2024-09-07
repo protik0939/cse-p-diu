@@ -181,6 +181,7 @@ const DetailsPost = () => {
 
                 )}
             </div>
+            <div className="sm:mb-[60px]" />
         </div>
     );
 };

@@ -19,9 +19,11 @@ const UserCard = ({ aUser }) => {
     return (
         <div className="userBox">
             {aUser?.classRepresentative === "true" ? <span className="absolute indicator-item badge m-2 text-2xl font-bold p-2">CR</span> : ''}
-            <img className="userBoxImage"
-                src={aUser.photourl}
-                alt="Profile Photo" />
+            <div className="flex justify-center items-center shadow-lg w-full sm:w-full aspect-square sm:h-auto overflow-hidden bg-[#ffffff10] sm:bg-[#ffffff00]">
+                <img className="w-full h-full object-cover"
+                    src={aUser.photourl}
+                    alt="Profile Photo" />
+            </div>
             <div className="">
                 <h2 className="">{aUser.name} {user.uid === aUser.uid ? <span>&#40;You&#41;</span> : ''}</h2>
                 <p>Section: {aUser.batchNo}_{aUser.section}</p>

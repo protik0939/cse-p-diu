@@ -303,7 +303,7 @@ const Home = () => {
                         shuffledTimeline.map(post => <PostBox key={post._id} post={post} onDelete={handleDeletePost} />)
                     )}
                 </div>
-
+                <div className="sm:mb-[60px]" />
             </div>
 
             <div className="w-full h-screen col-span-2 overflow-auto p-4 overlay-scrollbar sm:hidden">

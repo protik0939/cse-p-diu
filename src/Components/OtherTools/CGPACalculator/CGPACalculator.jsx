@@ -78,7 +78,8 @@ const CGPACalculator = () => {
                 Add Subject
             </button>
             <div className="my-10"/>
-            <h3 style={{borderRadius: "10px 10px 0 0"}} className="fixed sm:w-full text-center bottom-0 bg-[#fff] text-black font-bold p-4 text-1xl">Total CGPA: {calculateCGPA()}</h3>
+            <h3 style={{borderRadius: "10px 10px 0 0"}} className="fixed sm:w-full text-center sm:bottom-14 bottom-0 bg-[#fff] text-black font-bold p-4 text-1xl">Total CGPA: {calculateCGPA()}</h3>
+            <div className="sm:mb-[60px]" />
         </div>
     );
 };

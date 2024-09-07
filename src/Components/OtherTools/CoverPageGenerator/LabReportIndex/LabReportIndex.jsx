@@ -139,6 +139,7 @@ const LabReportIndex = () => {
                             loading ? <span className="loading loading-ring loading-lg"></span> : "Download PDF"
                         }
                     </PDFDownloadLink>
+                    <div className="sm:mb-[60px]" />
                 </div>
             )}
         </div>

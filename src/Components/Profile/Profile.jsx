@@ -116,7 +116,7 @@ const Profile = () => {
                 setUpdatingProPic(false);
                 console.error('Image upload failed');
             }
-        } catch (error) {  
+        } catch (error) {
             setUpdatingProPic(false);
             console.error('Error uploading image', error);
         }
@@ -135,7 +135,7 @@ const Profile = () => {
     return (
         <div>
             <div className="py-8" />
-            <div className="flex p-4 sm:flex-col">
+            <div className="flex p-4 sm:p-2 sm:flex-col">
                 <div className="w-1/3 sm:w-full fixed sm:relative">
                     {loader ?
                         <>
@@ -145,7 +145,9 @@ const Profile = () => {
                         <div>
                             <div className="indicator w-full">
                                 {userProInfo?.classRepresentative === "true" ? <span className="indicator-item badge text-2xl font-bold">CR</span> : ''}
-                                <img className="w-full rounded-[20px]" src={userProInfo.photourl} alt="" />
+                                <div className="flex justify-center items-center rounded-2xl shadow-lg w-full sm:w-full aspect-square sm:aspect-auto sm:h-auto overflow-hidden bg-[#ffffff10] sm:bg-[#ffffff00]">
+                                    <img className="rounded-[20px] w-full h-full object-cover" src={userProInfo.photourl} alt="" />
+                                </div>
                                 {user.uid === userProInfo.uid ?
                                     <>
                                         <button onClick={() => document.getElementById('updateProPic').showModal()} style={{ borderRadius: '0px 10px 0px 10px' }} className="btn absolute bottom-0">Update Profile Picture</button>
@@ -161,7 +163,7 @@ const Profile = () => {
                                                         <input type="file" name="photourl" placeholder="Photo URL" className="file-input file-input-bordered w-full" required />
                                                     </div>
                                                     <div className="form-control mt-6">
-                                                    {updatingProPic && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
+                                                        {updatingProPic && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
                                                         <button className="btn btn-primary">Update</button>
                                                     </div>
                                                 </form>
@@ -247,7 +249,7 @@ const Profile = () => {
 
                                                 </div>
                                                 <div className="form-control mt-6">
-                                                {updatingData && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
+                                                    {updatingData && <div className='text-center'><span className="loading loading-ring loading-lg" /></div>}
                                                     <button className="btn btn-primary">Update</button>
                                                 </div>
                                             </form>
@@ -264,8 +266,8 @@ const Profile = () => {
                     }
                 </div>
 
-                <div className="fixed sm:relative h-screen sm:h-auto overflow-y-auto col-span-2 auto right-0 w-2/3 sm:w-full px-10 sm:p-2">
-                    <div className="w-full flex flex-col p-4 items-center mb-20">
+                <div className="fixed sm:relative h-screen sm:h-auto overflow-y-auto col-span-2 auto right-0 w-2/3 sm:p-0 sm:w-full px-10 sm:p-2">
+                    <div className="w-full flex flex-col p-4 sm:p-0 items-center mb-20">
 
                         <h2>Posts By {userProInfo.name}</h2>
                         {postLoading ? (
@@ -279,7 +281,6 @@ const Profile = () => {
                         ) : (
                             <h1>No Posts Yet</h1>
                         )}
-
                     </div>
                 </div>
             </div>

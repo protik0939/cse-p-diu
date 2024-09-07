@@ -20,7 +20,7 @@ const LeftNavBar = () => {
                     <FcKindle />
                     <Link to='/classnotes'><h2>Class Notes</h2></Link>
                 </div></Link>
-                <Link to='videolectures'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
+                <Link to='/videolectures'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                     <FcStart />
                     <h2>Video Lectures</h2>
                 </div></Link>

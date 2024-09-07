@@ -277,6 +277,7 @@ const Login = () => {
                     </div>
                 </div>
             }
+            <div className="sm:mb-[60px]" />
         </div>
     );
 };

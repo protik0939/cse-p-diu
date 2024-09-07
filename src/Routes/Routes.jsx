@@ -34,6 +34,8 @@ import Assignment from "../Components/OtherTools/CoverPageGenerator/Assignment/A
 import LabReport from "../Components/OtherTools/CoverPageGenerator/LabReport/LabReport";
 import FinalLabReport from "../Components/OtherTools/CoverPageGenerator/FinalLabReport/FinalLabReport";
 import LabReportIndex from "../Components/OtherTools/CoverPageGenerator/LabReportIndex/LabReportIndex";
+import Tools from "../Components/ToolsandOptions/Tools/Tools";
+import Options from "../Components/ToolsandOptions/Options/Options";
 
 const Routes = createBrowserRouter([
     {
@@ -162,6 +164,14 @@ const Routes = createBrowserRouter([
             {
                 path: '/videos',
                 element: <Videos></Videos>
+            },
+            {
+                path: '/options',
+                element: <Tools></Tools>
+            },
+            {
+                path: '/toolsandcontact',
+                element: <Options></Options>
             }
         ]
     }

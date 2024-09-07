@@ -15,6 +15,7 @@ const People = () => {
                     userInfo.map(aUser => <UserCard key={aUser.uid} aUser={aUser}></UserCard>)
                 }
             </div>
+            <div className="sm:mb-[60px] mb-[60px]" />
         </div>
     );
 };
