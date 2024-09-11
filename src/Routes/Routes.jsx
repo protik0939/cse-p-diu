@@ -13,7 +13,7 @@ import DiuNotice from "../Components/OutsideLinks/DiuNotice";
 import DiuLibrary from "../Components/OutsideLinks/DiuLibrary";
 import Diu from "../Components/OutsideLinks/Diu";
 import DiuInternship from "../Components/OutsideLinks/DiuInternship";
-import PrivateRoutes from "./PrivateRoutes";
+// import PrivateRoutes from "./PrivateRoutes";
 import Profile from "../Components/Profile/Profile"
 import People from "../Components/People/People";
 import DetailsPost from "../Components/Home/DetailsPost/DetailsPost";
@@ -98,12 +98,11 @@ const Routes = createBrowserRouter([
             },
             {
                 path: '/people',
-                element: <PrivateRoutes><People></People></PrivateRoutes>,
-                loader: () => fetch(`https://cse-p-diu-server.vercel.app/users`)
+                element: <People></People>,
             },
             {
                 path: '/profile/:id',
-                element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
+                element: <Profile></Profile>
             },
             {
                 path: '/post/:id',

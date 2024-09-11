@@ -16,6 +16,19 @@ const DetailsPost = () => {
     const [liveCommentCount, setLiveCommentCount] = useState(0);
     const [reactInfo, setReactInfo] = useState([])
     const [error, setError] = useState(null);
+    const [userProInfo, setUserProInfo] = useState({});
+
+    useEffect(() => {
+        fetch(`https://cse-p-diu-server.vercel.app/users/uid/${detailsPost?.uploaderUid}`)
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data);
+                setUserProInfo(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching user:', error);
+            });
+    });
 
     useEffect(() => {
         fetch(`https://cse-p-diu-server.vercel.app/posts/${id}`)
@@ -69,7 +82,7 @@ const DetailsPost = () => {
                 body: JSON.stringify({ userUid: user?.uid }),
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(() => {
                     // console.log('React removed:', data);
                     // Update state to reflect the removed reaction
                     setReactInfo(prevReacts => prevReacts.filter(react => react.userUid !== user.uid));
@@ -94,7 +107,7 @@ const DetailsPost = () => {
                 body: JSON.stringify(reactPackage),
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(() => {
                     // console.log('React added:', data);
                     // Update state to reflect the new reaction
                     setReactInfo(prevReacts => [...prevReacts, reactPackage]);
@@ -163,6 +176,14 @@ const DetailsPost = () => {
                     <h1 className="font-bold text-2xl my-4">{detailsPost.postTitle}</h1>
                     <h1 className="mb-4">{reactInfo?.length} Likes</h1>
                     <p>{detailsPost.postDetails}</p>
+                    <div className="flex justify-center p-3 space-x-4 border rounded-[10px] mt-10 border-[#414141]">
+                        <Link to={`/profile/${id}`}><div className='w-14 aspect-square'><img className="rounded-[10px] w-full h-full object-cover" src={userProInfo.photourl} alt="" /></div></Link>
+                        <div className="text-left">
+                            <Link to={`/profile/${id}`}><h1>Uploader: {userProInfo.name}</h1></Link>
+                            <h1 className="text-[10px]">Date: {detailsPost?.uploadDate}</h1>
+                            <h1 className="text-[10px]">Time: {detailsPost?.uploadTime}</h1>
+                        </div>
+                    </div>
                 </div>
                 {user ? (
                     user.emailVerified ?

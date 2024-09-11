@@ -31,10 +31,10 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         setLoading(true);
         signOut(auth)
-            .then(result => {
+            .then(() => {
                 // console.log(result);
             })
-            .catch(error => {
+            .catch(() => {
                 // console.log(error);
             })
     }
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
     const emailVerification = () => {
         setLoading(true);
         sendEmailVerification(auth.currentUser)
-            .then(result => {
+            .then(() => {
                 // console.log(result);
             })
     }
@@ -51,10 +51,10 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         updateProfile(auth.currentUser, {
             displayName: name, photoURL: photourl
-        }).then(result => {
+        }).then(() => {
             // console.log(result);
             setLoading(false);
-        }).catch((error) => {
+        }).catch(() => {
             // console.log(error);
             setLoading(false);
         });

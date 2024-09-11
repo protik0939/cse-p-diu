@@ -21,6 +21,7 @@ const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
 
+
     const [photoUrl, setPhotoUrl] = useState('');
     const uid = user?.uid;
     useEffect(() => {

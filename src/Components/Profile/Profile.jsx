@@ -35,7 +35,7 @@ const Profile = () => {
     }, [id]);
 
     const handleDeletePost = (postId) => {
-        usersPost(prevPosts => prevPosts.filter(post => post._id !== postId));
+        setUsersPost(prevPosts => prevPosts.filter(post => post._id !== postId));
     };
 
     const updateInfoHandler = e => {
@@ -62,10 +62,10 @@ const Profile = () => {
             .then(data => {
                 // console.log(data);
                 uploadNameImageID(name, photourl);
-                setUserProInfo(data);
+                setUserProInfo(updatedInfo);
                 setLoader(false);
                 setUpdatingData(false);
-                document.getElementById('update Info').close();
+                document.getElementById('update_Info').close();
             })
     }
 
@@ -94,7 +94,7 @@ const Profile = () => {
             if (imgData.success) {
                 const imageUrl = imgData.data.display_url;
                 const updatedInfo = { name, photourl: imageUrl, studentId, batchNo, section, uid, mId }
-                console.log(updatedInfo);
+                // console.log(updatedInfo);
                 fetch(`https://cse-p-diu-server.vercel.app/users/uid/${uid}`, {
                     method: 'PUT',
                     headers: {
@@ -103,13 +103,13 @@ const Profile = () => {
                     body: JSON.stringify(updatedInfo)
                 })
                     .then(res => res.json())
-                    .then(data => {
+                    .then(() => {
                         // console.log(data);
                         uploadNameImageID(name, photourl);
-                        setUserProInfo(data);
+                        setUserProInfo(updatedInfo);
                         setLoader(false);
                         setUpdatingProPic(false);
-                        document.getElementById('update Info').close();
+                        document.getElementById('updateProPic').close();
                     })
 
             } else {
@@ -127,7 +127,7 @@ const Profile = () => {
             .then(res => res.json())
             .then(data => {
                 setUsersPost(data);
-                console.log(data);
+                // console.log(data);
                 setPostLoading(false);
             })
     }, [id]);
@@ -148,7 +148,7 @@ const Profile = () => {
                                 <div className="flex justify-center items-center rounded-2xl shadow-lg w-full sm:w-full aspect-square sm:aspect-auto sm:h-auto overflow-hidden bg-[#ffffff10] sm:bg-[#ffffff00]">
                                     <img className="rounded-[20px] w-full h-full object-cover" src={userProInfo.photourl} alt="" />
                                 </div>
-                                {user.uid === userProInfo.uid ?
+                                {user?.uid === userProInfo.uid ?
                                     <>
                                         <button onClick={() => document.getElementById('updateProPic').showModal()} style={{ borderRadius: '0px 10px 0px 10px' }} className="btn absolute bottom-0">Update Profile Picture</button>
                                         <dialog id="updateProPic" className="modal">
@@ -185,7 +185,7 @@ const Profile = () => {
                                     <h2>Section: {userProInfo.batchNo}_{userProInfo.section}</h2>
                                 </div>
                                 <div>
-                                    {user.uid === userProInfo.uid ? <button onClick={() => document.getElementById('update_Info').showModal()} className="btn">Update Info</button> : ''}
+                                    {user ? (user.uid === userProInfo.uid ? <button onClick={() => document.getElementById('update_Info').showModal()} className="btn">Update Info</button> : '') : ''}
                                     <dialog id="update_Info" className="modal">
                                         <div className="modal-box">
 
@@ -266,7 +266,7 @@ const Profile = () => {
                     }
                 </div>
 
-                <div className="fixed sm:relative h-screen sm:h-auto overflow-y-auto col-span-2 auto right-0 w-2/3 sm:p-0 sm:w-full px-10 sm:p-2">
+                <div className="fixed sm:relative h-screen sm:h-auto overflow-y-auto col-span-2 auto right-0 w-2/3 sm:p-0 sm:w-full px-10">
                     <div className="w-full flex flex-col p-4 sm:p-0 items-center mb-20">
 
                         <h2>Posts By {userProInfo.name}</h2>

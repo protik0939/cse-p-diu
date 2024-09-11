@@ -270,7 +270,7 @@ const PostBox = ({ post, onDelete }) => {
                 {post?.videoUrl ? <YouTubeEmbed url={post?.videoUrl} /> : ''}
 
                 <div className="flex justify-center p-3 space-x-4 border-x border-[#414141]">
-                    <Link to={`/profile/${id}`}><img className="w-14 rounded-[10px]" src={userProInfo.photourl} alt="" /></Link>
+                    <Link to={`/profile/${id}`}><div className='w-14 aspect-square'><img className="rounded-[10px] w-full h-full object-cover" src={userProInfo.photourl} alt="" /></div></Link>
                     <div className="text-left">
                         <Link to={`/profile/${id}`}><h1>Uploader: {userProInfo.name}</h1></Link>
                         <h1 className="text-[10px]">Date: {post?.uploadDate}</h1>

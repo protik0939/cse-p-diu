@@ -170,7 +170,7 @@ const VideoLectures = () => {
                     lecNo: "L-2",
                     lecName: "Network Layer: IPv4 Addressing",
                     subLectures: [
-                        { type: "docs", title: "Lecture-3 Slide", id: "https://docs.google.com/presentation/d/12o6kvztISXPDVE_egH2gU_I-kXwTEpnV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "docs", title: "Lecture-3 Slide", id: "https://docs.google.com/presentation/d/1GRQ1RNcUHnX7nYbIKHh6nrSVz92vnC5O/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                         { type: "video", title: "3-1 | IPv4 Addressing (Sir's video)", id: "bzlsrfOeU-w" },
                         { type: "video", title: "3-2 | FLSM And VLSM", id: "APnuoYI6tWQ" },
                     ],

@@ -16,9 +16,9 @@ const LeftNavBar = () => {
                 </div></Link>
 
 
-                <Link to='classnotes'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
+                <Link to='/classnotes'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                     <FcKindle />
-                    <Link to='/classnotes'><h2>Class Notes</h2></Link>
+                    <h2>Class Notes</h2>
                 </div></Link>
                 <Link to='/videolectures'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                     <FcStart />
@@ -30,7 +30,7 @@ const LeftNavBar = () => {
                     <h2>How marks I need?</h2>
                 </div></Link>
 
-                <Link to='cgpacalculator'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
+                <Link to='/cgpacalculator'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                     <FcCalculator />
                     <h2>CGPA Calculator</h2>
                 </div></Link>
