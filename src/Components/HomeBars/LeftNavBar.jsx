@@ -1,6 +1,5 @@
-import { FaAppStoreIos } from "react-icons/fa";
 import { FcCalculator, FcDocument, FcKindle, FcStart } from "react-icons/fc";
-import { IoLogoGooglePlaystore } from "react-icons/io5";
+import { IoLogoGooglePlaystore, IoLogoWindows } from "react-icons/io5";
 import { MdPhoneCallback, MdPrivacyTip } from "react-icons/md";
 import { PiQuestionMarkDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
@@ -52,10 +51,10 @@ const LeftNavBar = () => {
                     </div>
                 </Link>
 
-                <Link to='/downloadandroidapp'>
+                <Link to='/downloadwindowsapp'>
                     <div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
-                        <FaAppStoreIos />
-                        <h2>Download IOS app</h2>
+                        <IoLogoWindows />
+                        <h2>Download windows app</h2>
                     </div>
                 </Link>
 

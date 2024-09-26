@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 
 
@@ -15,7 +17,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [logginIn, setLoggingIn] = useState(false);
-
+    const [passShow, setPassShow] = useState(false);
     const [email, setEmail] = useState("");
     const [isEmailValid, setIsEmailValid] = useState(false);
 
@@ -45,7 +47,7 @@ const Login = () => {
         const password = form.password.value;
         // console.log(email, password);
         logIn(email, password)
-            .then(result => {
+            .then(() => {
                 // console.log(result.user);
                 const person = { email };
                 // get access token
@@ -68,7 +70,7 @@ const Login = () => {
                             navigate(location?.state ? location?.state : '/');
                         }
                     })
-                    .catch(error => {
+                    .catch(() => {
                         Swal.fire({
                             position: "top-end",
                             toast: true,
@@ -83,7 +85,7 @@ const Login = () => {
                         setLoggingIn(false);
                     })
             })
-            .catch(error => {
+            .catch(() => {
                 Swal.fire({
                     position: "top-end",
                     toast: true,
@@ -236,6 +238,9 @@ const Login = () => {
     return (
         <div>
             <div className="py-7" />
+            <Helmet>
+                <title>Login | CSE P DIU</title>
+            </Helmet>
             {user ? navigate(`/profile/${user.uid}`) :
                 <div className="hero bg-transparent min-h-screen">
                     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -252,10 +257,14 @@ const Login = () => {
                                     <input type="email" onChange={handleButton} name="email" placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
-                                    <label className="label">
+                                    <label className="label flex justify-between items-center">
                                         <span className="label-text">Password</span>
+                                        <span className="cursor-pointer" onClick={() => setPassShow(!passShow)}>{
+                                            passShow ? <IoEye /> : <IoEyeOff />
+                                        }
+                                        </span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                    <input type={passShow ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
                                     <label className="label">
                                         <div onClick={handleResetPassword} className="label-text-alt link link-hover">Forgot password?</div>
                                     </label>

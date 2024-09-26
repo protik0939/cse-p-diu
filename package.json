@@ -19,10 +19,13 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
+    "react-helmet": "^6.1.0",
     "react-icons": "^5.2.1",
     "react-loading-skeleton": "^3.4.0",
     "react-router-dom": "^6.26.0",
     "react-to-pdf": "^1.0.1",
+    "react-top-loading-bar": "^2.3.1",
+    "react-topbar-progress-indicator": "^4.1.1",
     "sweetalert2": "^11.12.4"
   },
   "devDependencies": {
@@ -37,6 +40,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.40",
     "tailwindcss": "^3.4.7",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vite-plugin-static-copy": "^1.0.6"
   }
 }

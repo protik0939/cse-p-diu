@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const HowMarksINeed = () => {
     const [marks, setMarks] = useState({
@@ -93,6 +94,9 @@ const HowMarksINeed = () => {
 
     return (
         <div className="grade-calculator my-20 flex flex-col justify-center items-center">
+            <Helmet>
+                <title>How Marks I Need | CSE P DIU</title>
+            </Helmet>
             <h2 className="heading text-white text-2xl font-bold">Final Marks Needed</h2>
             <h6 className="heading mb-10 text-center p-4">Check how many marks you need to get in the Final Exam to achieve different Grades</h6>
 

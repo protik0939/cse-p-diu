@@ -8,7 +8,6 @@ import Login from "../Components/Authentication/Login/Login";
 import Result from "../Components/Result/Result";
 import Register from "../Components/Authentication/Register/Register";
 import Blc from "../Components/OutsideLinks/Blc";
-import StudentPortal from "../Components/OutsideLinks/StudentPortal";
 import DiuNotice from "../Components/OutsideLinks/DiuNotice";
 import DiuLibrary from "../Components/OutsideLinks/DiuLibrary";
 import Diu from "../Components/OutsideLinks/Diu";
@@ -28,7 +27,6 @@ import AllCR from "../Components/People/AllCR";
 import PrivacyPolicy from "../Components/AboutUs/PrivacyPolicy/PrivacyPolicy";
 import ContactUs from "../Components/AboutUs/ContactUs";
 import DownloadAndroidApp from "../Components/AboutUs/DownloadAndroidApp";
-import DownloadIosApp from "../Components/AboutUs/DownloadIosApp";
 import Videos from "../Components/Videos/Videos";
 import Assignment from "../Components/OtherTools/CoverPageGenerator/Assignment/Assignment";
 import LabReport from "../Components/OtherTools/CoverPageGenerator/LabReport/LabReport";
@@ -36,6 +34,8 @@ import FinalLabReport from "../Components/OtherTools/CoverPageGenerator/FinalLab
 import LabReportIndex from "../Components/OtherTools/CoverPageGenerator/LabReportIndex/LabReportIndex";
 import Tools from "../Components/ToolsandOptions/Tools/Tools";
 import Options from "../Components/ToolsandOptions/Options/Options";
+import OldCsePDiu from "../Components/OutsideLinks/OldCsePDiu";
+import DownloadWindowsApp from "../Components/AboutUs/DownloadWindowsApp";
 
 const Routes = createBrowserRouter([
     {
@@ -77,10 +77,6 @@ const Routes = createBrowserRouter([
                 element: <Blc></Blc>
             },
             {
-                path: '/studentportal',
-                element: <StudentPortal></StudentPortal>
-            },
-            {
                 path: '/diunotice',
                 element: <DiuNotice></DiuNotice>
             },
@@ -95,6 +91,10 @@ const Routes = createBrowserRouter([
             {
                 path: '/diuinternship',
                 element: <DiuInternship></DiuInternship>
+            },
+            {
+                path: '/csepdiuold',
+                element: <OldCsePDiu/>
             },
             {
                 path: '/people',
@@ -157,8 +157,8 @@ const Routes = createBrowserRouter([
                 element: <DownloadAndroidApp></DownloadAndroidApp>
             },
             {
-                path: '/downloadiosapp',
-                element: <DownloadIosApp></DownloadIosApp>
+                path: '/downloadwindowsapp',
+                element: <DownloadWindowsApp/>
             },
             {
                 path: '/videos',

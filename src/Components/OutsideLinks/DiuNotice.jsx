@@ -1,18 +1,18 @@
-const DiuNotice = () => {
-    return (
-        <div>
+import { Helmet } from "react-helmet";
 
-            <div className="my-[65px]" />
-            <div style={{ width: '100%', height: '100%', border: 'none', padding: '10px' }}>
+const DiuNotice = () => {
+
+    return (
+        <div className="w-full h-screen">
+            
+            <Helmet>
+                <title>DIU Notice | CSE P DIU</title>
+            </Helmet>
                 <iframe
-                    className="h-[87vh] sm:h-[78vh]"
+                    className="w-full h-full pt-[70px] sm:py-[60px]"
                     src='https://daffodilvarsity.edu.bd/noticeboard'
-                    style={{
-                        width: '100%', border: 'none', borderRadius: '10px',
-                        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6)'
-                    }}
                 />
-            </div>
+            <div className="py-[0px]" />
         </div>
     );
 };

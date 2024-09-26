@@ -2,6 +2,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
 import headerLogo from "../../../../assets/headerlogo.png";  // Replace with the correct path to your header logo
 import LabReportIndexDocument from "./LabReportIndexDocument";
+import { Helmet } from "react-helmet";
 
 const LabReportIndex = () => {
     const [formData, setFormData] = useState({
@@ -56,6 +57,9 @@ const LabReportIndex = () => {
 
     return (
         <div className="my-20">
+            <Helmet>
+                <title>Lab Report Index | CSE P DIU</title>
+            </Helmet>
             <h1 className="text-center text-2xl p-4 font-bold">
                 Lab Report Index
             </h1>

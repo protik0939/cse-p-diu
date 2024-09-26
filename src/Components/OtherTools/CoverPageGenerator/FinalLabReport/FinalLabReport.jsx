@@ -3,6 +3,7 @@ import { useState } from "react";
 import waterMark from "../../../../assets/wateramark.png";  // Replace with the correct path to your watermark image
 import headerLogo from "../../../../assets/headerlogo.png";
 import FinalLabReportDocument from "./FinalLabReportDocument";
+import { Helmet } from "react-helmet";
 
 const FinalLabReport = () => {
     const [formData, setFormData] = useState({
@@ -38,6 +39,9 @@ const FinalLabReport = () => {
 
     return (
         <div className="my-20">
+            <Helmet>
+                <title>Final Lab Report | CSE P DIU</title>
+            </Helmet>
             <h1 className="text-center text-2xl p-4 font-bold">
                 Final Lab Report Cover Page
             </h1>

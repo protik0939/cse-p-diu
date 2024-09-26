@@ -12,25 +12,29 @@ import '../Home/Home.css';
 import YouTubeEmbed from '../YouTubeEmbed/YouTubeEmbed';
 import Swal from 'sweetalert2'
 import './PostBox.css'
+import Skeleton from 'react-loading-skeleton';
 
 const PostBox = ({ post, onDelete }) => {
 
     const { user } = useContext(AuthContext);
     const [userProInfo, setUserProInfo] = useState({});
+    const [userProInfoLoad, setUserProInfoLoad] = useState(true)
     const [reactInfo, setReactInfo] = useState([])
     const [liveCommentCount, setLiveCommentCount] = useState(post.commentOnPost.length);
     const id = post?.uploaderUid;
     const [thisPost, setThisPost] = useState(post);
 
     useEffect(() => {
+        setUserProInfoLoad(true)
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
                 setUserProInfo(data);
+                setUserProInfoLoad(false)
             })
-            .catch((error) => {
-                console.error('Error fetching user:', error);
+            .catch(() => {
+                // console.error('Error fetching user:', error);
             });
     }, [id]);
 
@@ -92,11 +96,11 @@ const PostBox = ({ post, onDelete }) => {
                     },
                 })
                     .then(res => res.json())
-                    .then(data => {
+                    .then(() => {
                         // console.log(data);
                         onDelete(post._id);
                     })
-                    .catch(error => {
+                    .catch(() => {
                         // console.log(error);
                     })
                 Swal.fire({
@@ -159,7 +163,7 @@ const PostBox = ({ post, onDelete }) => {
                 body: JSON.stringify({ userUid: user?.uid }),
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(() => {
                     // console.log('React removed:', data);
                     // Update state to reflect the removed reaction
                     setReactInfo(prevReacts => prevReacts.filter(react => react.userUid !== user.uid));
@@ -184,7 +188,7 @@ const PostBox = ({ post, onDelete }) => {
                 body: JSON.stringify(reactPackage),
             })
                 .then(res => res.json())
-                .then(data => {
+                .then(() => {
                     // console.log('React added:', data);
                     // Update state to reflect the new reaction
                     setReactInfo(prevReacts => [...prevReacts, reactPackage]);
@@ -269,14 +273,23 @@ const PostBox = ({ post, onDelete }) => {
 
                 {post?.videoUrl ? <YouTubeEmbed url={post?.videoUrl} /> : ''}
 
-                <div className="flex justify-center p-3 space-x-4 border-x border-[#414141]">
-                    <Link to={`/profile/${id}`}><div className='w-14 aspect-square'><img className="rounded-[10px] w-full h-full object-cover" src={userProInfo.photourl} alt="" /></div></Link>
+                {userProInfoLoad ? <div className="flex justify-center p-3 space-x-4 border-x border-[#414141]">
+                    <Skeleton height={60} width="60px" style={{ marginTop: '0', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                     <div className="text-left">
-                        <Link to={`/profile/${id}`}><h1>Uploader: {userProInfo.name}</h1></Link>
-                        <h1 className="text-[10px]">Date: {post?.uploadDate}</h1>
-                        <h1 className="text-[10px]">Time: {post?.uploadTime}</h1>
+                        <Skeleton height={10} width="200px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                        <Skeleton height={6} width="120px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                        <Skeleton height={6} width="150px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                     </div>
                 </div>
+                    :
+                    <div className="flex justify-center p-3 space-x-4 border-x border-[#414141]">
+                        <Link to={`/profile/${id}`}><div className='w-14 aspect-square'><img className="rounded-[6px] w-full h-full object-cover" src={userProInfo.photourl} alt="" /></div></Link>
+                        <div className="text-left">
+                            <Link to={`/profile/${id}`}><h1>Uploader: {userProInfo.name}</h1></Link>
+                            <h1 className="text-[10px]">Date: {post?.uploadDate}</h1>
+                            <h1 className="text-[10px]">Time: {post?.uploadTime}</h1>
+                        </div>
+                    </div>}
                 <div className="border rounded-b-lg border-[#414141]">
                     <p className="p-4 ">
                         {post.postDetails.length > 200 ? <p>{post.postDetails.slice(0, 200)}...... <Link to={`/post/${post._id}`} className="font-bold text[#166fb8] hover:scale-110">See more</Link></p> : <p>{post.postDetails}</p>}

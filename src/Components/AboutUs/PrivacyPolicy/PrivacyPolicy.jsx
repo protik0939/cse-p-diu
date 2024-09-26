@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet";
+
 const PrivacyPolicy = () => {
     return (
         <div className="p-6 text-left">
+            <Helmet>
+                <title>Contact Us | CSE P DIU</title>
+            </Helmet>
             <div className="py-6" />
             <h1 className="text-3xl font-bold mb-4">Privacy Policy for CSE P DIU</h1>
 

@@ -3,16 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Skeleton from "react-loading-skeleton";
 import Logo from '../../assets/CSE_P_DIU_logo.svg';
-import { IoIosContact, IoMdLogIn, IoMdLogOut, IoMdNotifications, IoMdOptions } from "react-icons/io";
-import { FaHome } from "react-icons/fa";
-import { FaPeopleGroup } from "react-icons/fa6";
-import { TbTools } from "react-icons/tb";
+import { IoIosContact, IoMdLogIn, IoMdLogOut } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
-import RightNavBar from "../HomeBars/RightNavBar";
-import LeftNavBar from "../HomeBars/LeftNavBar";
-import { AiOutlineClose } from "react-icons/ai";
 import '../Home/Home.css';
-import { GoVideo } from "react-icons/go";
 import Swal from "sweetalert2";
 
 
@@ -57,11 +50,12 @@ const Navbar = () => {
 
 
     return (
-        <div className="fixed flex w-full justify-center items-center h-[70px] top-0 z-10">
-            <div className={`flex justify-between w-[98%]  bg-black/10 backdrop-blur-md p-2 px-6 rounded-2xl transition duration-700 ease-in-out`}>
+        <div className="fixed flex w-full justify-center items-center h-[70px] sm:h-auto top-0 z-10">
+            <div className={`flex justify-between w-[98%] sm:w-full sm:h-[60px] items-center  bg-black/10 backdrop-blur-md p-2 px-6 rounded-2xl sm:rounded-none transition duration-700 ease-in-out`}>
                 <NavLink to='/'><div>
                     <img className="w-[80px]" src={Logo} alt="" />
-                </div></NavLink>
+                </div>
+                </NavLink>
                 <ul className="flex justify-center items-center space-x-10">
                     <NavLink
                         exact

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { AiOutlineClose } from "react-icons/ai";
 
 const CGPACalculator = () => {
@@ -39,6 +40,9 @@ const CGPACalculator = () => {
 
     return (
         <div className="mt-20 p-4 flex flex-col items-center justify-center">
+            <Helmet>
+                <title>CGPA Calculator | CSE P DIU</title>
+            </Helmet>
             <h2 className="mb-10 p-4 text-2xl font-bold text-white">CGPA Calculator</h2>
             {subjects.map((subject, index) => (
                 <div key={index} className="sm:flex-col" style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>

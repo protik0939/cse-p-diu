@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider"
 import Loading from "../Loading/Loading";
 import TimelineSkeleton from '../Skeleton/TimelineSkeleton';
+import { Helmet } from 'react-helmet';
 
 
 const shuffleArray = (array) => {
@@ -36,7 +37,7 @@ const Home = () => {
                 setPosts(data)
                 setLoading(false);
             })
-            .catch(error => {
+            .catch(() => {
 
                 setLoading(false);
                 // console.log('Error fetching posts:', error)
@@ -153,6 +154,9 @@ const Home = () => {
 
 
         <div className="sm:grid-cols-1 grid grid-cols-7 sm:gap-0 gap-6">
+            <Helmet>
+                <title>Home | CSE P DIU</title>
+            </Helmet>
 
 
             <div className="w-full col-span-2 h-screen overflow-auto p-4 overlay-scrollbar-left sm:hidden">
@@ -173,7 +177,7 @@ const Home = () => {
 
                         {
                             user ? (
-                                user.emailVerified ?
+                                user?.emailVerified ?
                                     <div onClick={() => document.getElementById('postUploadingModal').showModal()} className="flex flex-row items-center w-full rounded-2xl shadow-lg p-3 bg-white/10 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                                         <IoIosCreate className="text-2xl"></IoIosCreate>
                                         <h2>What&apos;s on your mind?</h2>
@@ -300,7 +304,7 @@ const Home = () => {
                             <TimelineSkeleton />
                         </>
                     ) : (
-                        shuffledTimeline.map(post => <PostBox key={post._id} post={post} onDelete={handleDeletePost} />)
+                        shuffledTimeline.map(post => <PostBox key={post?._id} post={post} onDelete={handleDeletePost} />)
                     )}
                 </div>
                 <div className="sm:mb-[60px]" />

@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 // import UserCard from "./UserCard";
 import { useContext, useEffect, useState } from "react";
 import './UserCard.css';
+import { Helmet } from "react-helmet";
 // import UserCard from "./UserCard";
 
 const People = () => {
@@ -28,6 +29,9 @@ const People = () => {
         return (
 
             <div className="w-full">
+                <Helmet>
+                    <title>People | CSE P DIU</title>
+                </Helmet>
                 <div className="py-9" />
                 <div className="w-full flex justify-center">
                     <div className="skeleton h-10 w-1/3"></div>

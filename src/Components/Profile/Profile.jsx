@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import ProfileSkeleton from "../Skeleton/ProfileSkeleton";
 import TimelineSkeleton from "../Skeleton/TimelineSkeleton";
 import PostBox from "../Postbox/PostBox";
+import { Helmet } from "react-helmet";
 
 const imageHostingKey = import.meta.env.VITE_API_KEY;
 const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
@@ -143,6 +144,9 @@ const Profile = () => {
                         </>
                         :
                         <div>
+                            <Helmet>
+                                <title>{userProInfo?.name} | CSE P DIU</title>
+                            </Helmet>
                             <div className="indicator w-full">
                                 {userProInfo?.classRepresentative === "true" ? <span className="indicator-item badge text-2xl font-bold">CR</span> : ''}
                                 <div className="flex justify-center items-center rounded-2xl shadow-lg w-full sm:w-full aspect-square sm:aspect-auto sm:h-auto overflow-hidden bg-[#ffffff10] sm:bg-[#ffffff00]">

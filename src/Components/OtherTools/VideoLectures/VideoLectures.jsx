@@ -1,14 +1,134 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const VideoLectures = () => {
     const [isChecked, setIsChecked] = useState(null);
-    const [currentlyPlaying, setCurrentlyPlaying] = useState("mCmlobVDp3o");
+    const [currentlyPlaying, setCurrentlyPlaying] = useState("");
     const [expandedLectures, setExpandedLectures] = useState(null);
 
     const courses_video = [
+        
+        {
+            courseCode: "CSE221",
+            courseTitle: "Object Oriented Programming - II",
+            lectureVideos: [
+                {
+                    lecCode: "cse221-l1",
+                    lecNo: "L-1",
+                    lecName: "Introduction to Python Programming",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-1 Slide", id: "https://drive.google.com/file/d/1A-Og7PWCyrk2PG91nqOgKw6EW2qbb7gT/view?usp=drive_link" },
+                        { type: "video", title: "1.1 | Introduction and History of python", id: "Ri1Lgdew8Ds" },
+                        { type: "video", title: "1.2 | Environment Setup (Optional)", id: "31QmsNeiDKI" },
+                        { type: "video", title: "1.3 | Syntax of Python", id: "eol9EzchLbA" },
+                        { type: "video", title: "1.4 | Variables in Python", id: "rvnp9F9dB1U" },
+                        { type: "video", title: "1.5 | Operators", id: "6QOH6auuAUs" },
+                        { type: "video", title: "1.6 | Python User Input", id: "KtozLrR_0X8" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-l2",
+                    lecNo: "L-2",
+                    lecName: "Control Statements in Python",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-2 Slide", id: "https://drive.google.com/file/d/1MbHhjW9rxcfDi1BLQHU0O9ov49X6Cvyb/view?usp=sharing" },
+                        { type: "video", title: "2.1 | Introduction and History of python", id: "gkV14SRCD-4" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-l3",
+                    lecNo: "L-3",
+                    lecName: "Python Function",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-3 Slide", id: "https://drive.google.com/file/d/13L24aVk2DE9JY49c_s_P8mHJzbVXLSN4/view?usp=drive_link" },
+                        { type: "video", title: "3.1 | Python Functions", id: "wLie11bgbSI" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-l4",
+                    lecNo: "L-4",
+                    lecName: "Python Function",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-4 Slide", id: "https://drive.google.com/file/d/1cghMuoU8AdJdTeJCyVX5hWnWHYY2C7_K/view?usp=sharing" },
+                        { type: "video", title: "4.1 | Python Sequences", id: "lFi3aenAfZU" },
+                    ],
+                },
+            ],
+        },
+        
+        {
+            courseCode: "CSE315",
+            courseTitle: "Introduction to data science",
+            lectureVideos: [
+                {
+                    lecCode: "cse315-l1",
+                    lecNo: "W-1 L-1",
+                    lecName: "Introduction to Data Science",
+                    subLectures: [
+                        { type: "docs", title: "W1L1 Slide", id: "https://docs.google.com/presentation/d/1unwBEhGBsl9R_ZYPGuZ-nCsAxtypoqiH/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "1-1 | What is data science?", id: "uIUvpJdYgSA" },
+                        { type: "video", title: "1-2 | Data vs Information", id: "yFSEf6TOzDQ" },
+                        { type: "video", title: "1-3 | AI vs ML vs DL vs DS", id: "k2P_pHQDlp0" },
+                        { type: "video", title: "1-4 | Data Science Life Cycle", id: "4Cp6PkBKqX4" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l2",
+                    lecNo: "W-1 L-2",
+                    lecName: "Introduction to data",
+                    subLectures: [
+                        { type: "docs", title: "W1L2 Slide", id: "https://docs.google.com/presentation/d/11SbXfJFTS4_Aj0PiHMYErIZfotOSE_Q5/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "2-1 | Types of Variables", id: "FqB5Es1HXI4" },
+                        { type: "video", title: "2-2 | Four Measurement Levels", id: "LuBD49SFpWs" },
+                        { type: "video", title: "2-3 | Sources of data collection", id: "caUiRsg5M6k" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l3",
+                    lecNo: "W-2 L1",
+                    lecName: "Python in data science",
+                    subLectures: [
+                        { type: "docs", title: "W2L1 Slide", id: "https://docs.google.com/presentation/d/1MMocvW8o6IL1aOP-WoJ0Hj5zAyKOu2u0/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "3-1 | Data Science With Python", id: "mkv5mxYu0Wk" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l4",
+                    lecNo: "W-2 L-2",
+                    lecName: "Introduction to Statistics and Sampling Methods",
+                    subLectures: [
+                        { type: "docs", title: "W2L2 Slide", id: "https://docs.google.com/presentation/d/1METkwI6DYS0_Y5rsQ6zRMIivQocy1g__/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "4-1 | Statistics and it's types", id: "IngKIlvpg3s" },
+                        { type: "video", title: "4-2 | Population, Sample and Sampling methods", id: "fSmedyVv-Us" },
+                        { type: "video", title: "4-3 | Census Method Vs Sample Method", id: "BbrRT1jA9Hk" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l5",
+                    lecNo: "W-3 L-1",
+                    lecName: "Descriptive Statistics: Centre and Spread",
+                    subLectures: [
+                        { type: "docs", title: "W3L1 Slide", id: "https://docs.google.com/presentation/d/1MZF1P3Jz0bIBysvznqRSfSO6v4cnFEsy/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "5-1 | Mean, Median, Mode", id: "k3aKKasOmIw" },
+                        { type: "video", title: "5-2 | Types of mean (AM, GM, HM)", id: "ehfJvMCpN44" },
+                        { type: "video", title: "5-3 | Range, variance and standard deviation as measures of dispersion", id: "E4HAYd0QnRc" },
+                        { type: "video", title: "5-3 | More measures of dispersion", id: "vJ8pI8UEUjA" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l6",
+                    lecNo: "W-3 L-2",
+                    lecName: "Descriptive Statistics (cont): Shape Relative standing and outlier",
+                    subLectures: [
+                        { type: "docs", title: "W3L2 Slide", id: "https://docs.google.com/presentation/d/11_99Kw6rFZrctPV2jSo5oVhFGjrY3KJb/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "6-1 | Skewness & Kurtosis", id: "r2jPm9NhaUE" },
+                    ],
+                },
+            ],
+        },
 
         {
             courseCode: "CSE311",
@@ -35,7 +155,8 @@ const VideoLectures = () => {
                     lecNo: "L-1",
                     lecName: "Data Integrity",
                     subLectures: [
-                        { type: "docs", title: "Lecture-1 Slide", id: "https://drive.google.com/file/d/1m4iGcDRexh3Gd78ftB7iPZcuLZK1GGi3/view?usp=drive_link" },
+                        { type: "docs", title: "Lecture-1.0 Slide", id: "https://drive.google.com/file/d/1m4iGcDRexh3Gd78ftB7iPZcuLZK1GGi3/view?usp=drive_link" },
+                        { type: "docs", title: "Lecture-1.1 Slide", id: "https://drive.google.com/file/d/1qcJjZ_yRxV6PAKk0xqDm1lxhT0kO-GpZ/view?usp=drive_link" },
                         { type: "video", title: "1-1 | Data Integrity and Types", id: "VA6-5AfW5bw" },
                     ],
                 },
@@ -86,6 +207,48 @@ const VideoLectures = () => {
                         { type: "video", title: "4-6.2 | ER Diagram Excercise (Part-2)", id: "BexmtjyRp6I" },
                     ],
                 },
+                {
+                    lecCode: "cse311-l5",
+                    lecNo: "L-5",
+                    lecName: "Introduction to Relational Algebra",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-5", id: "https://drive.google.com/file/d/1QMr64wqAQUfZQV_NqsSqsj4n3lasCAZu/view?usp=drive_link" },
+                        { type: "video", title: "5-1 | Relational Algebra", id: "BeRa_U0N9tU" },
+                        { type: "video", title: "5-2 | Selection Operator", id: "iEyy3TbGLd0" },
+                        { type: "video", title: "5-3 | Projection Operator", id: "vrmfMQchf04" },
+                        { type: "video", title: "5-4 | Union Operator", id: "xnOC0wN8rpg" },
+                        { type: "video", title: "5-5 | Set Intersection Operation", id: "5IjEMcf8kF0" },
+                        { type: "video", title: "5-6 | Set Difference Operation", id: "XcLa3KsCHZU" },
+                        { type: "video", title: "5-7 | Cartesian Product / Cross Product", id: "7m0FAQyF_-c" },
+                        { type: "video", title: "5-8.1 | Introduction to joins", id: "YQ7XVAzBv2M" },
+                        { type: "video", title: "5-8.2 | Natural Join", id: "egJBfCkIfag" },
+                        { type: "video", title: "5-8.3 | Left Outer Join", id: "tCvZi85gjxg" },
+                        { type: "video", title: "5-8.4 | Right Outer Join", id: "amN_F1uO87g" },
+                        { type: "video", title: "5-8.5 | Full Outer Join", id: "poksQkBP5nk" },
+                        { type: "video", title: "5-9 | Set Functions Or Aggregation Functions", id: "PmVkc95BsuA" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l6",
+                    lecNo: "L-6",
+                    lecName: "Data Modeling Using the Entity-Relationship (ER) Model",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-6", id: "https://drive.google.com/file/d/1aapgjltMSPe5JbFjGI63_OGk_OTpvAPX/view?usp=drive_link" },
+                        { type: "video", title: "6-1 | ER Diagram Introduction", id: "G0XffHxohqY" },
+                        { type: "video", title: "6-2 | Symbols of ER Diagram", id: "S4cBelRt2D8" },
+                        { type: "video", title: "6-3 | Symbols of ER Diagram", id: "S4cBelRt2D8" },
+                        { type: "video", title: "6-4 | Types of Entity", id: "3ia2B7W2ETY" },
+                        { type: "video", title: "6-5 | Types of Attributes", id: "79XdTzaD7XI" },
+                        { type: "video", title: "6-6.1 | Types of Relationship | One to One", id: "jHRfpEdNKQs" },
+                        { type: "video", title: "6-6.2 | Types of Relationship | One to Many | Many to One", id: "-f9jsqA3-IU" },
+                        { type: "video", title: "6-6.3 | Types of Relationship | Many to Many", id: "yCxixT7476g" },
+                        { type: "video", title: "6-7 | Degree of Relationship", id: "gpcnyLSoppk" },
+                        { type: "video", title: "6-8 | Participation Constraints", id: "-t63uwNJNJw" },
+                        { type: "video", title: "6-9 | Relational Model", id: "lbTiI2KZVBQ" },
+                        { type: "video", title: "6-10 | Full Chapter", id: "KQP8PBzFQzw" },
+                        { type: "video", title: "6-11 | Full Chapter (Another Video)", id: "5hZoHU_sYBk" },
+                    ],
+                },
             ],
         },
 
@@ -100,7 +263,7 @@ const VideoLectures = () => {
                     subLectures: [
                         { type: "docs", title: "Lecture-1 Slide", id: "https://docs.google.com/presentation/d/1SjOxFoq0IT2zSmFcOHwIP3GO63m5pw8u/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                         { type: "video", title: "1-1 | Full Computing and Computers", id: "N2yBfBLYT8Q" },
-                        
+
                     ],
                 },
                 {
@@ -111,7 +274,7 @@ const VideoLectures = () => {
                         { type: "docs", title: "Lecture-2 Slide", id: "https://docs.google.com/presentation/d/1Sb9hOY4CCdFbC5NrRgaweFj-qhcwk-DH/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                         { type: "video", title: "2-1 | Mechanical & Electronic Computer", id: "q3jOzHAuvTE" },
                         { type: "video", title: "2-2 | Generations of Computers", id: "NqgpZ_v4Ne8" },
-                        
+
                     ],
                 },
                 {
@@ -129,7 +292,7 @@ const VideoLectures = () => {
                 },
             ],
         },
-        
+
         {
             courseCode: "CSE313",
             courseTitle: "Computer Networks",
@@ -178,6 +341,7 @@ const VideoLectures = () => {
             ],
         },
 
+
     ];
 
     const handleToggleCourse = (courseCode) => {
@@ -191,16 +355,37 @@ const VideoLectures = () => {
 
     return (
         <div>
+        <Helmet>
+        <title>Video Lectures | CSE P DIU</title>
+        <meta property="og:title" content="Video Lectures | CSE P DIU" />
+        <meta property="og:description" content="Video Lectures for better preparation with slides" />
+        <meta property="og:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
+        <meta property="og:url" content="https://cse-p-diu.web.app/videolectures" />
+        <meta property="og:type" content="web application" />
+
+        <meta name="twitter:card" content="Video Lectures for better preparation with slides" />
+        <meta name="twitter:title" content="Video Lectures | CSE P DIU" />
+        <meta name="twitter:description" content="Video Lectures for better preparation with slides" />
+        <meta name="twitter:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
+      </Helmet>
             <div className="h-screen w-full pt-[65px]">
                 <div className=" h-full w-full flex sm:flex-col p-1">
                     <div className="w-1/2 h-full sm:h-1/2 sm:w-full">
-                        <iframe
-                            className="w-full h-full rounded-lg"
-                            src={`https://www.youtube.com/embed/${currentlyPlaying}?autoplay=1&rel=0`}
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
-                            allowFullScreen
-                        ></iframe>
+                        {currentlyPlaying ?
+                            <iframe
+                                className="w-full h-full rounded-lg"
+                                src={`https://www.youtube.com/embed/${currentlyPlaying}?autoplay=1&rel=0`}
+                                title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;"
+                                allowFullScreen
+                            ></iframe>
+                            :
+                            <div className="w-full h-full flex flex-col justify-center items-center">
+                                <div className="w-[70%] relative flex items-center justify-center">
+                                    <img className="w-full" src="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" alt="" />
+                                    <h1 className="absolute font-bold text-[#49b863] bg-slate-950/80 p-2 rounded-full backdrop-blur-sm">Select Topic to see video</h1>
+                                </div>
+                            </div>}
                     </div>
 
                     <div className="space-y-2 w-1/2 sm:w-full h-auto p-4 overflow-y-auto">

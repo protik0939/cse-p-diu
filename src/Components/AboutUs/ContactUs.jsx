@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { FaFacebookSquare, FaLinkedin, FaRegAddressCard } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
@@ -6,6 +7,9 @@ import { Link } from "react-router-dom";
 const ContactUs = () => {
     return (
         <div className="flex flex-col justify-center items-center w-full space-y-2 py-16">
+            <Helmet>
+                <title>Contact Us | CSE P DIU</title>
+            </Helmet>
             <FaRegAddressCard className="text-[150px]"/>
             <h1 className="text-2xl font-bold my-4">Contact me</h1>
             <Link target="_blank" to='https://www.linkedin.com/in/protik0939/'><div className="flex items-center justify-center space-x-2"><FaLinkedin /><h1>protik0939</h1></div></Link>

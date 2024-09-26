@@ -3,7 +3,7 @@ import DateAndTime from "../Home/Suboptions/DateAndTime";
 import { Link } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
 
-
+import csepdiuLogo from '../../assets/CSE_P_DIU_logo.svg'
 const diumain = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh68gRiHd4m2_bZm0oWNzHijWQVa3Uh7u28GRv5HEJ_aCrKUWLqv0jbdifEF9YMmTC7vjtcxbQl4v-TRNviep9V4fIlG5P15madUaJptvEJkeBObsRct9WysHrJgfwyftcLMSvnBGhFJXcKUhrHFF-9jqr9QgrOB8u4ntMcRwyRUecOS3cXowaQzulFepA/s1600/diu.webp';
 const diupti = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJarCyEryErXANzNw2tka6BRWcJ5-LgYE2Fnv70Wj0DYI11mrPjPvc_g6SVfTZJpAmPazoheP92fkDI3LgDOSDhCcC1LNLjk4otzkYTLJBH5HlqXL3HSIE2FYxelFz6mtqX48ny9OB98P9XbOjtpUE4i9KWACdZ7I7dGY5vEzBoZUBCkGO_vVGm0eD3K4/s1600/diupti.webp';
 const diulogo = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGywNbhtm8M68wzGZ8QVw6ESROwoddy_M3X2MWv3RYgQIbbfVkCQUaTa2BCgpPivVpukSV8bnCDE6BY0OI_GAt1tv8dWbHiMn_Mre5yWlEqorHCDXKlF3JQQS401703FCAvpvnUmrgibZjF9O-rQuBlYE5snUXbqZkwJlcL_MDFjLF31_hkVxGM2nIbzc/s1600/diu.webp';
@@ -53,6 +53,13 @@ const RightNavBar = () => {
             <div className="w-full rounded-3xl shadow-lg p-4">
                 <div className="my-2 font-bold flex items-center"><h2>Others</h2><IoLogOutOutline className="ml-2"></IoLogOutOutline></div>
                 <div>
+
+                    <Link to='/csepdiuold'>
+                        <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">
+                            <img className="w-4" src={csepdiuLogo} alt="" />
+                            <h2>Old CSE P DIU</h2>
+                        </div>
+                    </Link>
 
                     <Link to='/diumain'>
                         <div className="flex items-center w-full rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30 transition duration-150 mt-2 ease-in-out space-x-4">

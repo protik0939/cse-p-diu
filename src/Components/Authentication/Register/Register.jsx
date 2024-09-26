@@ -4,6 +4,8 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import './Register.css'
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const imageHostingKey = import.meta.env.VITE_API_KEY;
 const imageUploadApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
@@ -14,6 +16,8 @@ const Register = () => {
     const [showToast, setShowToast] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
     const [logginIn, setLoggingIn] = useState(false);
+    const [passShow, setPassShow] = useState(false);
+    const [passShowCfm, setPassShowCfm] = useState(false);
 
 
     const [email, setEmail] = useState("");
@@ -95,12 +99,12 @@ const Register = () => {
                             body: JSON.stringify(newUser)
                         })
                             .then(res => res.json())
-                            .then(data => {
+                            .then(() => {
                                 navigate(location?.state ? location?.state : '/');
                                 setLoggingIn(false);
                             });
                     })
-                    .catch(error => {
+                    .catch(() => {
                         Swal.fire({
                             position: "top-end",
                             toast: true,
@@ -175,7 +179,7 @@ const Register = () => {
                         body: JSON.stringify(newUser)
                     })
                         .then(res => res.json())
-                        .then(data => {
+                        .then(() => {
                             // console.log(data);
                         })
                     navigate(location?.state ? location?.state : '/');
@@ -194,7 +198,7 @@ const Register = () => {
                     });
                     dUser();
                 }
-            }).catch((error) => {
+            }).catch(() => {
                 // console.log(error);
             });
     }
@@ -203,6 +207,9 @@ const Register = () => {
         <div>
 
             <div className="py-8" />
+            <Helmet>
+                <title>Contact Us | CSE P DIU</title>
+            </Helmet>
             {showToast && (
                 <div className={`toast ${fadeOut ? 'fade-out' : ''} z-10`}>
                     <div className="alert alert-info text-[#ffffff] bg-[#ff0000]">
@@ -278,14 +285,22 @@ const Register = () => {
                                             <span className="label-text">Pofile Picture (less than 32MB)<span className="text-[#ff0000] text-2xl">*</span></span>
                                         </label>
                                         <input type="file" name="photourl" placeholder="Photo URL" className="file-input file-input-bordered w-full" required />
-                                        <label className="label">
+                                        <label className="label flex justify-between items-center">
                                             <span className="label-text">Password<span className="text-[#ff0000] text-2xl">*</span></span>
+                                            <span className="cursor-pointer" onClick={() => setPassShow(!passShow)}>{
+                                                passShow ? <IoEye /> : <IoEyeOff />
+                                            }
+                                            </span>
                                         </label>
-                                        <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
-                                        <label className="label">
+                                        <input type={passShow ? 'text' : 'password'} name="password" placeholder="Password" className="input input-bordered" required />
+                                        <label className="label flex justify-between items-center">
                                             <span className="label-text">Confirm Password<span className="text-[#ff0000] text-2xl">*</span></span>
+                                            <span className="cursor-pointer" onClick={() => setPassShowCfm(!passShowCfm)}>{
+                                                passShowCfm ? <IoEye /> : <IoEyeOff />
+                                            }
+                                            </span>
                                         </label>
-                                        <input type="password" name="confirmPassword" placeholder="Confirm Password" className="input input-bordered" required />
+                                        <input type={passShowCfm ? 'text' : 'password'} name="confirmPassword" placeholder="Confirm Password" className="input input-bordered" required />
                                         {/* <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label> */}
