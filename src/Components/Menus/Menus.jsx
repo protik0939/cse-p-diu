@@ -1,5 +1,4 @@
-import { AiFillPlaySquare } from "react-icons/ai";
-import { FaPeopleGroup } from "react-icons/fa6";
+import { AiFillPlaySquare, AiOutlineFileSearch } from "react-icons/ai";
 import { IoHome, IoOptions } from "react-icons/io5";
 import { TbTools } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
@@ -12,8 +11,8 @@ const Menus = () => {
             <ul className="menu menu-horizontal bg-base-200/60 backdrop-blur rounded-t-lg mt-6 w-full flex justify-between px-4">
 
                 <li>
-                    <NavLink to='/people' className="tooltip" data-tip="People">
-                        <FaPeopleGroup className="text-2xl" />
+                    <NavLink to='/result' className="tooltip" data-tip="Result">
+                        <AiOutlineFileSearch className="text-2xl" />
                     </NavLink>
                 </li>
                 <li>

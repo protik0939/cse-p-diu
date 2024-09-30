@@ -13,7 +13,7 @@ const ResultCard = ({ sdata, semester }) => {
         const fetchStudentResult = async () => {
             setResultLoading(true);
             try {
-                const response = await fetch(`https://cse-p-diu-server.vercel.app/secure-api/result?grecaptcha=&semesterId=${semester}&studentId=${sdata?.studentId}`);
+                const response = await fetch(`https://cse-p-diu-server.vercel.app/results/${semester}/${sdata?.studentId}`);
                 const data = await response.json();
                 setResultFull(data);
                 setResultLoading(false);
@@ -23,7 +23,7 @@ const ResultCard = ({ sdata, semester }) => {
             }
         };
         fetchStudentResult();
-    }, []);
+    }, [sdata?.studentId, semester]);
 
 
     function calculateTotalCredits(courses) {
@@ -90,13 +90,13 @@ const ResultCard = ({ sdata, semester }) => {
 
 
     return (
-        <div className="w-full rounded-[40px] shadow-2xl p-5 h-auto text-[#fff]">
+        <div className="w-full rounded-[40px] shadow-2xl p-5 h-auto">
             {sdata === null ? (
                 <div></div>
             ) : (
                 <>
-                    <h1 className="text-4xl font-bold text-center p-10">Result Sheet </h1>
-                    <div className="p-6">
+                    <h1 className="text-4xl font-bold text-center p-10 rsct:p-2">Result Sheet </h1>
+                    <div className="p-6 rsct:text-[12px]  rsct:p-2]">
                         <h2><span className="infoTitle">Student name:</span> {sdata.studentName}</h2>
                         <h2><span className="infoTitle">Student Id: </span>{sdata.studentId}</h2>
                         <h2><span className="infoTitle">Campus: </span>{sdata.campusName} ({sdata.fkCampus})</h2>
@@ -111,11 +111,11 @@ const ResultCard = ({ sdata, semester }) => {
                         <h2><span className="infoTitle">Admission semester: </span>{sdata.semesterName} ({sdata.semesterId})</h2>
                         <h2><span className="infoTitle">Shift: </span>{sdata.shift}</h2>
                     </div>
-                    <div className="p-6">
-                        {resultLoading  ?
+                    <div className="p-6  rsct:p-2">
+                        {resultLoading ?
                             (
                                 <div className="w-full p-20">
-                                    <div className="text-center text-white">
+                                    <div className="text-center">
                                         <Skeleton height={40} width="30%" style={{ marginTop: '0px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                                     </div>
                                     <Skeleton height={15} width="100%" style={{ marginTop: '50px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
@@ -127,7 +127,7 @@ const ResultCard = ({ sdata, semester }) => {
                                     <Skeleton height={15} width="100%" style={{ marginTop: '5px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                                     <Skeleton height={15} width="100%" style={{ marginTop: '5px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                                     <Skeleton height={15} width="100%" style={{ marginTop: '5px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
-                                    <div className="text-center text-white">
+                                    <div className="text-center">
                                         <Skeleton height={15} width="20%" style={{ marginTop: '80px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                                         <Skeleton height={15} width="30%" style={{ marginTop: '5px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
                                         <Skeleton height={15} width="40%" style={{ marginTop: '5px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
@@ -140,7 +140,7 @@ const ResultCard = ({ sdata, semester }) => {
                                     <h1 className="text-center w-full py-6 text-2xl font-bold my-5">CGPA - {resultFull[0]?.cgpa} ({getGradeFromCGPA(resultFull[0]?.cgpa)})</h1>
 
                                     {/* Column headings */}
-                                    <div className="grid grid-cols-9 font-bold text-center">
+                                    <div className="grid grid-cols-9 font-bold text-center rsct:text-[12px]">
                                         <h2 className="col-span-2">Course ID</h2>
                                         <h2 className="col-span-4">Course Title</h2>
                                         <h2 className="col-span-1 text-center">Credit</h2>
@@ -150,7 +150,7 @@ const ResultCard = ({ sdata, semester }) => {
 
                                     {/* Data rows */}
                                     {resultFull.map((r, index) => (
-                                        <div className="grid grid-cols-9 mt-3 text-center" key={index}>
+                                        <div className="grid grid-cols-9 mt-3 text-center  rsct:text-[12px]" key={index}>
                                             <h1 className="col-span-2">{r.customCourseId}</h1>
                                             <h1 className="col-span-4">{r.courseTitle}</h1>
                                             <h1 className="col-span-1 text-center">{r.totalCredit}</h1>

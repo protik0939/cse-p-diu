@@ -1,11 +1,16 @@
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import waterMark from "../../../../assets/wateramark.png";  // Replace with the correct path to your watermark image
 import headerLogo from "../../../../assets/headerlogo.png";
 import LabReportDocument from "./LabReportDocument";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 
 const LabReport = () => {
+
+    
+    const [userInfo, setUserInfo] = useState(false);
+
     const [formData, setFormData] = useState({
         courseCode: "",
         courseTitle: "",
@@ -37,6 +42,30 @@ const LabReport = () => {
         e.preventDefault();
         setSubmitted(true);
     };
+
+
+    const { user } = useContext(AuthContext);
+    useEffect(() => {
+        if (user?.uid) {
+            fetch(`https://cse-p-diu-server.vercel.app/users/uid/${user?.uid}`)
+                .then(res => res.json())
+                .then(data => {
+                    setUserInfo(data);
+                    // console.log(data);
+
+                    // Set formData fields explicitly
+                    setFormData(prevFormData => ({
+                        ...prevFormData,
+                        name: userInfo?.name, // Update name explicitly
+                        studentId: userInfo?.studentId,
+                        section: `${userInfo?.batchNo}_${userInfo?.section}`, // Set section based on data
+                    }));
+                })
+                .catch(error => {
+                    console.log(`Something went wrong: ${error}`);
+                });
+        }
+    }, [user?.uid, userInfo]);
 
     return (
         <div className="my-20">

@@ -1,3 +1,4 @@
+import { AiOutlineFileSearch } from "react-icons/ai";
 import { FcCalculator, FcDocument, FcKindle, FcStart } from "react-icons/fc";
 import { IoLogoGooglePlaystore, IoLogoWindows } from "react-icons/io5";
 import { MdPhoneCallback, MdPrivacyTip } from "react-icons/md";
@@ -32,6 +33,10 @@ const LeftNavBar = () => {
                 <Link to='/cgpacalculator'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
                     <FcCalculator />
                     <h2>CGPA Calculator</h2>
+                </div></Link>
+                <Link to='/result'><div className="flex items-center w-full mt-2 rounded-2xl shadow p-3 cursor-pointer hover:bg-black/30 transition duration-150 ease-in-out space-x-4">
+                    <AiOutlineFileSearch />
+                    <h2>Result</h2>
                 </div></Link>
             </div>
             <div className="w-full rounded-3xl shadow-lg p-4">

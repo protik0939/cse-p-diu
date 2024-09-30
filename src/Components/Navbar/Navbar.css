@@ -1,0 +1,12 @@
+.menu li>*:not(ul, .menu-title, details, .btn).active {
+    color: #49b863;
+    font-weight: bolder;
+    color: #49b863;
+    border-bottom: solid 2px #49b863;
+    box-shadow: black;
+    background-color: #00000010;
+}
+
+.menu-horizontal>li:not(.menu-title)>details>ul {
+    width: max-content;
+}

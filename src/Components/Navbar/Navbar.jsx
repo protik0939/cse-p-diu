@@ -7,6 +7,7 @@ import { IoIosContact, IoMdLogIn, IoMdLogOut } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
 import '../Home/Home.css';
 import Swal from "sweetalert2";
+import './Navbar.css'
 
 
 const Navbar = () => {
@@ -56,40 +57,36 @@ const Navbar = () => {
                     <img className="w-[80px]" src={Logo} alt="" />
                 </div>
                 </NavLink>
-                <ul className="flex justify-center items-center space-x-10">
-                    <NavLink
-                        exact
+                <ul className="flex menu menu-horizontal justify-center items-center space-x-2 p-0">
+
+                    <li><NavLink
                         to="/"
-                        activeClassName=""
                         className="sm:hidden"
-                    >
-                        <li>Home</li>
-                    </NavLink>
-                    <NavLink
+                    >Home</NavLink></li>
+
+
+                    <li><NavLink
                         to="/people"
-                        activeClassName=""
                         className="sm:hidden"
-                    >
-                        <li>People</li>
-                    </NavLink>
-                    <NavLink
+                    >People</NavLink></li>
+
+
+                    <li><NavLink
                         to="/videolectures"
-                        activeClassName=""
                         className="sm:hidden"
-                    >
-                        <li>Video Lecture</li>
-                    </NavLink>
-                    <NavLink
-                        to="/notice"
-                        activeClassName=""
+                    >Video Lecture</NavLink></li>
+
+
+                    <li> <NavLink
+                        to="/result"
                         className="sm:hidden"
-                    >
-                        <li>Notice</li>
-                    </NavLink>
+                    >Result</NavLink></li>
+
 
                     <li className="relative cursor-pointer">
                         <div className="dropdown dropdown-end flex items-center">
-                            <div tabIndex={0} className="avatar">
+                            <div tabIndex={0} className={`avatar ${user ? '' : 'items-center justify-center'}`}>
+                                {user ? '' : <Link to='/login'><h1 className="bg-base-100 p-1 px-2 rounded-full font-bold text-[#49b863]">Log in</h1></Link>}
                                 <div className="w-8 rounded-[10px]">
                                     {user ? (loading ?
                                         <Skeleton height="100%" width="100%" style={{ marginTop: '0px', background: '#1d232a00' }} baseColor="#1d232a" highlightColor="#323c47" />
@@ -130,7 +127,6 @@ const Navbar = () => {
                     </li>
                     {/* : <NavLink
                             to="/login"
-                            activeClassName=""
                             className="">
                             <li>Log in</li>
                         </NavLink> */}

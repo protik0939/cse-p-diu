@@ -10,7 +10,336 @@ const VideoLectures = () => {
     const [expandedLectures, setExpandedLectures] = useState(null);
 
     const courses_video = [
-        
+
+        {
+            courseCode: "CSE315",
+            courseTitle: "Introduction to data science",
+            lectureVideos: [
+                {
+                    lecCode: "cse315-l1",
+                    lecNo: "W-1 L-1",
+                    lecName: "Introduction to Data Science",
+                    subLectures: [
+                        { type: "docs", title: "W1L1 Slide", id: "https://docs.google.com/presentation/d/1unwBEhGBsl9R_ZYPGuZ-nCsAxtypoqiH/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "1-1 | What is data science?", id: "uIUvpJdYgSA" },
+                        { type: "video", title: "1-2 | Data vs Information", id: "yFSEf6TOzDQ" },
+                        { type: "video", title: "1-3 | AI vs ML vs DL vs DS", id: "k2P_pHQDlp0" },
+                        { type: "video", title: "1-4 | Data Science Life Cycle", id: "4Cp6PkBKqX4" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l2",
+                    lecNo: "W-1 L-2",
+                    lecName: "Introduction to data",
+                    subLectures: [
+                        { type: "docs", title: "W1L2 Slide", id: "https://docs.google.com/presentation/d/11SbXfJFTS4_Aj0PiHMYErIZfotOSE_Q5/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "2-1 | Types of Variables", id: "FqB5Es1HXI4" },
+                        { type: "video", title: "2-2 | Four Measurement Levels", id: "LuBD49SFpWs" },
+                        { type: "video", title: "2-3 | Sources of data collection", id: "caUiRsg5M6k" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l3",
+                    lecNo: "W-2 L-1",
+                    lecName: "Python in data science",
+                    subLectures: [
+                        { type: "docs", title: "W2L1 Slide", id: "https://docs.google.com/presentation/d/1MMocvW8o6IL1aOP-WoJ0Hj5zAyKOu2u0/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "3-1 | Data Science With Python", id: "mkv5mxYu0Wk" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l4",
+                    lecNo: "W-2 L-2",
+                    lecName: "Introduction to Statistics and Sampling Methods",
+                    subLectures: [
+                        { type: "docs", title: "W2L2 Slide", id: "https://docs.google.com/presentation/d/1METkwI6DYS0_Y5rsQ6zRMIivQocy1g__/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "4-1 | Statistics and it's types", id: "IngKIlvpg3s" },
+                        { type: "video", title: "4-2 | Population, Sample and Sampling methods", id: "fSmedyVv-Us" },
+                        { type: "video", title: "4-3 | Census Method Vs Sample Method", id: "BbrRT1jA9Hk" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l5",
+                    lecNo: "W-3 L-1",
+                    lecName: "Descriptive Statistics: Centre and Spread",
+                    subLectures: [
+                        { type: "docs", title: "W3L1 Slide", id: "https://docs.google.com/presentation/d/1MZF1P3Jz0bIBysvznqRSfSO6v4cnFEsy/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "5-1 | Mean, Median, Mode", id: "k3aKKasOmIw" },
+                        { type: "video", title: "5-2 | Types of mean (AM, GM, HM)", id: "ehfJvMCpN44" },
+                        { type: "video", title: "5-3 | Range, variance and standard deviation as measures of dispersion", id: "E4HAYd0QnRc" },
+                        { type: "video", title: "5-3 | More measures of dispersion", id: "vJ8pI8UEUjA" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l6",
+                    lecNo: "W-3 L-2",
+                    lecName: "Descriptive Statistics (cont): Shape Relative standing and outlier",
+                    subLectures: [
+                        { type: "docs", title: "W3L2 Slide", id: "https://docs.google.com/presentation/d/11_99Kw6rFZrctPV2jSo5oVhFGjrY3KJb/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "6-1 | Skewness & Kurtosis", id: "r2jPm9NhaUE" },
+                        { type: "video", title: "6-2 | Outlier and Z-score (sir's record)", id: "XYLjXbcDCfw" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l7",
+                    lecNo: "W-4 L-1",
+                    lecName: "Bivariate Analysis: Correlation and Simple Linear Regression Analysis",
+                    subLectures: [
+                        { type: "docs", title: "W4L1 Slide", id: "https://docs.google.com/presentation/d/12CvnhZ2-DVKFZK1Tx3jfm8m7eWMFgLz_/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                        { type: "video", title: "7-1 | Bivariate Data", id: "https://drive.google.com/file/d/1Ny6NEU0SWOMeysuOjhJljfEKtehMbjOs/view?usp=sharing" },
+                        { type: "video", title: "7-2 | Correlation Vs Regression", id: "Ou2QGSJVd0U" },
+                        { type: "video", title: "7-3 | Correlation Coefficient", id: "11c9cs6WpJU" },
+                        { type: "video", title: "7-4 | Simple Linear Regression", id: "owI7zxCqNY0" },
+                    ],
+                },
+                {
+                    lecCode: "cse315-l8",
+                    lecNo: "W-4 L-2",
+                    lecName: "Naive Bayes",
+                    subLectures: [
+                        { type: "docs", title: "W4L2 Slide", id: "https://drive.google.com/file/d/1PZ5CT_OcqpATrB2nEAn9P55eEUwX3y9Q/view?usp=sharing" },
+                        { type: "classnote", title: "W4L2 | Sir's Class Note", id: "https://drive.google.com/file/d/1Ny6NEU0SWOMeysuOjhJljfEKtehMbjOs/view?usp=sharing" },
+                        { type: "video", title: "8-1 | Full Naive Bayes(Important for mid)", id: "GBMMtXRiQX0" },
+                    ],
+                },
+            ],
+        },
+
+        {
+            courseCode: "CSE311",
+            courseTitle: "Database Management System",
+            lectureVideos: [
+                {
+                    lecCode: "cse311-l1",
+                    lecNo: "L-1",
+                    lecName: "Introduction to Databases",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-1 Slide", id: "https://drive.google.com/file/d/1EGEpQqEcF2In9QPrD1MrLBr4yWxusWf9/view?usp=sharing" },
+                        { type: "video", title: "1-1 | Introduction to DBMS", id: "T7AxM7Vqvaw" },
+                        { type: "video", title: "Ei pdf er onek kichu pore repeat hoise. So video porer gulay ase.", id: "disabled" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l2",
+                    lecNo: "L-2",
+                    lecName: "Data Modeling Using the Entity-Relationship (ER) Model",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-2 Slide", id: "https://drive.google.com/file/d/1Ac8UMRR43keSdVn-0S4ZNv_8nb5SkeDz/view?usp=sharing" },
+                        { type: "video", title: "1-1 | Data Integrity and Types (Full Slide)", id: "KQP8PBzFQzw" },
+                        { type: "video", title: "1-2.1 | ER Diagram", id: "G0XffHxohqY" },
+                        { type: "video", title: "1-2.2 | ER Model", id: "gbVev8RuZLg" },
+                        { type: "video", title: "1-2.3 | ER Diagram Symbols", id: "S4cBelRt2D8" },
+                        { type: "video", title: "1-3 | Types of Entity", id: "3ia2B7W2ETY" },
+                        { type: "video", title: "1-4 | Types of Attributes", id: "79XdTzaD7XI" },
+                        { type: "video", title: "1-5.1 | Types of Relationship and one to one", id: "jHRfpEdNKQs" },
+                        { type: "video", title: "1-5.2 | One to many and Many to one", id: "-f9jsqA3-IU" },
+                        { type: "video", title: "1-5.3 | Many to many", id: "yCxixT7476g" },
+                        { type: "video", title: "1-6.1 | ER Diagram Excercise (Part-1)", id: "l9BRmq7pgZ8" },
+                        { type: "video", title: "1-6.2 | ER Diagram Excercise (Part-2)", id: "BexmtjyRp6I" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l3",
+                    lecNo: "L-3",
+                    lecName: "Introduction to Relational Algebra",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-3 Slide", id: "https://drive.google.com/file/d/1DN4n9ULeEupOUUucDuC2xf7VcMmaOMOv/view?usp=sharing" },
+                        { type: "video", title: "3-1 | Relational Algebra", id: "BeRa_U0N9tU" },
+                        { type: "video", title: "3-2 | Selection Operator", id: "iEyy3TbGLd0" },
+                        { type: "video", title: "3-3 | Projection Operator", id: "vrmfMQchf04" },
+                        { type: "video", title: "3-4 | Union Operator", id: "xnOC0wN8rpg" },
+                        { type: "video", title: "3-5 | Set Intersection Operation", id: "5IjEMcf8kF0" },
+                        { type: "video", title: "3-6 | Set Difference Operation", id: "XcLa3KsCHZU" },
+                        { type: "video", title: "3-7 | Cartesian Product / Cross Product", id: "7m0FAQyF_-c" },
+                        { type: "video", title: "3-8.1 | Introduction to joins", id: "YQ7XVAzBv2M" },
+                        { type: "video", title: "3-8.2 | Natural Join", id: "egJBfCkIfag" },
+                        { type: "video", title: "3-8.3 | Left Outer Join", id: "tCvZi85gjxg" },
+                        { type: "video", title: "3-8.4 | Right Outer Join", id: "amN_F1uO87g" },
+                        { type: "video", title: "3-8.5 | Full Outer Join", id: "poksQkBP5nk" },
+                        { type: "video", title: "3-9 | Set Functions Or Aggregation Functions", id: "PmVkc95BsuA" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l4",
+                    lecNo: "L-4",
+                    lecName: "Normaliaztion",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-4 Slide", id: "https://drive.google.com/file/d/1iMl5E30UWSMwe1hUr2RmSpe8A_RJEJsH/view?usp=sharing" },
+                        { type: "video", title: "4-1.1 | Normalization", id: "aZxGX65Uivc" },
+                        { type: "video", title: "4-1.2 | First Normal Form (1NF)", id: "pPLIhlzPH0g" },
+                        { type: "video", title: "4-1.3 | Second Normal Form (2NF)", id: "k9sCMi5JRHQ" },
+                        { type: "video", title: "4-1.4 | Third Normal Form (3NF)", id: "m8mySyouOxo" },
+                        { type: "video", title: "4-1.5 | Fourth Normal Form (4NF)(Less Imp for mid)", id: "EHuzi27ERGc" },
+                        { type: "video", title: "4-1.6 | Fifth Normal Form (5NF)(Less Imp for mid)", id: "gJvjNxPj3ug" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l5",
+                    lecNo: "L-5",
+                    lecName: "Basic SQL Queries",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-5 Slide", id: "https://drive.google.com/file/d/1_L12jY5ly6Bh_QN2qN2HWosQFpFFWmXz/view?usp=sharing" },
+                        { type: "video", title: "5-1 | Basic SQL Concepts", id: "zsjvFFKOm3c" },
+                        { type: "video", title: "5-2 | Types of Query Language", id: "vUj-kUEC_oA" },
+                        { type: "video", title: "5-3 | Create Database", id: "GqQN1_Aa1F8" },
+                        { type: "video", title: "5-4.1 | Creating Table", id: "ZBkNHg3v5zs" },
+                        { type: "video", title: "5-4.2 | Insert Data", id: "R4n0W7cS0_c" },
+                        { type: "video", title: "5-4.3 | Selecting Data", id: "_rUYAQWn6q8" },
+                        { type: "video", title: "5-4.4 | Updating Data", id: "MjI-1ZT68gM" },
+                        { type: "video", title: "5-4.5 | Deleting Data", id: "N-71W3crRmM" },
+                        { type: "video", title: "5-4.6 | Drop Table", id: "K7fFETZJucM" },
+                        { type: "video", title: "5-5.1 | Where Clause", id: "SJF3uoIfsKY" },
+                        { type: "video", title: "5-5.2 | Order By Clause", id: "LSv926kk1fo" },
+                        { type: "video", title: "5-6.1 | And Operator", id: "k_uFo1dqRiA" },
+                        { type: "video", title: "5-6.2 | Or Operator", id: "q19CWNEMjCM" },
+                        { type: "video", title: "5-6.3 | Not Operator", id: "Xd_VWhuxuKo" },
+                        { type: "video", title: "5-6.4 | In Operator", id: "qZz6q06wsMY" },
+                        { type: "video", title: "5-6.5 | Like Operator", id: "4Ut4Oxxz8xI" },
+                        { type: "video", title: "5-6.6 | Between Operator", id: "6_xDYOcT3Tk" },
+                        { type: "video", title: "5-7.1 | MAX() function", id: "lHUVz-KCpCw" },
+                        { type: "video", title: "5-7.2 | MIN() function", id: "AajnPyePRfw" },
+                        { type: "video", title: "5-7.3 | SUM() function", id: "bxDCnGJwZbg" },
+                        { type: "video", title: "5-7.4 | AVG() function", id: "6j4Cv6_PygI" },
+                        { type: "video", title: "5-7.5 | COUNT() function", id: "XxwZB6mdgLU" },
+                        { type: "video", title: "5-8 | Select Distinct", id: "7IINNnv-TPc" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l6",
+                    lecNo: "L-6",
+                    lecName: "SQL CRUD Operation",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-6", id: "https://drive.google.com/file/d/1i_m8uZwwxzWHdhLvP0hBKuzZyEduMtHU/view?usp=sharing" },
+                        { type: "video", title: "6-1 | SQL CRUD Operation", id: "M21rXLWOnFs" },
+                    ],
+                },
+                {
+                    lecCode: "cse311-l7",
+                    lecNo: "L-7",
+                    lecName: "Index_Transction (Less imp for mid)",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-7 Slide", id: "https://drive.google.com/file/d/1aapgjltMSPe5JbFjGI63_OGk_OTpvAPX/view?usp=drive_link" },
+                        { type: "video", title: "7-1 | File Organization & Indexing, Fixed & Variable length records", id: "stMNJDDmPI0" },
+                        { type: "video", title: "7-2.1 | Query Processing and Optimization part-1:Processing", id: "Sn_Wkf9KNEg" },
+                        { type: "video", title: "7-2.2 | Query Processing and Optimization part-2:Optimization", id: "uGMnOgOSmmI" },
+                    ],
+                },
+                {
+                    lecCode: "cse335-moreSlides",
+                    lecNo: "More Slides",
+                    lecName: "more slides by sir",
+                    subLectures: [
+                        { type: "docs", title: "Click here to view all", id: "https://drive.google.com/drive/folders/1v3Xk7U6G29OjJjlLgg1Z_J2rjWNCaxsT?usp=drive_link" },
+                    ],
+                },
+                {
+                    lecCode: "cse335-lbonus",
+                    lecNo: "Chil Tapak Dam Dam",
+                    lecName: "A Full Video",
+                    subLectures: [
+                        { type: "video", title: "A Complete video on DBMS (05:33:30)", id: "YRnjGeQbsHQ" },
+                        { type: "video", title: "Another Complete video on DBMS (05:36:33)", id: "jzuzxEFoiss" },
+                    ],
+                },
+            ],
+        },
+
+        {
+            courseCode: "CSE313",
+            courseTitle: "Computer Networks",
+            lectureVideos: [
+                {
+                    lecCode: "cse313-w1l1",
+                    lecNo: "W-1 L-1",
+                    lecName: "Network Models &  Protocol Architectures",
+                    subLectures: [
+                        { type: "docs", title: "Week-1 Lecture-1 Slide", id: "https://docs.google.com/presentation/d/1fNGewoqa7FEcnC7rh25h2ZgOgbvujb6W/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "1.1-1 | Layering", id: "FewtLNsjtRA" },
+                        { type: "video", title: "1.1-2.1 | The OSI Reference Model (Part 1)", id: "qBXmbJZQ5rY" },
+                        { type: "video", title: "1.1-2.2 | The OSI Reference Model (Part 2)", id: "xiGgrQioF2E" },
+                        { type: "video", title: "1.1-2.3 | The OSI Reference Model (Part 3)", id: "oQzueBVyAM4" },
+                        { type: "video", title: "1.1-2.4 | The OSI Reference Model (Part 4)", id: "XI8kMBMMS6o" },
+                        { type: "video", title: "1.1-3 | Addressing in network", id: "yDTC6sbYFFE" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w1l2",
+                    lecNo: "W-1 L-2",
+                    lecName: "Network Layer: IPv4 Functions",
+                    subLectures: [
+                        { type: "docs", title: "Week-1 Lecture-2 Slide", id: "https://docs.google.com/presentation/d/12o6kvztISXPDVE_egH2gU_I-kXwTEpnV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "1.2-1 | The Network Layer & functions", id: "FewtLNsjtRA" },
+                        { type: "video", title: "1.2-2.1 | Datagram Network", id: "n1f0iGNVGps" },
+                        { type: "video", title: "1.2-2.2 | Virtual Circuits", id: "naN6LNPBHAs" },
+                        { type: "video", title: "1.2-3 | IPV4 Datagram Format", id: "Yf0b6yn5IGA" },
+                        { type: "video", title: "1.2-4.1 | IPV4 Fragmentation and Reassembly", id: "v50UVJ10_po" },
+                        { type: "video", title: "1.2-4.2 | IPV4 Fragmentation and Reassembly Examples", id: "jueq0YLE8Qg" },
+                        { type: "video", title: "1.2-5.1 | ICMP", id: "xTqtm7-k25o" },
+                        { type: "video", title: "1.2-5.2 | Ping and Traceout", id: "vJV-GBZ6PeM" },
+                        { type: "video", title: "1.2-5.3 | Traceout Explained", id: "up3bcBLZS74" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w1/2l3",
+                    lecNo: "W-1&2 L-1",
+                    lecName: "Network Layer: IPv4 Addressing",
+                    subLectures: [
+                        { type: "docs", title: "Week-1 Lecture-3 Slide", id: "https://docs.google.com/presentation/d/1GRQ1RNcUHnX7nYbIKHh6nrSVz92vnC5O/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "docs", title: "FLSM Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/1zn9ubTSb2fmlp3QzFu4RJsQDtXSnxIEe/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "1/2.1-1 | IPv4 Addressing (Sir's video)", id: "bzlsrfOeU-w" },
+                        { type: "video", title: "1/2.1-2.1 | FLSM (Solve) and VLSM (Sir's video)", id: "ocGg6hesJy0" },
+                        { type: "video", title: "1/2.1-2.2 | FLSM And VLSM", id: "APnuoYI6tWQ" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w3l1",
+                    lecNo: "W-3 L-1",
+                    lecName: "VLSM and Supernetting",
+                    subLectures: [
+                        { type: "docs", title: "VLSM Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/1iW2iRrArp0aW2ZAgMrZq5rGnv3T9OH8N/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "docs", title: "Suppernetting Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/19HYeW7-HB014y3-zp9S2RGbPfKBhxKJc/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "3.1-1 | FLSM (Solve) and VLSM (Sir's video)", id: "ocGg6hesJy0" },
+                        { type: "video", title: "3.1-2 | Suppernetting", id: "m7TwQ24lF74" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w4l1",
+                    lecNo: "W-4 L-1",
+                    lecName: "Link State Routing and Network Address Translation",
+                    subLectures: [
+                        { type: "docs", title: "Link State Routing", id: "https://docs.google.com/presentation/d/1a6_k-ua6CLlaJuDmow2J0n3ih7_XK4wT/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "4-1 | Link State Routing", id: "kW6zV-040SY" },
+                        { type: "video", title: "4-2 | Link State Routing (Another)", id: "whjf466hhqw" },
+                        { type: "video", title: "4-3 | Network Address Translation (NAT)", id: "47PUj7OSGkA" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w5l1",
+                    lecNo: "W-5 L-1",
+                    lecName: "Forwarding and Addressing, Virtual circuit and Datagram networks, ICMP",
+                    subLectures: [
+                        { type: "docs", title: "Application Layer: HTTP, FTP, SMTP, DNS.", id: "https://docs.google.com/presentation/d/1a6_k-ua6CLlaJuDmow2J0n3ih7_XK4wT/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "5-1.1 | Packet Switching", id: "_0mE6PH1E4c" },
+                        { type: "video", title: "5-1.2 | Datagram Switching Vs Virtual Circuit Switching", id: "-S-NThI_79o" },
+                        { type: "video", title: "5-2.1 | Internet Control Message Protocol (ICMP) part-1", id: "tAKx2RCgqow" },
+                        { type: "video", title: "5-2.2 | Internet Control Message Protocol (ICMP) part-2", id: "tAKx2RCgqow" },
+                        { type: "video", title: "5-3 | Forwarding and Routing", id: "9zvfSN_F7vM" },
+                        { type: "video", title: "5-4 | Dynamic Host Configuration Protocol (DHCP)", id: "e6-TaH5bkjo" },
+                        { type: "video", title: "5-5 | Network Address Translation (NAT)", id: "47PUj7OSGkA" },
+                    ],
+                },
+                {
+                    lecCode: "cse313-w6l1",
+                    lecNo: "W-6 L-1",
+                    lecName: "Application Layer: HTTP, FTP, SMTP, DNS.",
+                    subLectures: [
+                        { type: "docs", title: "Application Layer: HTTP, FTP, SMTP, DNS.", id: "https://docs.google.com/presentation/d/1a6_k-ua6CLlaJuDmow2J0n3ih7_XK4wT/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "video", title: "4-1 | Application Layer: HTTP, FTP, SMTP, DNS. (Sir's video)", id: "eXNg5aKzC7w" },
+                    ],
+                },
+            ],
+        },
+
         {
             courseCode: "CSE221",
             courseTitle: "Object Oriented Programming - II",
@@ -58,199 +387,6 @@ const VideoLectures = () => {
                 },
             ],
         },
-        
-        {
-            courseCode: "CSE315",
-            courseTitle: "Introduction to data science",
-            lectureVideos: [
-                {
-                    lecCode: "cse315-l1",
-                    lecNo: "W-1 L-1",
-                    lecName: "Introduction to Data Science",
-                    subLectures: [
-                        { type: "docs", title: "W1L1 Slide", id: "https://docs.google.com/presentation/d/1unwBEhGBsl9R_ZYPGuZ-nCsAxtypoqiH/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "1-1 | What is data science?", id: "uIUvpJdYgSA" },
-                        { type: "video", title: "1-2 | Data vs Information", id: "yFSEf6TOzDQ" },
-                        { type: "video", title: "1-3 | AI vs ML vs DL vs DS", id: "k2P_pHQDlp0" },
-                        { type: "video", title: "1-4 | Data Science Life Cycle", id: "4Cp6PkBKqX4" },
-                    ],
-                },
-                {
-                    lecCode: "cse315-l2",
-                    lecNo: "W-1 L-2",
-                    lecName: "Introduction to data",
-                    subLectures: [
-                        { type: "docs", title: "W1L2 Slide", id: "https://docs.google.com/presentation/d/11SbXfJFTS4_Aj0PiHMYErIZfotOSE_Q5/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "2-1 | Types of Variables", id: "FqB5Es1HXI4" },
-                        { type: "video", title: "2-2 | Four Measurement Levels", id: "LuBD49SFpWs" },
-                        { type: "video", title: "2-3 | Sources of data collection", id: "caUiRsg5M6k" },
-                    ],
-                },
-                {
-                    lecCode: "cse315-l3",
-                    lecNo: "W-2 L1",
-                    lecName: "Python in data science",
-                    subLectures: [
-                        { type: "docs", title: "W2L1 Slide", id: "https://docs.google.com/presentation/d/1MMocvW8o6IL1aOP-WoJ0Hj5zAyKOu2u0/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "3-1 | Data Science With Python", id: "mkv5mxYu0Wk" },
-                    ],
-                },
-                {
-                    lecCode: "cse315-l4",
-                    lecNo: "W-2 L-2",
-                    lecName: "Introduction to Statistics and Sampling Methods",
-                    subLectures: [
-                        { type: "docs", title: "W2L2 Slide", id: "https://docs.google.com/presentation/d/1METkwI6DYS0_Y5rsQ6zRMIivQocy1g__/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "4-1 | Statistics and it's types", id: "IngKIlvpg3s" },
-                        { type: "video", title: "4-2 | Population, Sample and Sampling methods", id: "fSmedyVv-Us" },
-                        { type: "video", title: "4-3 | Census Method Vs Sample Method", id: "BbrRT1jA9Hk" },
-                    ],
-                },
-                {
-                    lecCode: "cse315-l5",
-                    lecNo: "W-3 L-1",
-                    lecName: "Descriptive Statistics: Centre and Spread",
-                    subLectures: [
-                        { type: "docs", title: "W3L1 Slide", id: "https://docs.google.com/presentation/d/1MZF1P3Jz0bIBysvznqRSfSO6v4cnFEsy/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "5-1 | Mean, Median, Mode", id: "k3aKKasOmIw" },
-                        { type: "video", title: "5-2 | Types of mean (AM, GM, HM)", id: "ehfJvMCpN44" },
-                        { type: "video", title: "5-3 | Range, variance and standard deviation as measures of dispersion", id: "E4HAYd0QnRc" },
-                        { type: "video", title: "5-3 | More measures of dispersion", id: "vJ8pI8UEUjA" },
-                    ],
-                },
-                {
-                    lecCode: "cse315-l6",
-                    lecNo: "W-3 L-2",
-                    lecName: "Descriptive Statistics (cont): Shape Relative standing and outlier",
-                    subLectures: [
-                        { type: "docs", title: "W3L2 Slide", id: "https://docs.google.com/presentation/d/11_99Kw6rFZrctPV2jSo5oVhFGjrY3KJb/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
-                        { type: "video", title: "6-1 | Skewness & Kurtosis", id: "r2jPm9NhaUE" },
-                    ],
-                },
-            ],
-        },
-
-        {
-            courseCode: "CSE311",
-            courseTitle: "Database Management System",
-            lectureVideos: [
-                {
-                    lecCode: "cse311-l0",
-                    lecNo: "L-0",
-                    lecName: "Introduction to Database 1",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-0 Slide", id: "https://drive.google.com/file/d/1ylQh4BHNdF1npymAS3w-SgNgYjPFF1JB/view?usp=drive_link" },
-                        { type: "video", title: "0-1 | What is data?", id: "pg12U1BAnoA" },
-                        { type: "video", title: "0-2.1 | What is information?", id: "2AvIOzVJMCM" },
-                        { type: "video", title: "0-2.2 | Characteristics of Informtation", id: "WiqWNUUCy50" },
-                        { type: "video", title: "0-3.1 | What is metadata?", id: "L0vOg18ncWE" },
-                        { type: "video", title: "0-3.2 | Categories of Metadata", id: "EQdW8upjlUI" },
-                        { type: "video", title: "0-4 | Types of Data", id: "NirI_nTaIJQ" },
-                        { type: "video", title: "0-5 | File System VS DBMS", id: "oznPOXyqn3w" },
-
-                    ],
-                },
-                {
-                    lecCode: "cse311-l1",
-                    lecNo: "L-1",
-                    lecName: "Data Integrity",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-1.0 Slide", id: "https://drive.google.com/file/d/1m4iGcDRexh3Gd78ftB7iPZcuLZK1GGi3/view?usp=drive_link" },
-                        { type: "docs", title: "Lecture-1.1 Slide", id: "https://drive.google.com/file/d/1qcJjZ_yRxV6PAKk0xqDm1lxhT0kO-GpZ/view?usp=drive_link" },
-                        { type: "video", title: "1-1 | Data Integrity and Types", id: "VA6-5AfW5bw" },
-                    ],
-                },
-                {
-                    lecCode: "cse311-l2",
-                    lecNo: "L-2",
-                    lecName: "Introduction to SQL",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-2", id: "https://drive.google.com/file/d/1NBuAHNSRtsmMw-H06ztBN_HWYlhfY_pp/view?usp=drive_link" },
-                        { type: "video", title: "2-1 | Basic SQL Concepts", id: "zsjvFFKOm3c" },
-                        { type: "video", title: "2-2 | Types of Query Language", id: "vUj-kUEC_oA" },
-                        { type: "video", title: "2-3.1 | Creating Table", id: "ZBkNHg3v5zs" },
-                        { type: "video", title: "2-3.2 | Insert Data", id: "R4n0W7cS0_c" },
-                        { type: "video", title: "2-3.3 | Selecting Data", id: "_rUYAQWn6q8" },
-                        { type: "video", title: "2-3.4 | Updating Data", id: "MjI-1ZT68gM" },
-                        { type: "video", title: "2-3.5 | Deleting Data", id: "N-71W3crRmM" },
-                    ],
-                },
-                {
-                    lecCode: "cse311-l3",
-                    lecNo: "L-3",
-                    lecName: "Data Mapping and Database Administrator",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-3 & 4 Slide", id: "https://drive.google.com/file/d/1UpyC1RfIRMa5OyQ7_D9WADSBLf_mOy0w/view?usp=drive_link" },
-                        { type: "video", title: "3-1 | What is data Mapping?", id: "g7DTd_jqPzs" },
-                        { type: "video", title: "3-2.1 | Data Migration", id: "9L-L8dXP3MM" },
-                        { type: "video", title: "3-2.2 | Data Migration", id: "Kq4QgbhkqyE" },
-                        { type: "video", title: "3-2.3 | Data Transformation", id: "xwiJiXWg_Ps" },
-                        { type: "video", title: "3-2.4 | Data Warehouse", id: "NphMcnU8ymU" },
-                        { type: "video", title: "3-3 | DataBase Administrator", id: "fO5tDyOY5Fw" },
-                    ],
-                },
-                {
-                    lecCode: "cse311-l4",
-                    lecNo: "L-4",
-                    lecName: "ER Diagram",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-3 & 4 Slide", id: "https://drive.google.com/file/d/1UpyC1RfIRMa5OyQ7_D9WADSBLf_mOy0w/view?usp=drive_link" },
-                        { type: "video", title: "4-1 | ER Diagram", id: "G0XffHxohqY" },
-                        { type: "video", title: "4-2 | ER Model", id: "gbVev8RuZLg" },
-                        { type: "video", title: "4-3 | ER Diagram Symbols", id: "S4cBelRt2D8" },
-                        { type: "video", title: "4-4 | Types of Entity", id: "3ia2B7W2ETY" },
-                        { type: "video", title: "4-4 | Types of Attributes", id: "79XdTzaD7XI" },
-                        { type: "video", title: "4-5.1 | Types of Relationship and one to one", id: "jHRfpEdNKQs" },
-                        { type: "video", title: "4-5.2 | One to many and Many to one", id: "-f9jsqA3-IU" },
-                        { type: "video", title: "4-5.3 | Many to many", id: "yCxixT7476g" },
-                        { type: "video", title: "4-6.1 | ER Diagram Excercise (Part-1)", id: "l9BRmq7pgZ8" },
-                        { type: "video", title: "4-6.2 | ER Diagram Excercise (Part-2)", id: "BexmtjyRp6I" },
-                    ],
-                },
-                {
-                    lecCode: "cse311-l5",
-                    lecNo: "L-5",
-                    lecName: "Introduction to Relational Algebra",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-5", id: "https://drive.google.com/file/d/1QMr64wqAQUfZQV_NqsSqsj4n3lasCAZu/view?usp=drive_link" },
-                        { type: "video", title: "5-1 | Relational Algebra", id: "BeRa_U0N9tU" },
-                        { type: "video", title: "5-2 | Selection Operator", id: "iEyy3TbGLd0" },
-                        { type: "video", title: "5-3 | Projection Operator", id: "vrmfMQchf04" },
-                        { type: "video", title: "5-4 | Union Operator", id: "xnOC0wN8rpg" },
-                        { type: "video", title: "5-5 | Set Intersection Operation", id: "5IjEMcf8kF0" },
-                        { type: "video", title: "5-6 | Set Difference Operation", id: "XcLa3KsCHZU" },
-                        { type: "video", title: "5-7 | Cartesian Product / Cross Product", id: "7m0FAQyF_-c" },
-                        { type: "video", title: "5-8.1 | Introduction to joins", id: "YQ7XVAzBv2M" },
-                        { type: "video", title: "5-8.2 | Natural Join", id: "egJBfCkIfag" },
-                        { type: "video", title: "5-8.3 | Left Outer Join", id: "tCvZi85gjxg" },
-                        { type: "video", title: "5-8.4 | Right Outer Join", id: "amN_F1uO87g" },
-                        { type: "video", title: "5-8.5 | Full Outer Join", id: "poksQkBP5nk" },
-                        { type: "video", title: "5-9 | Set Functions Or Aggregation Functions", id: "PmVkc95BsuA" },
-                    ],
-                },
-                {
-                    lecCode: "cse311-l6",
-                    lecNo: "L-6",
-                    lecName: "Data Modeling Using the Entity-Relationship (ER) Model",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-6", id: "https://drive.google.com/file/d/1aapgjltMSPe5JbFjGI63_OGk_OTpvAPX/view?usp=drive_link" },
-                        { type: "video", title: "6-1 | ER Diagram Introduction", id: "G0XffHxohqY" },
-                        { type: "video", title: "6-2 | Symbols of ER Diagram", id: "S4cBelRt2D8" },
-                        { type: "video", title: "6-3 | Symbols of ER Diagram", id: "S4cBelRt2D8" },
-                        { type: "video", title: "6-4 | Types of Entity", id: "3ia2B7W2ETY" },
-                        { type: "video", title: "6-5 | Types of Attributes", id: "79XdTzaD7XI" },
-                        { type: "video", title: "6-6.1 | Types of Relationship | One to One", id: "jHRfpEdNKQs" },
-                        { type: "video", title: "6-6.2 | Types of Relationship | One to Many | Many to One", id: "-f9jsqA3-IU" },
-                        { type: "video", title: "6-6.3 | Types of Relationship | Many to Many", id: "yCxixT7476g" },
-                        { type: "video", title: "6-7 | Degree of Relationship", id: "gpcnyLSoppk" },
-                        { type: "video", title: "6-8 | Participation Constraints", id: "-t63uwNJNJw" },
-                        { type: "video", title: "6-9 | Relational Model", id: "lbTiI2KZVBQ" },
-                        { type: "video", title: "6-10 | Full Chapter", id: "KQP8PBzFQzw" },
-                        { type: "video", title: "6-11 | Full Chapter (Another Video)", id: "5hZoHU_sYBk" },
-                    ],
-                },
-            ],
-        },
 
         {
             courseCode: "CSE335",
@@ -293,54 +429,6 @@ const VideoLectures = () => {
             ],
         },
 
-        {
-            courseCode: "CSE313",
-            courseTitle: "Computer Networks",
-            lectureVideos: [
-                {
-                    lecCode: "cse313-l1",
-                    lecNo: "L-1",
-                    lecName: "Network Models &  Protocol Architectures",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-1 Slide", id: "https://docs.google.com/presentation/d/1fNGewoqa7FEcnC7rh25h2ZgOgbvujb6W/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
-                        { type: "video", title: "1-1 | Layering", id: "FewtLNsjtRA" },
-                        { type: "video", title: "1-2.1 | The OSI Reference Model (Part 1)", id: "qBXmbJZQ5rY" },
-                        { type: "video", title: "1-2.2 | The OSI Reference Model (Part 2)", id: "xiGgrQioF2E" },
-                        { type: "video", title: "1-2.3 | The OSI Reference Model (Part 3)", id: "oQzueBVyAM4" },
-                        { type: "video", title: "1-2.4 | The OSI Reference Model (Part 4)", id: "XI8kMBMMS6o" },
-                        { type: "video", title: "1-3 | Addressing in network", id: "yDTC6sbYFFE" },
-                    ],
-                },
-                {
-                    lecCode: "cse313-l2",
-                    lecNo: "L-2",
-                    lecName: "Network Layer: IPv4 Functions",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-2 Slide", id: "https://docs.google.com/presentation/d/12o6kvztISXPDVE_egH2gU_I-kXwTEpnV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
-                        { type: "video", title: "2-1 | The Network Layer & functions", id: "FewtLNsjtRA" },
-                        { type: "video", title: "2-2.1 | Datagram Network", id: "n1f0iGNVGps" },
-                        { type: "video", title: "2-2.2 | Virtual Circuits", id: "naN6LNPBHAs" },
-                        { type: "video", title: "2-3 | IPV4 Datagram Format", id: "Yf0b6yn5IGA" },
-                        { type: "video", title: "2-4.1 | IPV4 Fragmentation and Reassembly", id: "v50UVJ10_po" },
-                        { type: "video", title: "2-4.2 | IPV4 Fragmentation and Reassembly Examples", id: "jueq0YLE8Qg" },
-                        { type: "video", title: "2-5.1 | ICMP", id: "xTqtm7-k25o" },
-                        { type: "video", title: "2-5.2 | Ping and Traceout", id: "vJV-GBZ6PeM" },
-                        { type: "video", title: "2-5.3 | Traceout Explained", id: "up3bcBLZS74" },
-                    ],
-                },
-                {
-                    lecCode: "cse313-l3",
-                    lecNo: "L-2",
-                    lecName: "Network Layer: IPv4 Addressing",
-                    subLectures: [
-                        { type: "docs", title: "Lecture-3 Slide", id: "https://docs.google.com/presentation/d/1GRQ1RNcUHnX7nYbIKHh6nrSVz92vnC5O/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
-                        { type: "video", title: "3-1 | IPv4 Addressing (Sir's video)", id: "bzlsrfOeU-w" },
-                        { type: "video", title: "3-2 | FLSM And VLSM", id: "APnuoYI6tWQ" },
-                    ],
-                },
-            ],
-        },
-
 
     ];
 
@@ -355,19 +443,19 @@ const VideoLectures = () => {
 
     return (
         <div>
-        <Helmet>
-        <title>Video Lectures | CSE P DIU</title>
-        <meta property="og:title" content="Video Lectures | CSE P DIU" />
-        <meta property="og:description" content="Video Lectures for better preparation with slides" />
-        <meta property="og:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
-        <meta property="og:url" content="https://cse-p-diu.web.app/videolectures" />
-        <meta property="og:type" content="web application" />
+            <Helmet>
+                <title>Video Lectures | CSE P DIU</title>
+                <meta property="og:title" content="Video Lectures | CSE P DIU" />
+                <meta property="og:description" content="Video Lectures for better preparation with slides" />
+                <meta property="og:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
+                <meta property="og:url" content="https://cse-p-diu.web.app/videolectures" />
+                <meta property="og:type" content="web application" />
 
-        <meta name="twitter:card" content="Video Lectures for better preparation with slides" />
-        <meta name="twitter:title" content="Video Lectures | CSE P DIU" />
-        <meta name="twitter:description" content="Video Lectures for better preparation with slides" />
-        <meta name="twitter:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
-      </Helmet>
+                <meta name="twitter:card" content="Video Lectures for better preparation with slides" />
+                <meta name="twitter:title" content="Video Lectures | CSE P DIU" />
+                <meta name="twitter:description" content="Video Lectures for better preparation with slides" />
+                <meta name="twitter:image" content="https://i.ibb.co.com/7RTDG10/Pngtree-network-teaching-online-learning-illustration-6183356.png" />
+            </Helmet>
             <div className="h-screen w-full pt-[65px]">
                 <div className=" h-full w-full flex sm:flex-col p-1">
                     <div className="w-1/2 h-full sm:h-1/2 sm:w-full">
@@ -390,7 +478,7 @@ const VideoLectures = () => {
 
                     <div className="space-y-2 w-1/2 sm:w-full h-auto p-4 overflow-y-auto">
                         {courses_video.map((course) => (
-                            <div key={course.courseCode} className="bg-gray-800 collapse">
+                            <div key={course.courseCode} className={`${course.courseCode === 'CSE313' ? 'bg-gradient-to-r from-[#166fb8] to-[#49b863]' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"
@@ -437,7 +525,8 @@ const VideoLectures = () => {
                                                             subLecture.type === "video" ? (
                                                                 <button
                                                                     key={index}
-                                                                    className="btn w-full text-left"
+                                                                    disabled={subLecture.id === 'disabled'}
+                                                                    className={`btn w-full text-left`}
                                                                     onClick={() => setCurrentlyPlaying(subLecture.id)}
                                                                 >
                                                                     <div className="flex items-center space-x-4">
@@ -453,6 +542,18 @@ const VideoLectures = () => {
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
                                                                     className="btn btn-accent w-full text-left"
+                                                                >
+                                                                    <div className="flex items-center space-x-4">
+                                                                        <div>{subLecture.title}</div>
+                                                                        <IoLogOutOutline /> {/* Example icon for docs */}
+                                                                    </div>
+                                                                </Link>
+                                                            ) : subLecture.type === "classnote" ? (
+                                                                <Link to={subLecture.id}
+                                                                    key={index}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    className="btn bg-white text-black hover:text-white w-full text-left"
                                                                 >
                                                                     <div className="flex items-center space-x-4">
                                                                         <div>{subLecture.title}</div>

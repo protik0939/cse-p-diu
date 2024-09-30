@@ -23,7 +23,9 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <script type="module" src="/service-worker.js"></script>
+  <script type="module" src="./public/service-worker.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <script>
     navigator.serviceWorker.register('./public/service-worker.js').then((reg) => {
       console.log('Worker Registered');

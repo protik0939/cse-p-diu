@@ -1,6 +1,5 @@
 const CACHE_NAME = "version-1";
 const urlsToCache = ["index.html", "offline.html"];
-const self = this;
 
 // Installation event - cache resources
 self.addEventListener('install', (event) => {
@@ -24,6 +23,7 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
+// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(

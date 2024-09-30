@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import '../Home/Home.css';
 import Skeleton from "react-loading-skeleton";
+import { Helmet } from "react-helmet";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Result = () => {
     const [semesters, setSemesters] = useState([]);
     const [selectedSemester, setSelectedSemester] = useState('');
     const [studentInfo, setStudentInfo] = useState(null); // Initialize as null to differentiate between no data and empty data
     const [loading, setLoading] = useState(false); // New loading state
+    const [userInfo, setUserInfo] = useState(false);
 
     useEffect(() => {
         const fetchSemesters = async () => {
             try {
-                const response = await fetch('https://cse-p-diu-server.vercel.app/secure-api/semesterList');
+                const response = await fetch('https://cse-p-diu-server.vercel.app/semesterList');
                 const data = await response.json();
                 setSemesters(data);
             } catch (error) {
@@ -34,7 +38,7 @@ const Result = () => {
         const sId = e.target.sId.value;
 
         try {
-            const response = await fetch(`https://cse-p-diu-server.vercel.app/secure-api/studentInfo?studentId=${sId}`);
+            const response = await fetch(`https://cse-p-diu-server.vercel.app/studentInfo/${sId}`);
             const data = await response.json();
             setStudentInfo(data);
         } catch (error) {
@@ -43,9 +47,23 @@ const Result = () => {
             setLoading(false); // Set loading to false after fetching data
         }
     };
+    const { user } = useContext(AuthContext);
+    useEffect(() => {
+        fetch(`https://cse-p-diu-server.vercel.app/users/uid/${user?.uid}`)
+            .then(res => res.json())
+            .then(data => {
+                setUserInfo(data)
+            })
+            .catch(error => {
+                console.log(`Something went wrong: ${error}`)
+            })
+    }, [user?.uid]);
 
     return (
         <div className="w-full flex sm:flex-col">
+            <Helmet>
+                <title>Result | CSE P DIU</title>
+            </Helmet>
             <div className="flex h-screen items-center justify-center w-1/3 sm:w-full sm:h-auto sm:mt-16">
                 <div className="py-4" />
                 <div className="hero-content flex-col justify-start w-full">
@@ -55,7 +73,7 @@ const Result = () => {
                                 <label className="label">
                                     <span className="label-text">Student ID</span>
                                 </label>
-                                <input type="text" name="sId" placeholder="Student ID" className="input input-bordered" required />
+                                <input type="text" defaultValue={userInfo?.studentId} name="sId" placeholder="Student ID" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -80,7 +98,7 @@ const Result = () => {
                                                 key={semester.semesterId}
                                                 value={semester.semesterId}
                                             >
-                                                {`${semester.semesterName} ${semester.semesterYear} (${semester.semesterId})`}
+                                                {`${semester.semesterName} ${semester.semesterYear}`}
                                             </option>
                                         )))}
                                 </select>
@@ -88,13 +106,14 @@ const Result = () => {
                             <div className="form-control mt-6">
                                 <input className="btn" type="submit" value="Check Result" />
                             </div>
+                            <h1 className="pt-4 text-center text-[10px]">Thanks to my friend <Link target="_blank" to='https://www.facebook.com/md.musa706' className="link link-success">Musa</Link> Helping me in data fetch</h1>
                         </form>
                     </div>
                 </div>
             </div>
             <div className="w-2/3 sm:w-full py-[80px] p-5 h-screen sm:h-auto overflow-y-scroll overlay-scrollbar">
                 {loading ? (
-                    
+
                     <div className="w-full p-20">
                         <div className="text-center text-white">
                             <Skeleton height={25} width="30%" style={{ marginTop: '0px', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
