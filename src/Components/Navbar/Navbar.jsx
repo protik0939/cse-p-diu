@@ -94,7 +94,7 @@ const Navbar = () => {
                                         <img
                                             alt=""
                                             src={photoUrl} />) :
-                                        <IoIosContact className="text-[2rem]" />}
+                                        <IoIosContact className="text-[2rem] text-[#49b863]" />}
                                 </div>
                             </div>
                             <ul
