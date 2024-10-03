@@ -3,11 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Skeleton from "react-loading-skeleton";
 import Logo from '../../assets/CSE_P_DIU_logo.svg';
-import { IoIosContact, IoMdLogIn, IoMdLogOut } from "react-icons/io";
+import { IoIosContact, IoMdLogIn, IoMdLogOut, IoMdNotifications } from "react-icons/io";
 import { ImProfile } from "react-icons/im";
 import '../Home/Home.css';
 import Swal from "sweetalert2";
 import './Navbar.css'
+import ThemeToggle from "../ThemeToogle/ThemeToogle";
 
 
 const Navbar = () => {
@@ -57,7 +58,10 @@ const Navbar = () => {
                     <img className="w-[80px]" src={Logo} alt="" />
                 </div>
                 </NavLink>
-                <ul className="flex menu menu-horizontal justify-center items-center space-x-2 p-0">
+                <ul className="flex menu menu-horizontal justify-center items-center space-x-2 sm:space-x-0 p-0">
+                    <div className="flex items-center justify-center">
+                        <ThemeToggle />
+                    </div>
 
                     <li><NavLink
                         to="/"
@@ -81,6 +85,14 @@ const Navbar = () => {
                         to="/result"
                         className="sm:hidden"
                     >Result</NavLink></li>
+
+
+                    <div className="pl-3"> <NavLink
+                        to="/notice"
+                        >
+                        <IoMdNotifications className="text-2xl text-[#49b863]" />
+                    </NavLink>
+                    </div>
 
 
                     <li className="relative cursor-pointer">

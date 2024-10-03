@@ -159,7 +159,7 @@ const DetailsPost = () => {
     // this will be removed after undo
 
     return (
-        <div className="flex h-screen sm:flex-col sm:h-auto p-2 pt-16 justify-between sm:justify-center sm:items-center space-x-2">
+        <div className="flex h-screen sm:flex-col sm:h-auto p-2 pt-[75px] justify-between sm:justify-center sm:items-center space-x-2">
             <Helmet>
                 <title>{detailsPost.postTitle} | CSE P DIU</title>
             </Helmet>

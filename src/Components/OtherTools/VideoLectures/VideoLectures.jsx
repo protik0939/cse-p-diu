@@ -333,7 +333,7 @@ const VideoLectures = () => {
                     lecNo: "W-6 L-1",
                     lecName: "Application Layer: HTTP, FTP, SMTP, DNS.",
                     subLectures: [
-                        { type: "docs", title: "Application Layer: HTTP, FTP, SMTP, DNS.", id: "https://docs.google.com/presentation/d/1a6_k-ua6CLlaJuDmow2J0n3ih7_XK4wT/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                        { type: "docs", title: "Application Layer: HTTP, FTP, SMTP, DNS.", id: "https://docs.google.com/presentation/d/11FkZRxQtXcBmxF1Fw_wteH__bFGwC6GV/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                         { type: "video", title: "4-1 | Application Layer: HTTP, FTP, SMTP, DNS. (Sir's video)", id: "eXNg5aKzC7w" },
                     ],
                 },
@@ -350,12 +350,28 @@ const VideoLectures = () => {
                     lecName: "Introduction to Python Programming",
                     subLectures: [
                         { type: "docs", title: "Lecture-1 Slide", id: "https://drive.google.com/file/d/1A-Og7PWCyrk2PG91nqOgKw6EW2qbb7gT/view?usp=drive_link" },
-                        { type: "video", title: "1.1 | Introduction and History of python", id: "Ri1Lgdew8Ds" },
-                        { type: "video", title: "1.2 | Environment Setup (Optional)", id: "31QmsNeiDKI" },
-                        { type: "video", title: "1.3 | Syntax of Python", id: "eol9EzchLbA" },
-                        { type: "video", title: "1.4 | Variables in Python", id: "rvnp9F9dB1U" },
-                        { type: "video", title: "1.5 | Operators", id: "6QOH6auuAUs" },
-                        { type: "video", title: "1.6 | Python User Input", id: "KtozLrR_0X8" },
+                        { type: "video", title: "1-1 | Introduction and History of python", id: "Ri1Lgdew8Ds" },
+                        { type: "video", title: "1-2 | Environment Setup (Optional)", id: "31QmsNeiDKI" },
+                        { type: "video", title: "1-3 | Syntax of Python", id: "eol9EzchLbA" },
+                        { type: "video", title: "1-4.1 | Comment in python (maam's video)", id: "4scw0fYGqOg" },
+                        { type: "video", title: "1-4.2 | Comment in python", id: "lV7czwQsCk0" },
+                        { type: "video", title: "1-5.1 | Variables in Python (maam's video)", id: "jFAFgDKSvWI" },
+                        { type: "video", title: "1-5.2 | Variables in Python", id: "rvnp9F9dB1U" },
+                        { type: "video", title: "1-6.1 | Data Types in Python", id: "AcFt3D6HTt0" },
+                        { type: "video", title: "1-6.3 | Numbers in python (maam's video)", id: "ZK0Ed-yqQCI" },
+                        { type: "video", title: "1-6.3 | Number type", id: "dZ535ITvzbY" },
+                        { type: "video", title: "1-6.4 | String in python (maam's video)", id: "kxz8SzA8Has" },
+                        { type: "video", title: "1-6.5 | String type", id: "TEW97cJZ3ec" },
+                        { type: "video", title: "1-6.6 | Boolean type", id: "YqQZ_oSmqAw" },
+                        { type: "video", title: "1-6.7 | String Formatting", id: "4rNixJcsC1k" },
+                        { type: "video", title: "1-6.8 | Binary type", id: "DEI0UIZ_SFI" },
+                        { type: "video", title: "1-6.9 | Node type", id: "D5xc2QrPXQI" },
+                        { type: "video", title: "1-6.10 | Sequence type", id: "KXARdcss8dE" },
+                        { type: "video", title: "1-7.2 | Operators (maam's video)", id: "4_LTSnATPQY" },
+                        { type: "video", title: "1-7.2 | Operators", id: "6QOH6auuAUs" },
+                        { type: "video", title: "1-7.3 | Assignment Operators", id: "nfmHxs57c0o" },
+                        { type: "video", title: "1-8 | Python User Input", id: "KtozLrR_0X8" },
+                        { type: "video", title: "1-9 | Python Type Casting", id: "jxkXQb4DtoQ" },
                     ],
                 },
                 {
@@ -364,7 +380,12 @@ const VideoLectures = () => {
                     lecName: "Control Statements in Python",
                     subLectures: [
                         { type: "docs", title: "Lecture-2 Slide", id: "https://drive.google.com/file/d/1MbHhjW9rxcfDi1BLQHU0O9ov49X6Cvyb/view?usp=sharing" },
-                        { type: "video", title: "2.1 | Introduction and History of python", id: "gkV14SRCD-4" },
+                        { type: "video", title: "2-1.1 | If-Else (maam's video)", id: "IeS-UktNeUk" },
+                        { type: "video", title: "2-1.2 | If-Else", id: "WJ8bgm3Bzhk" },
+                        { type: "video", title: "2-2.1 | Loops (maam's video)", id: "lhh6_4mBzRM" },
+                        { type: "video", title: "2-2.2 | Loops", id: "OWVkkN4CSAU" },
+                        { type: "video", title: "2-3 | Break and Continue", id: "Sj-alL8vReM" },
+
                     ],
                 },
                 {
@@ -373,16 +394,86 @@ const VideoLectures = () => {
                     lecName: "Python Function",
                     subLectures: [
                         { type: "docs", title: "Lecture-3 Slide", id: "https://drive.google.com/file/d/13L24aVk2DE9JY49c_s_P8mHJzbVXLSN4/view?usp=drive_link" },
-                        { type: "video", title: "3.1 | Python Functions", id: "wLie11bgbSI" },
+                        { type: "video", title: "3.1.1 | Python Functions (maam's video)", id: "b0N6EknooB4" },
+                        { type: "video", title: "3.1.2 | Python Functions", id: "e4CuHlW2_KU" },
                     ],
                 },
                 {
                     lecCode: "cse221-l4",
                     lecNo: "L-4",
-                    lecName: "Python Function",
+                    lecName: "Python Sequences",
                     subLectures: [
                         { type: "docs", title: "Lecture-4 Slide", id: "https://drive.google.com/file/d/1cghMuoU8AdJdTeJCyVX5hWnWHYY2C7_K/view?usp=sharing" },
-                        { type: "video", title: "4.1 | Python Sequences", id: "lFi3aenAfZU" },
+
+                        { type: "video", title: "4-1.1 | Python List", id: "A_wI1sAjRxU" },
+                        { type: "video", title: "4-1.2 | Python List (maam's video)", id: "Sq7Z3SKfDS8" },
+                        { type: "video", title: "4-1.3 | Python List Slicing (maam's video)", id: "3kzmvb6xlyo" },
+                        { type: "video", title: "4-1.4 | Change List Item", id: "s3KtSPunz5g" },
+                        { type: "video", title: "4-1.5 | Add List Item", id: "RAVdO-2Zyz8" },
+                        { type: "video", title: "4-1.6 | Remove List Item", id: "jH8SNizYQRs" },
+                        { type: "video", title: "4-1.7 | Loop List", id: "9XWFgI0UPAk" },
+                        { type: "video", title: "4-1.8 | Sort List", id: "a46WoRNX_0Q" },
+                        { type: "video", title: "4-1.9 | Copy A List", id: "PUiwi5Xd23s" },
+                        { type: "video", title: "4-1.10 | Join Two List", id: "2HDJyyY95IE" },
+                        { type: "video", title: "4-1.11 | List All Methods", id: "CAEAHAjEvTo" },
+                        { type: "video", title: "4-1.12 | List Exercise", id: "BFUUk0RdXaQ" },
+
+                        { type: "video", title: "4-2.1 | Python Tuple", id: "KEwQ1wJKsS8" },
+                        { type: "video", title: "4-2.2 | Update Tuple", id: "7nPDjeAR0rs" },
+                        { type: "video", title: "4-2.3 | Unpack Tuple", id: "fgJWvoBWXVc" },
+                        { type: "video", title: "4-2.4 | Loop Tuple", id: "JmAqFiZA-Cg" },
+                        { type: "video", title: "4-2.5 | Join Tuple", id: "LIYl5ov-AwE" },
+                        { type: "video", title: "4-2.6 | Tuple Method", id: "JkC1GfRQSzg" },
+                        { type: "video", title: "4-2.7 | Tuple Excercise", id: "l83uuKGSD8U" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-l5",
+                    lecNo: "L-5",
+                    lecName: "Stack, Expression and 2D list",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-5 Slide", id: "https://drive.google.com/file/d/1CVrxb1xWSIC_o8VMJKjFAnJNHmzeC3Mc/view?usp=sharing" },
+                        { type: "video", title: "5-1 | Stack using List", id: "AKO9nI4tuhs" },
+                        { type: "video", title: "5-2 | Generators", id: "bD05uGo_sVI" },
+                        { type: "video", title: "5-3 | 2D List", id: "Xy6qeQWQwFw" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-l6",
+                    lecNo: "L-6",
+                    lecName: "Python Dictionaries and Sets",
+                    subLectures: [
+                        { type: "docs", title: "Lecture-5 Slide", id: "https://drive.google.com/file/d/1kEB7cvkuekOM9z49ebK89vlwCzr8m-VP/view?usp=sharing" },
+                        { type: "video", title: "6-1 | Python Dictionary (maam's video)", id: "UsZWjRxdB_c" },
+                        { type: "video", title: "6-1 | Python Dictionaries", id: "bv3F4ZactVg" },
+                        { type: "video", title: "6-1 | Python Dictionaries Access", id: "NRx6xet911I" },
+                        { type: "video", title: "6-1 | Python Dictionaries Change Item", id: "uduxP0gLLYE" },
+                        { type: "video", title: "6-1 | Python Dictionaries Add Item", id: "1EDT2zyXUUA" },
+                        { type: "video", title: "6-1 | Python Loop Dictionary", id: "jQEIlSE9xrw" },
+                        { type: "video", title: "6-1 | Python Copy Dictionary", id: "6ASesYwZmIc" },
+                        { type: "video", title: "6-1 | Python Dictionary Exercises", id: "reloHECv8go" },
+
+                        { type: "video", title: "6-1 | Set in Python (maam's video)", id: "qzIk5H9QDls" },
+                        { type: "video", title: "6-1 | Python Set", id: "JU7v7qUszgs" },
+                        { type: "video", title: "6-1 | Python Access Set Item", id: "iG5cmA-04rQ" },
+                        { type: "video", title: "6-1 | Python Add Set Item", id: "xcUj1smKYFM" },
+                        { type: "video", title: "6-1 | Python Remove Set Item", id: "BHH1VzVo0_k" },
+                        { type: "video", title: "6-1 | Python Loop Set Item", id: "XTTEX-APcXQ" },
+                        { type: "video", title: "6-1 | Python Join Set Item", id: "oL0Vn5rAxAM" },
+                        { type: "video", title: "6-1 | Python Set Item Exercise", id: "vQ3w8NhooGc" },
+                    ],
+                },
+                {
+                    lecCode: "cse221-lmore",
+                    lecNo: "🐍🐍🐍",
+                    lecName: "More ডলাডলি with সাপ (Python)",
+                    subLectures: [
+                        { type: "docs", title: "Extra Slide - INTRO TO PYTHON", id: "https://drive.google.com/file/d/1bq-HRM4wxxwYhhl96LVvZne386A5F_fI/view?usp=sharing" },
+                        { type: "docs", title: "Extra Slide - SYNTAX & VARIABLES IN PYTHON", id: "https://drive.google.com/file/d/1Js72Hk_-HIkXGNtPcScUA9_RjalN-xqk/view?usp=sharing" },
+                        { type: "docs", title: "Extra Slide - DATA TYPE, NUMBERS, CASTING IN PYTHON", id: "https://drive.google.com/file/d/1V2U0kjLQRZ6iR4A1eK5H_cILjFyCEumr/view?usp=sharing" },
+                        { type: "docs", title: "Extra Slide - PYTHON STRING", id: "https://drive.google.com/file/d/1nGAguKtW-xW2DAaq1Q6oHQI_PkVxOtXR/view?usp=sharing" },
+                        { type: "docs", title: "Extra Slide - PYTHON BOOLEAN AND OPERATORS", id: "https://drive.google.com/file/d/1bvHzFvuvD4VITd1xbS6exWpATsMPNN_H/view?usp=sharing" },
+                        { type: "classnote", title: "Full Python Playlist of Hablu Programmer If you want to learn more", id: "https://www.youtube.com/playlist?list=PLNMnAEqLBwmpR8JDBOEl0jrzmH1vPnO7v" },
                     ],
                 },
             ],
@@ -478,7 +569,7 @@ const VideoLectures = () => {
 
                     <div className="space-y-2 w-1/2 sm:w-full h-auto p-4 overflow-y-auto">
                         {courses_video.map((course) => (
-                            <div key={course.courseCode} className={`${course.courseCode === 'CSE313' ? 'bg-gradient-to-r from-[#166fb8] to-[#49b863]' : 'bg-gray-800'} collapse`}>
+                            <div key={course.courseCode} className={`${course.courseCode === 'CSE221' ? 'bg-gradient-to-r from-[#166fb8] to-[#49b863]' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"
