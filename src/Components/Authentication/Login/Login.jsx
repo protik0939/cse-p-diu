@@ -104,6 +104,7 @@ const Login = () => {
     const handleGooglePopupLogin = () => {
         googleSignIn()
             .then((result) => {
+                console.log(result);
                 const uid = result.user.uid;
                 const email = result.user.email;
                 const name = result.user.displayName;
@@ -127,6 +128,7 @@ const Login = () => {
                             } else {
                                 // User does not exist, send user data to the database
                                 const newUser = { uid, email, name, photourl, studentId, batchNo, section, classRepresentative };
+                                console.log(newUser);
                                 fetch('https://cse-p-diu-server.vercel.app/users', {
                                     method: 'POST',
                                     headers: {

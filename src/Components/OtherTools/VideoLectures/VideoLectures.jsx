@@ -561,6 +561,15 @@ const courses_video_final = [
                     { type: "video", title: "9-1 | Full Probability Distribution", id: "KLf--2TfSZA" },
                 ],
             },
+            {
+                lecCode: "cse315-l10",
+                lecNo: "W-6",
+                lecName: "Feature Engineering",
+                subLectures: [
+                    { type: "docs", title: "W6 Slide", id: "https://docs.google.com/presentation/d/1-FdrO-_WTNuGzDg5V9RcVvcUv3AthOs2/edit?usp=drive_link&ouid=107570650630946017419&rtpof=true&sd=true" },
+                    { type: "video", title: "10-1 | Full Probability Distribution", id: "KLf--2TfSZA" },
+                ],
+            },
         ],
     },
 
@@ -621,6 +630,7 @@ const courses_video_final = [
 
 
 
+
 const VideoLectures = () => {
     const [isChecked, setIsChecked] = useState(null);
     const [currentlyPlaying, setCurrentlyPlaying] = useState("");
@@ -642,6 +652,9 @@ const VideoLectures = () => {
         setCurrentlyPlaying(x.id)
         setSnglData(x);
     }
+
+
+    
 
     return (
         <div>

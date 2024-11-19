@@ -1,4 +1,4 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink, pdf } from "@react-pdf/renderer";
 import { useContext, useEffect, useState } from "react";
 import waterMark from "../../../../assets/wateramark.png";  // Replace with the correct path to your watermark image
 import headerLogo from "../../../../assets/headerlogo.png";
@@ -7,6 +7,19 @@ import { Helmet } from "react-helmet";
 import { AuthContext } from "../../../../Providers/AuthProvider";
 
 const FinalLabReport = () => {
+
+    
+    const currentDate = new Date();
+    const day = currentDate.getDate().toString().padStart(2, '0'); // Ensures 2 digits for the day
+    const month = currentDate.toLocaleString('en-US', { month: 'long' }); // Full month name
+    const monthInInt = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear(); // Full year
+    const yearLastTwo = currentDate.getFullYear().toString().slice(-2);
+    const formattedDate = `${day} ${month}, ${year}`;
+
+    const season = monthInInt >= 1 && monthInInt <= 6 ? 'Spring' : 'Fall';
+    const seasonYear = `${season}-${yearLastTwo}`;
+
     const [userInfo, setUserInfo] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -18,14 +31,15 @@ const FinalLabReport = () => {
         name: "",
         studentId: "",
         section: "",
-        semester: "",
+        semester: seasonYear,
         yourDept: "",
-        submissionDate: "",
+        submissionDate: formattedDate,
         headerLogo: headerLogo,
         waterMark: waterMark,
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [pdfUrl, setPdfUrl] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,9 +49,13 @@ const FinalLabReport = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         setSubmitted(true);
+
+        const blob = await pdf(<FinalLabReportDocument formData={formData} />).toBlob();
+        const url = URL.createObjectURL(blob);
+        setPdfUrl(url);
     };
 
     const { user } = useContext(AuthContext);
@@ -68,9 +86,11 @@ const FinalLabReport = () => {
             <Helmet>
                 <title>Final Lab Report | CSE P DIU</title>
             </Helmet>
-            <h1 className="text-center text-2xl p-4 font-bold">
-                Final Lab Report Cover Page
-            </h1>
+            {pdfUrl ? ''
+                :
+                <h1 className="text-center text-2xl p-4 font-bold">
+                    Final Lab Report Cover Page
+                </h1>}
             {!submitted ? (
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-3 p-4 sm:grid-cols-1 text-center justify-center items-center">
@@ -212,13 +232,22 @@ const FinalLabReport = () => {
                 </form>
             ) : (
                 <div className="flex items-center justify-center h-[30vw]">
+                    
+                    {pdfUrl && (
+                        <iframe
+                            className="w-full h-screen top-0 fixed"
+                            src={pdfUrl}
+                            title="PDF Preview"
+                        />
+                    )}
+
                     <PDFDownloadLink
-                        className="btn"
+                        className="btn fixed bottom-10 left-10 sm:bottom-20"
                         document={<FinalLabReportDocument formData={formData} />}
                         fileName={`Final-Lab-Report_${formData.name}_${formData.studentId}_${formData.submissionDate}`}
                     >
                         {({ loading }) =>
-                            loading ? <span className="loading loading-ring loading-lg"></span> : "Download PDF"
+                            loading ? <span className="flex space-x-2 justify-center items-center"><h1>Please Wait...</h1><span className="loading loading-ring loading-lg"/></span> : "Download PDF"
                         }
                     </PDFDownloadLink>
                 </div>
