@@ -2,6 +2,9 @@ import Skeleton from "react-loading-skeleton";
 import PropTypes from 'prop-types';
 import { useEffect, useState } from "react";
 
+import nrf from '../../../public/noResultFound.svg'
+import nsf from '../../../public/noStudentFound.svg'
+
 const ResultCard = ({ sdata, semester }) => {
 
 
@@ -87,12 +90,13 @@ const ResultCard = ({ sdata, semester }) => {
         }
     }
 
-
-
     return (
         <div className="w-full rounded-[40px] shadow-2xl p-5 h-auto">
-            {sdata === null ? (
-                <div></div>
+            {sdata?.batchId === null ? (
+                <div className="w-full p-5 relative">
+                    <img className="w-full" src={nsf} alt="" />
+                    <h1 className="absolute top-2 font-bold text-center w-full">Do you really exist??</h1>
+                </div>
             ) : (
                 <>
                     <h1 className="text-4xl font-bold text-center p-10 rsct:p-2">Result Sheet </h1>
@@ -135,35 +139,44 @@ const ResultCard = ({ sdata, semester }) => {
                                     </div>
                                 </div>
                             )
-                            : (
-                                <div>
-                                    <h1 className="text-center w-full py-6 text-2xl font-bold my-5">CGPA - {resultFull[0]?.cgpa} ({getGradeFromCGPA(resultFull[0]?.cgpa)})</h1>
-
-                                    {/* Column headings */}
-                                    <div className="grid grid-cols-9 font-bold text-center rsct:text-[12px]">
-                                        <h2 className="col-span-2">Course ID</h2>
-                                        <h2 className="col-span-4">Course Title</h2>
-                                        <h2 className="col-span-1 text-center">Credit</h2>
-                                        <h2 className="col-span-1 text-center">Grade</h2>
-                                        <h2 className="col-span-1 text-center">Point</h2>
+                            : (resultFull.length === 0 ?
+                                (
+                                    <div className="w-full p-5 relative">
+                                        <img className="w-full" src={nrf} alt="" />
+                                        <h1 className="absolute top-2 font-bold text-center w-full">No Result Found!</h1>
                                     </div>
+                                )
+                                :
+                                (
+                                    <div>
+                                        <h1 className="text-center w-full py-6 text-2xl font-bold my-5">CGPA - {resultFull[0]?.cgpa} ({getGradeFromCGPA(resultFull[0]?.cgpa)})</h1>
 
-                                    {/* Data rows */}
-                                    {resultFull.map((r, index) => (
-                                        <div className="grid grid-cols-9 mt-3 text-center  rsct:text-[12px]" key={index}>
-                                            <h1 className="col-span-2">{r.customCourseId}</h1>
-                                            <h1 className="col-span-4">{r.courseTitle}</h1>
-                                            <h1 className="col-span-1 text-center">{r.totalCredit}</h1>
-                                            <h1 className="col-span-1 text-center">{r.gradeLetter}</h1>
-                                            <h1 className="col-span-1 text-center">{r.pointEquivalent}</h1>
+                                        {/* Column headings */}
+                                        <div className="grid grid-cols-9 font-bold text-center rsct:text-[12px]">
+                                            <h2 className="col-span-2">Course ID</h2>
+                                            <h2 className="col-span-4">Course Title</h2>
+                                            <h2 className="col-span-1 text-center">Credit</h2>
+                                            <h2 className="col-span-1 text-center">Grade</h2>
+                                            <h2 className="col-span-1 text-center">Point</h2>
                                         </div>
-                                    ))}
 
-                                    <h1 className="text-center mt-20">SGPA: {resultFull[0]?.cgpa} ({getGradeFromCGPA(resultFull[0]?.cgpa)})</h1>
-                                    <h1 className="text-center">Remarks: {getRemarksFromCGPA(resultFull[0]?.cgpa)}</h1>
-                                    <h1 className="text-center">Total Credit Taken: {calculateTotalCredits(resultFull)}</h1>
-                                    <h1 className="text-center">Total Credit earned: {calculateCreditsForGrades(resultFull)}</h1>
-                                </div>
+                                        {/* Data rows */}
+                                        {resultFull.map((r, index) => (
+                                            <div className="grid grid-cols-9 mt-3 text-center  rsct:text-[12px]" key={index}>
+                                                <h1 className="col-span-2">{r.customCourseId}</h1>
+                                                <h1 className="col-span-4">{r.courseTitle}</h1>
+                                                <h1 className="col-span-1 text-center">{r.totalCredit}</h1>
+                                                <h1 className="col-span-1 text-center">{r.gradeLetter}</h1>
+                                                <h1 className="col-span-1 text-center">{r.pointEquivalent}</h1>
+                                            </div>
+                                        ))}
+
+                                        <h1 className="text-center mt-20">SGPA: {resultFull[0]?.cgpa} ({getGradeFromCGPA(resultFull[0]?.cgpa)})</h1>
+                                        <h1 className="text-center">Remarks: {getRemarksFromCGPA(resultFull[0]?.cgpa)}</h1>
+                                        <h1 className="text-center">Total Credit Taken: {calculateTotalCredits(resultFull)}</h1>
+                                        <h1 className="text-center">Total Credit earned: {calculateCreditsForGrades(resultFull)}</h1>
+                                    </div>
+                                )
                             )
                         }
                     </div>

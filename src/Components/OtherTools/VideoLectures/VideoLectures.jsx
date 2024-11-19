@@ -625,6 +625,79 @@ const courses_video_final = [
             },
         ],
     },
+    {
+        courseCode: "CSE311",
+        courseTitle: "Database Management System",
+        lectureVideos: [
+            {
+                lecCode: "cse331-ins",
+                lecNo: "L-0",
+                lecName: "How to study well?",
+                subLectures: [
+                    { type: "video", title: "Read this intelligently and in your own way!", id: "1axFf_oL7ZY" },
+                ],
+            },
+            {
+                lecCode: "cse331-l8",
+                lecNo: "L-8",
+                lecName: "Introduction to Relational Algebra",
+                subLectures: [
+                    { type: "docs", title: "Lecture-8 Slide", id: "https://drive.google.com/file/d/1R9A_S7DkIgngTsPB_lyPYvWG8SAnQSG6/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse331-l9",
+                lecNo: "L-9",
+                lecName: "Relational Algebra Examples: (Not: SQL)",
+                subLectures: [
+                    { type: "docs", title: "Lecture-9 Slide", id: "https://drive.google.com/file/d/1JpyYmviejs0oTdpcAzUX8Nr1HoIYzup8/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse331-l10",
+                lecNo: "L-10",
+                lecName: "Transaction",
+                subLectures: [
+                    { type: "docs", title: "Lecture-10 Slide", id: "https://drive.google.com/file/d/11LxOR0NfqK5nLlW5ahiPsEG2evP34QVJ/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse331-l11",
+                lecNo: "L-11",
+                lecName: "Transaction: Set of Operations",
+                subLectures: [
+                    { type: "docs", title: "Lecture-11 Slide", id: "https://drive.google.com/file/d/1qgXqItkOVEurGr5r-zjOG4KNK1dudIwZ/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse331-l12",
+                lecNo: "L-12",
+                lecName: "Join Operation in DBMS",
+                subLectures: [
+                    { type: "docs", title: "Lecture-12 Slide", id: "https://drive.google.com/file/d/1Y2M7esnmJEUbTgLpxckzzxDP6Jkjnb-b/view?usp=sharing" },
+                    { type: "video", title: "12-1 | Join Operation in DBMS", id: "BQTszdTJuhE" },
+                ],
+            },
+            {
+                lecCode: "cse331-l13",
+                lecNo: "L-13",
+                lecName: "Distributed Database",
+                subLectures: [
+                    { type: "docs", title: "Lecture-13 Slide", id: "https://drive.google.com/file/d/1ZnLBCWikC0CrRQ-kcc2JbR189mzXi2PV/view?usp=sharing" },
+                    { type: "video", title: "12-1 | Distributed Database", id: "STr3XnK3pbM" },
+                ],
+            },
+            {
+                lecCode: "cse331-l14",
+                lecNo: "L-14",
+                lecName: "Introduction to NoSQL Database",
+                subLectures: [
+                    { type: "docs", title: "Lecture-14 Slide", id: "https://drive.google.com/file/d/1IwRyADtW_GlPTyOVgYJYSALe0RVwnPvw/view?usp=sharing" },
+                    { type: "video", title: "12-1 | Introduction to NoSQL Database", id: "-kJKRbqQRfY" },
+                ],
+            },
+        ],
+    },
 
 ];
 

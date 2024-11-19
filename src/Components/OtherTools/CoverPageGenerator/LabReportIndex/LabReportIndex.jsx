@@ -1,4 +1,4 @@
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { pdf, PDFDownloadLink } from "@react-pdf/renderer";
 import { useState } from "react";
 import headerLogo from "../../../../assets/headerlogo.png";  // Replace with the correct path to your header logo
 import LabReportIndexDocument from "./LabReportIndexDocument";
@@ -16,6 +16,7 @@ const LabReportIndex = () => {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [pdfUrl, setPdfUrl] = useState(null);
 
     const handleChange = (index, e) => {
         const { name, value } = e.target;
@@ -50,9 +51,13 @@ const LabReportIndex = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         setSubmitted(true);
+
+        const blob = await pdf(<LabReportIndexDocument formData={formData} />).toBlob();
+        const url = URL.createObjectURL(blob);
+        setPdfUrl(url);
     };
 
     return (
@@ -60,9 +65,11 @@ const LabReportIndex = () => {
             <Helmet>
                 <title>Lab Report Index | CSE P DIU</title>
             </Helmet>
-            <h1 className="text-center text-2xl p-4 font-bold">
-                Lab Report Index
-            </h1>
+            {pdfUrl ? ''
+                :
+                <h1 className="text-center text-2xl p-4 font-bold">
+                    Lab Report Index
+                </h1>}
             {!submitted ? (
                 <form onSubmit={handleSubmit}>
                     {formData.experiments.map((experiment, index) => (
@@ -134,8 +141,16 @@ const LabReportIndex = () => {
                 </form>
             ) : (
                 <div className="flex items-center justify-center h-[30vw]">
+                {pdfUrl && (
+                    <iframe
+                        className="w-full h-screen top-0 fixed"
+                        src={pdfUrl}
+                        title="PDF Preview"
+                    />
+                )}
+
                     <PDFDownloadLink
-                        className="btn"
+                        className="btn fixed bottom-10 left-10 sm:bottom-20"
                         document={<LabReportIndexDocument formData={formData} />}
                         fileName={`LabReportIndex_${new Date().toLocaleDateString()}.pdf`}
                     >
