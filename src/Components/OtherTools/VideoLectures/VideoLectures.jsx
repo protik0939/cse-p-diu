@@ -553,6 +553,16 @@ const courses_video_final = [
         courseTitle: "Introduction to data science",
         lectureVideos: [
             {
+                lecCode: "cse315-Suggestion",
+                lecNo: "SuggestionForFinal",
+                lecName: "Tools For Final",
+                subLectures: [
+                    { type: "txtIns", title: "From Our Section", id: "txtIns", des: 'Slide dekhlei to bujha zay ki ki ashbe! Linear theke ekta must ashbe eita ektu valo kore dekhe zaben and Outlier er code tao valo kore dekhe zaben.' },
+                    { type: "txtIns", title: "From Other Section", id: "txtIns", des: "ফাইনাল পরীক্ষার সাজেশন :\n১. Probability distribution থেকে দশ মার্কস থাকবে। স্লাইডের  ম্যাথগুলো প্র্যাকটিস করবা অবশ্যই।কোন ডিস্ট্রিবিউশন কখন এপ্লাই হয় এবং তাদের property গুলা  দেখবা।  \n২. Hypothesis থেকে শুধুমাত্র T test and Z  test এর ম্যাথ গুলো করবা। এইখান থেকে ১০ মার্কস  মত থাকবে। \n৩. Feature Engineering স্লাইড থেকে ক্লাসে যেগুলো পড়ানো হয়েছে ওইগুলো সম্বন্ধে আইডিয়া নিয়ে আসবা। এইখান থেকে থিউরিটিক্যাল কোশ্চেন আসার সম্ভাবনা খুবই বেশি। \n৪.  Multivariate analysis নামে একটা স্লাইডে আমি ম্যাথ করিয়েছিলাম ওই ম্যাথ  অবশ্যই প্র্যাকটিস করে আসবা। \n৫. কিছু মার্কস কোডিং অংশ থাকবে। আউটলেয়ার কিভাবে ডিটেকশন করা যায় এবং হ্যান্ডেল করা যায় এর জন্য পাইথনের কোড এর একটা স্লাইড আমি বি এল সি তে আপলোড দিয়েছি। ওইটুকু একটু দেখবা তোমরা। মিড টার্ম এক্সামে যেমন তোমাদের ডিকশনারি থেকে ডাটা ফ্রেম ক্রিয়েট করে বিভিন্ন অপারেশন চালানো লাগতো সেইটার কোড লিখেছিলে। ফাইনালেও ঐরকম অপারেশন গুলো একটু দেখবা। অপারেশনগুলো হবে যেমন avg,mean,  median,  mode, sum, count." },
+                    { type: "docs", title: "Spring 24 Question", id: "https://drive.google.com/file/d/1QGb9ckO7IwK2Z_HHMMr3gjfawqkZijIV/view?usp=sharing" },
+                ],
+            },
+            {
                 lecCode: "cse315-l9",
                 lecNo: "W-5 L-1",
                 lecName: "Probability Distribution",
@@ -567,64 +577,42 @@ const courses_video_final = [
                 lecName: "Feature Engineering",
                 subLectures: [
                     { type: "docs", title: "W6 Slide", id: "https://docs.google.com/presentation/d/1-FdrO-_WTNuGzDg5V9RcVvcUv3AthOs2/edit?usp=drive_link&ouid=107570650630946017419&rtpof=true&sd=true" },
-                    { type: "video", title: "10-1 | Full Probability Distribution", id: "KLf--2TfSZA" },
+                    { type: "video", title: "10-1 | Full Feature Engineering", id: "uu8um0JmYA8" },
+                ],
+            },
+            {
+                lecCode: "cse315-l11",
+                lecNo: "W-7",
+                lecName: "Probability Distribution: Normal Distribution",
+                subLectures: [
+                    { type: "docs", title: "W7 Slide", id: "https://docs.google.com/presentation/d/108V_dby59JUI2IPdGQrEMKqhHmIif08i/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                    { type: "video", title: "11-1 | Normal Distribution", id: "xI9ZHGOSaCg" },
+                ],
+            },
+            {
+                lecCode: "cse315-l12",
+                lecNo: "W-8",
+                lecName: "Hypothesis Testing",
+                subLectures: [
+                    { type: "docs", title: "W8 Slide", id: "https://docs.google.com/presentation/d/10CZpIAb0jxGQOwgz6s5hMNZT1PUCgIWF/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                    { type: "video", title: "12-1 | Z-Test", id: "bB-J6_wcGgE" },
+                    { type: "video", title: "12-2 | T-Test", id: "MoVYYVIe_KU" },
+                    { type: "video", title: "12-3 | Chi-Square test", id: "f53nXHoMXx4" },
+                    { type: "video", title: "12-4 | Hypothesis Testing - Z test & T test", id: "3Ump_ZsX3zw" },
+                ],
+            },
+            {
+                lecCode: "cse315-l13",
+                lecNo: "W-9",
+                lecName: "Multivariate Linear Regression",
+                subLectures: [
+                    { type: "docs", title: "W9 Slide", id: "https://docs.google.com/presentation/d/10Ir9lqgCBzCRkFRH7VHoQfXkuAsah_Ja/edit?usp=sharing&ouid=107570650630946017419&rtpof=true&sd=true" },
+                    { type: "video", title: "13-1 | Multivariate Linear Regression", id: "PWYsvcck3Jw" },
                 ],
             },
         ],
     },
 
-    {
-        courseCode: "CSE221",
-        courseTitle: "Object Oriented Programming - II",
-        lectureVideos: [
-            {
-                lecCode: "cse221-l7",
-                lecNo: "L-7",
-                lecName: "OOP Concepts with Python",
-                subLectures: [
-                    { type: "docs", title: "Lecture-7 Slide", id: "https://drive.google.com/file/d/1kE8ZzreQENQnpJu4MlF9KVmKaBXjwH1j/view?usp=drive_link" },
-                    { type: "video", title: "7-1 | Classes and Objects", id: "1MKsgYCwe_g" },
-                    { type: "video", title: "7-2 | Python Encapsulation", id: "1H1mrmDqEt8" },
-                ],
-            },
-        ],
-    },
-
-    {
-        courseCode: "CSE335",
-        courseTitle: "Computer Architecture and Organization",
-        lectureVideos: [
-            {
-                lecCode: "cse335-l6",
-                lecNo: "L-6",
-                lecName: "Datapath Design",
-                subLectures: [
-                    { type: "docs", title: "Lecture-6 Slide", id: "https://docs.google.com/presentation/d/1G0EBHzUWqbv9896F3w-Qw1A3pg2gxAfl/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
-                    { type: "video", title: "6-1 | Shift and Add Multiplication", id: "2byosGJlBr8" },
-                    { type: "video", title: "6-2 | Division Algorithm", id: "sD-wj1ymx7w" },
-                    { type: "video", title: "6-3 | Arithmetic Logic Unit (ALU)", id: "UsK5KV1FPmA" },
-                    { type: "video", title: "6-4 | Coprocessor", id: "iljjbml4CVk" },
-                    { type: "video", title: "6-5 | Pipelining Introduction and structure", id: "nv0yAm5gc-E" },
-                ],
-            },
-            {
-                lecCode: "cse335-l7",
-                lecNo: "L-7",
-                lecName: "Instruction Pipelining",
-                subLectures: [
-                    { type: "txtIns", title: "A Special Instruction on Slide", id: "txtIns", des: 'স্লাইড নং ৮-১০ এবং ২০ - ২৮ পরীক্ষার জন্য খুব একটা ইম্পরট্যান্ট না । তবে একবার দেখে নিতে পারিস আহামরি তেমন কিছুই না ।' },
-                    { type: "docs", title: "Lecture-7 Slide", id: "https://docs.google.com/presentation/d/1iCPpW2sXiomvnjNvPnRen1sVkKj3Q7wF/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
-                    { type: "video", title: "7-1 | Instruction Pipelining Stage", id: "CX3VLCrUn2M" },
-                    { type: "video", title: "7-2.1 | Pipeline Hazard and Data Hazard", id: "srlgaJgaxRE" },
-                    { type: "video", title: "7-2.2 | Read After Write (RAW)", id: "cMKn19y4_9E" },
-                    { type: "video", title: "7-2.3 | Write After Read (WAR)", id: "PWz5VEMYDP8" },
-                    { type: "video", title: "7-2.4 | Write After Write (WAW)", id: "-6JjmJNy3nA" },
-                    { type: "video", title: "7-3 | Structural/Resource Hazards", id: "qn7zf_OSLsk" },
-                    { type: "video", title: "7-4 | Control Hazards", id: "BuaIGznkhHQ" },
-                ],
-            },
-        ],
-    },
     {
         courseCode: "CSE311",
         courseTitle: "Database Management System",
@@ -681,19 +669,196 @@ const courses_video_final = [
             {
                 lecCode: "cse331-l13",
                 lecNo: "L-13",
-                lecName: "Distributed Database",
+                lecName: "Stored Procedure and Views",
                 subLectures: [
-                    { type: "docs", title: "Lecture-13 Slide", id: "https://drive.google.com/file/d/1ZnLBCWikC0CrRQ-kcc2JbR189mzXi2PV/view?usp=sharing" },
-                    { type: "video", title: "12-1 | Distributed Database", id: "STr3XnK3pbM" },
+                    { type: "docs", title: "Lecture-13 Slide", id: "https://drive.google.com/file/d/1MlQhPuIw3SidOliSe5ZbQ5WYvJxJoWp_/view?usp=sharing" },
                 ],
             },
             {
                 lecCode: "cse331-l14",
                 lecNo: "L-14",
+                lecName: "Distributed Database",
+                subLectures: [
+                    { type: "docs", title: "Lecture-14 Slide", id: "https://drive.google.com/file/d/1ZnLBCWikC0CrRQ-kcc2JbR189mzXi2PV/view?usp=sharing" },
+                    { type: "video", title: "14-1 | Distributed Database", id: "STr3XnK3pbM" },
+                ],
+            },
+            {
+                lecCode: "cse331-l15",
+                lecNo: "L-15",
                 lecName: "Introduction to NoSQL Database",
                 subLectures: [
-                    { type: "docs", title: "Lecture-14 Slide", id: "https://drive.google.com/file/d/1IwRyADtW_GlPTyOVgYJYSALe0RVwnPvw/view?usp=sharing" },
-                    { type: "video", title: "12-1 | Introduction to NoSQL Database", id: "-kJKRbqQRfY" },
+                    { type: "docs", title: "Lecture-15 Slide", id: "https://drive.google.com/file/d/1IwRyADtW_GlPTyOVgYJYSALe0RVwnPvw/view?usp=sharing" },
+                    { type: "video", title: "15-1 | Introduction to NoSQL Database", id: "-kJKRbqQRfY" },
+                ],
+            },
+        ],
+    },
+
+    {
+        courseCode: "CSE313",
+        courseTitle: "Computer Networks",
+        lectureVideos: [
+            {
+                lecCode: "cse313-l7",
+                lecNo: "L-7",
+                lecName: "IPv6 Slide",
+                subLectures: [
+                    { type: "docs", title: "Lecture-7 Slide", id: "https://drive.google.com/file/d/14oJKnyPiXvECiP_FqTeLC4-ozxQUQXzp/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse313-l8",
+                lecNo: "L-8",
+                lecName: "NAT",
+                subLectures: [
+                    { type: "docs", title: "Lecture-8 Slide (Page-709)", id: "https://drive.google.com/file/d/1-B4mBqWSWgtvNNeHQny39eYTvsF6uTyK/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse313-l9",
+                lecNo: "L-9",
+                lecName: "Network Layer",
+                subLectures: [
+                    { type: "docs", title: "Network Layer (docx)", id: "https://docs.google.com/document/d/1jWFTDCDdR-iMHP6G3LISTOZTzBzn0iup/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "docs", title: "Network Layer (Pdf)", id: "https://drive.google.com/file/d/116SvWCudgvLTZlDe6PsC7aNrXD5n-UGd/view?usp=drive_link" },
+                    { type: "docs", title: "Chapter 4 Network Layer: The Data Plane", id: "https://docs.google.com/presentation/d/13fzJvjue3G7_9Sna773lGy68oyJ4Vool/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "docs", title: "Chapter 5 Network Layer: The Control Plane", id: "https://docs.google.com/presentation/d/1ZLuTEzkha5URQHY_SnE7Ji_W32btxsix/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                ],
+            },
+            {
+                lecCode: "cse313-l10",
+                lecNo: "L-10",
+                lecName: "Data Link Layer",
+                subLectures: [
+                    { type: "docs", title: "Data Link Layer Slide pdf", id: "https://drive.google.com/file/d/1qOAgATLS6Axdf961aGHDjXdRW9zjE_Yp/view?usp=sharing" },
+                    { type: "docs", title: "Data Link Layer Docx", id: "https://docs.google.com/document/d/1Qz7pNGwQrKR2p_IfxIkwG62MwUUdun6-/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                ],
+            },
+            {
+                lecCode: "cse313-l11",
+                lecNo: "L-11",
+                lecName: "Transport Layer",
+                subLectures: [
+                    { type: "docs", title: "Transport Layer", id: "https://drive.google.com/file/d/1qOAgATLS6Axdf961aGHDjXdRW9zjE_Yp/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse313-l12",
+                lecNo: "L-12",
+                lecName: "Wireless Network docx",
+                subLectures: [
+                    { type: "docs", title: "Wireless Network docx", id: "https://docs.google.com/document/d/1n4orr3cd3LqveyTiukbdvty60UGnGETO/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                ],
+            },
+            {
+                lecCode: "cse313-l13",
+                lecNo: "L-13",
+                lecName: "Network Security docx",
+                subLectures: [
+                    { type: "docs", title: "Network Security docx", id: "https://docs.google.com/document/d/1NF6VV5nOH4kOqSkKvq2ydcZ_ZmVrAH1Y/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                ],
+            },
+        ],
+    },
+
+
+    {
+        courseCode: "CSE221",
+        courseTitle: "Object Oriented Programming - II",
+        lectureVideos: [
+            {
+                lecCode: "cse221-l7",
+                lecNo: "L-7",
+                lecName: "OOP Concepts with Python",
+                subLectures: [
+                    { type: "docs", title: "Lecture-7 Slide", id: "https://drive.google.com/file/d/1kE8ZzreQENQnpJu4MlF9KVmKaBXjwH1j/view?usp=drive_link" },
+                    { type: "video", title: "7-1 | Classes and Objects", id: "1MKsgYCwe_g" },
+                    { type: "video", title: "7-2 | Python Encapsulation", id: "1H1mrmDqEt8" },
+                ],
+            },
+            {
+                lecCode: "cse221-l8",
+                lecNo: "L-8",
+                lecName: "Inheritance in Python",
+                subLectures: [
+                    { type: "docs", title: "Lecture-8 Slide", id: "https://drive.google.com/file/d/19bnkAl1KgYZgHrfuzdsLsk4999RbsFxv/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse221-l9",
+                lecNo: "L-9",
+                lecName: "Polymorphism and Exception in Python",
+                subLectures: [
+                    { type: "docs", title: "Lecture-9 Slide", id: "https://drive.google.com/file/d/1Rb7SR19_uEp7Xj7KHPL6Ybxk_g-AKMq2/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse221-l10",
+                lecNo: "L-10",
+                lecName: "NumPy in Python",
+                subLectures: [
+                    { type: "docs", title: "Lecture-10 Slide", id: "https://drive.google.com/file/d/19J1nwV4OI5Om_72_FvqjSxhpjumbR1yx/view?usp=sharing" },
+                ],
+            },
+            {
+                lecCode: "cse221-l11",
+                lecNo: "L-11",
+                lecName: "NumPy Function, Slice & Reshape in Python",
+                subLectures: [
+                    { type: "docs", title: "Lecture-11 Slide", id: "https://drive.google.com/file/d/1EzhVbT9qUbeE33TGRUwj7RVQyVUSm-UC/view?usp=sharing" },
+                ],
+            },
+        ],
+    },
+
+    {
+        courseCode: "CSE335",
+        courseTitle: "Computer Architecture and Organization",
+        lectureVideos: [
+            {
+                lecCode: "cse335-l6",
+                lecNo: "L-6",
+                lecName: "Datapath Design",
+                subLectures: [
+                    { type: "docs", title: "Lecture-6 Slide", id: "https://docs.google.com/presentation/d/1G0EBHzUWqbv9896F3w-Qw1A3pg2gxAfl/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "6-1 | Shift and Add Multiplication", id: "2byosGJlBr8" },
+                    { type: "video", title: "6-2 | Division Algorithm", id: "sD-wj1ymx7w" },
+                    { type: "video", title: "6-3 | Arithmetic Logic Unit (ALU)", id: "UsK5KV1FPmA" },
+                    { type: "video", title: "6-4 | Coprocessor", id: "iljjbml4CVk" },
+                    { type: "video", title: "6-5 | Pipelining Introduction and structure", id: "nv0yAm5gc-E" },
+                ],
+            },
+            {
+                lecCode: "cse335-l7",
+                lecNo: "L-7",
+                lecName: "Instruction Pipelining",
+                subLectures: [
+                    { type: "txtIns", title: "A Special Instruction on Slide", id: "txtIns", des: 'স্লাইড নং ৮-১০ এবং ২০ - ২৮ পরীক্ষার জন্য খুব একটা ইম্পরট্যান্ট না । তবে একবার দেখে নিতে পারিস আহামরি তেমন কিছুই না ।' },
+                    { type: "docs", title: "Lecture-7 Slide", id: "https://docs.google.com/presentation/d/1iCPpW2sXiomvnjNvPnRen1sVkKj3Q7wF/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "7-1 | Instruction Pipelining Stage", id: "CX3VLCrUn2M" },
+                    { type: "video", title: "7-2.1 | Pipeline Hazard and Data Hazard", id: "srlgaJgaxRE" },
+                    { type: "video", title: "7-2.2 | Read After Write (RAW)", id: "cMKn19y4_9E" },
+                    { type: "video", title: "7-2.3 | Write After Read (WAR)", id: "PWz5VEMYDP8" },
+                    { type: "video", title: "7-2.4 | Write After Write (WAW)", id: "-6JjmJNy3nA" },
+                    { type: "video", title: "7-3 | Structural/Resource Hazards", id: "qn7zf_OSLsk" },
+                    { type: "video", title: "7-4 | Control Hazards", id: "BuaIGznkhHQ" },
+                ],
+            },
+            {
+                lecCode: "cse335-l8",
+                lecNo: "L-8",
+                lecName: "Cache Memory",
+                subLectures: [
+                    { type: "docs", title: "Lecture-8 Slide", id: "https://docs.google.com/presentation/d/1YsZPai8TA7DmRrWP4zlqydJajjsFFTOW/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                ],
+            },
+            {
+                lecCode: "cse335-l9",
+                lecNo: "L-9",
+                lecName: "Virtual Memory",
+                subLectures: [
+                    { type: "docs", title: "Lecture-9 Slide", id: "https://docs.google.com/presentation/d/1oVTmdIfP_XYr_OrAhYL_coE4MNd2seFI/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                 ],
             },
         ],
@@ -727,7 +892,7 @@ const VideoLectures = () => {
     }
 
 
-    
+
 
     return (
         <div>
@@ -783,7 +948,7 @@ const VideoLectures = () => {
                             <button onClick={() => setSlctedLecture(courses_video_final)} className={`btn ${slctedLecture === courses_video_final ? 'border-primary bg-white' : 'border-none animate-none btn-success'} `}>Final</button>
                         </div>
                         {slctedLecture?.map((course) => (
-                            <div key={course.courseCode} className={`bg-gray-800 collapse`}>
+                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE315" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"
