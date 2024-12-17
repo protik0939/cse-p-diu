@@ -618,43 +618,45 @@ const courses_video_final = [
         courseTitle: "Database Management System",
         lectureVideos: [
             {
-                lecCode: "cse331-ins",
+                lecCode: "cse331-ldocs",
                 lecNo: "L-0",
-                lecName: "How to study well?",
+                lecName: "Others Notes and Final Exam Tools",
                 subLectures: [
-                    { type: "video", title: "Read this intelligently and in your own way!", id: "1axFf_oL7ZY" },
-                ],
-            },
-            {
-                lecCode: "cse331-l8",
-                lecNo: "L-8",
-                lecName: "Introduction to Relational Algebra",
-                subLectures: [
-                    { type: "docs", title: "Lecture-8 Slide", id: "https://drive.google.com/file/d/1R9A_S7DkIgngTsPB_lyPYvWG8SAnQSG6/view?usp=sharing" },
-                ],
-            },
-            {
-                lecCode: "cse331-l9",
-                lecNo: "L-9",
-                lecName: "Relational Algebra Examples: (Not: SQL)",
-                subLectures: [
-                    { type: "docs", title: "Lecture-9 Slide", id: "https://drive.google.com/file/d/1JpyYmviejs0oTdpcAzUX8Nr1HoIYzup8/view?usp=sharing" },
+                    { type: "txtIns", title: "Exam Details (Only for 63_N)", id: "txtIns", des: 'Database Management System\nCSE311  |  MAR\nExam date: 19 December 2024, Thursday\n\nExam slot: 12:00PM - 2:00PM\nExam Room:\n    KT-320 - (28)\n    KT-514A - (24)' },
+                    { type: "txtIns", title: "Possible Marks Distribution", id: "txtIns", des: 'Relational Algebra - 6 Marks, \nTransaction - 6 Marks, \nTrigger - 5 Marks, \nSQL Querry - 8 Marks, \nNoSQL - (5-7), \nStored Procedure & view + Database Security and Distributed Database - Other (10-12) marks.' },
+                    { type: "docs", title: "Previous Year Questions", id: "https://drive.google.com/file/d/1VHZ3MbL0WfGQQDc7Uybt5IBF306vbGUb/view?usp=sharing" },
+                    { type: "classnote", title: "Course Summary Docs", id: "https://docs.google.com/document/d/1wZ6ammcLqNBs_KYG5kzbxOBAU9v1hrHBUdXGR6PnxWE/edit?usp=sharing" },
+                    { type: "classnote", title: "Trigger, View, Procedure docs", id: "https://drive.google.com/file/d/158JKxZEFiFVLb6GD_d5Tm67fcQsqZx26/view?usp=sharing" },
                 ],
             },
             {
                 lecCode: "cse331-l10",
                 lecNo: "L-10",
-                lecName: "Transaction",
+                lecName: "Introduction to Relational Algebra",
                 subLectures: [
-                    { type: "docs", title: "Lecture-10 Slide", id: "https://drive.google.com/file/d/11LxOR0NfqK5nLlW5ahiPsEG2evP34QVJ/view?usp=sharing" },
+                    { type: "docs", title: "Lecture-10 Slide", id: "https://drive.google.com/file/d/1R9A_S7DkIgngTsPB_lyPYvWG8SAnQSG6/view?usp=sharing" },
+                    { type: "docs", title: "Relational Algebra Examples: (Not: SQL)", id: "https://drive.google.com/file/d/1JpyYmviejs0oTdpcAzUX8Nr1HoIYzup8/view?usp=sharing" },
+                    { type: "txtIns", title: "Note", id: "txtIns", des: 'Join related video you will find in Join Operation in DBMS section' },
+                    { type: "video", title: "10-1 | Introduction", id: "BeRa_U0N9tU" },
+                    { type: "video", title: "10-2 | Selection Operator", id: "iEyy3TbGLd0" },
+                    { type: "video", title: "10-3 | Projection Operator", id: "vrmfMQchf04" },
+                    { type: "video", title: "10-4 | Rename Operator", id: "ZWTdNRGFweE" },
+                    { type: "video", title: "10-5 | Union Operator", id: "xnOC0wN8rpg" },
+                    { type: "video", title: "10-6 | Set Intersection Operation", id: "5IjEMcf8kF0" },
+                    { type: "video", title: "10-7 | Set Difference Operation", id: "XcLa3KsCHZU" },
+                    { type: "video", title: "10-8 | Cartesian Product / Cross Product", id: "7m0FAQyF_-c" },
+                    { type: "video", title: "10-9 | Division Operator", id: "cm2Y1BuH0Gs" },
                 ],
             },
             {
                 lecCode: "cse331-l11",
                 lecNo: "L-11",
-                lecName: "Transaction: Set of Operations",
+                lecName: "Transaction",
                 subLectures: [
-                    { type: "docs", title: "Lecture-11 Slide", id: "https://drive.google.com/file/d/1qgXqItkOVEurGr5r-zjOG4KNK1dudIwZ/view?usp=sharing" },
+                    { type: "docs", title: "Lecture-11 Slide", id: "https://drive.google.com/file/d/11LxOR0NfqK5nLlW5ahiPsEG2evP34QVJ/view?usp=sharing" },
+                    { type: "docs", title: "Transaction Practice Note", id: "https://drive.google.com/file/d/1qgXqItkOVEurGr5r-zjOG4KNK1dudIwZ/view?usp=sharing" },
+                    { type: "video", title: "11-1 | Transaction in DBMS | Read(), Write()", id: "niy_v7xwfQU" },
+                    { type: "video", title: "11-2 | COMMIT & ROLLBACK in Transaction", id: "jpvWr49jPEo" },
                 ],
             },
             {
@@ -663,7 +665,13 @@ const courses_video_final = [
                 lecName: "Join Operation in DBMS",
                 subLectures: [
                     { type: "docs", title: "Lecture-12 Slide", id: "https://drive.google.com/file/d/1Y2M7esnmJEUbTgLpxckzzxDP6Jkjnb-b/view?usp=sharing" },
-                    { type: "video", title: "12-1 | Join Operation in DBMS", id: "BQTszdTJuhE" },
+                    { type: "video", title: "12-1 | Introduction to Joins | Types of Joins", id: "YQ7XVAzBv2M" },
+                    { type: "video", title: "12-2 | Theta Join", id: "2qk8HD-NB6g" },
+                    { type: "video", title: "12-3 | Equi Join", id: "wnQZ4o4gTrM" },
+                    { type: "video", title: "12-4 | Natural Join", id: "egJBfCkIfag" },
+                    { type: "video", title: "12-5 | Left Outer Join", id: "tCvZi85gjxg" },
+                    { type: "video", title: "12-6 | Right Outer Join", id: "amN_F1uO87g" },
+                    { type: "video", title: "12-7 | Full Outer Join", id: "poksQkBP5nk" },
                 ],
             },
             {
@@ -672,24 +680,52 @@ const courses_video_final = [
                 lecName: "Stored Procedure and Views",
                 subLectures: [
                     { type: "docs", title: "Lecture-13 Slide", id: "https://drive.google.com/file/d/1MlQhPuIw3SidOliSe5ZbQ5WYvJxJoWp_/view?usp=sharing" },
+                    { type: "video", title: "13-1 | Stored Procedure", id: "oagHZwY9JJY" },
+                    { type: "video", title: "13-2 | Views", id: "wciubfRhvtM" },
                 ],
             },
             {
                 lecCode: "cse331-l14",
                 lecNo: "L-14",
-                lecName: "Distributed Database",
+                lecName: "Database Trigger",
                 subLectures: [
-                    { type: "docs", title: "Lecture-14 Slide", id: "https://drive.google.com/file/d/1ZnLBCWikC0CrRQ-kcc2JbR189mzXi2PV/view?usp=sharing" },
-                    { type: "video", title: "14-1 | Distributed Database", id: "STr3XnK3pbM" },
+                    { type: "docs", title: "Lecture-14 Slide", id: "https://drive.google.com/file/d/1TkU7xgRemFh3uckQX94uTr8LXf2sxNuu/view?usp=drive_link" },
+                    { type: "video", title: "14-1 | Database Trigger", id: "jVbj72YO-8s" },
                 ],
             },
             {
                 lecCode: "cse331-l15",
                 lecNo: "L-15",
+                lecName: "Distributed Database",
+                subLectures: [
+                    { type: "docs", title: "Lecture-15 Slide", id: "https://drive.google.com/file/d/1ZnLBCWikC0CrRQ-kcc2JbR189mzXi2PV/view?usp=sharing" },
+                    { type: "video", title: "15-1 | Introduction", id: "RKmK_vKZsq8" },
+                    { type: "video", title: "15-2 | What is Distributed Database System", id: "EOMVmIqfGAk" },
+                    { type: "video", title: "15-3 | Difference Between Centralize and Distributed Database System", id: "fUi1UYitvpo" },
+                    { type: "video", title: "15-4 | Homogeneous & Heterogeneous", id: "tGAwme-64Sc" },
+                    { type: "video", title: "15-5 | DDBMS Advantages & Disadvantages", id: "XwEUQp7iV8c" },
+                    { type: "video", title: "15-6 | parallel database", id: "tFS0qiimHPY" },
+                    { type: "video", title: "15-7 | Fragmentation in Distributed Database System", id: "pwIxH7aeCuQ" },
+                    { type: "video", title: "15-8 | Replication", id: "Fioz3ZPV5SM" },
+                    { type: "video", title: "15-9 | Transaction in Database ", id: "XG6eHxjgDgk" },
+                ],
+            },
+            {
+                lecCode: "cse331-l16",
+                lecNo: "L-16",
+                lecName: "Database Security",
+                subLectures: [
+                    { type: "docs", title: "Lecture-16 Slide", id: "https://drive.google.com/file/d/1nb1jzd9OPUUiqHspDv06IFLGGLpCNB1i/view?usp=drive_link" },
+                    { type: "video", title: "16-1 | Database Security", id: "2Bi6n5QFHj8" },
+                ],
+            },
+            {
+                lecCode: "cse331-l17",
+                lecNo: "L-17",
                 lecName: "Introduction to NoSQL Database",
                 subLectures: [
-                    { type: "docs", title: "Lecture-15 Slide", id: "https://drive.google.com/file/d/1IwRyADtW_GlPTyOVgYJYSALe0RVwnPvw/view?usp=sharing" },
-                    { type: "video", title: "15-1 | Introduction to NoSQL Database", id: "-kJKRbqQRfY" },
+                    { type: "docs", title: "Lecture-17 Slide", id: "https://drive.google.com/file/d/1IwRyADtW_GlPTyOVgYJYSALe0RVwnPvw/view?usp=sharing" },
+                    { type: "video", title: "17-1 | Introduction to NoSQL Database", id: "0buKQHokLK8" },
                 ],
             },
         ],
@@ -919,8 +955,8 @@ const VideoLectures = () => {
                                         <div className="text-2xl font-bold text-success text-center border-b-2 border-success">
                                             {snglData?.title}
                                         </div>
-                                        <div className="mt-6">
-                                            {snglData?.des}
+                                        <div className="mt-6" style={{ whiteSpace: "pre-wrap" }}>
+                                            {snglData?.des || "No description available"}
                                         </div>
                                     </div>
 
@@ -948,7 +984,7 @@ const VideoLectures = () => {
                             <button onClick={() => setSlctedLecture(courses_video_final)} className={`btn ${slctedLecture === courses_video_final ? 'border-primary bg-white' : 'border-none animate-none btn-success'} `}>Final</button>
                         </div>
                         {slctedLecture?.map((course) => (
-                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE315" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
+                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE311" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"
