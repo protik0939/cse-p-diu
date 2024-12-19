@@ -984,7 +984,7 @@ const VideoLectures = () => {
                             <button onClick={() => setSlctedLecture(courses_video_final)} className={`btn ${slctedLecture === courses_video_final ? 'border-primary bg-white' : 'border-none animate-none btn-success'} `}>Final</button>
                         </div>
                         {slctedLecture?.map((course) => (
-                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE311" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
+                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE313" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"
