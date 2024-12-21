@@ -10,6 +10,7 @@ import { MdFullscreenExit } from "react-icons/md";
 import Swal from 'sweetalert2'
 import Skeleton from "react-loading-skeleton";
 import { Helmet } from "react-helmet";
+import { AiOutlineClose } from "react-icons/ai";
 
 const DetailsPost = () => {
     const { id } = useParams();
@@ -20,6 +21,8 @@ const DetailsPost = () => {
     const [reactInfo, setReactInfo] = useState([])
     const [error, setError] = useState(null);
     const [userProInfo, setUserProInfo] = useState({});
+
+    const [reactedUsers, setReactedUsers] = useState([]);
 
     useEffect(() => {
         setUserProInfoLoad(true)
@@ -145,6 +148,33 @@ const DetailsPost = () => {
             });
     }
 
+    useEffect(() => {
+        const fetchUserDetails = async (userUid) => {
+            try {
+                const response = await fetch(
+                    `https://cse-p-diu-server.vercel.app/users/uid/${userUid}`
+                );
+                if (!response.ok) {
+                    throw new Error("Failed to fetch user details");
+                }
+                const data = await response.json();
+                return { userUid, name: data.name, photourl: data.photourl };
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+                return null;
+            }
+        };
+
+        // Fetch details for all user UIDs
+        const fetchAllUsers = async () => {
+            const promises = reactInfo.map((info) => fetchUserDetails(info.userUid));
+            const results = await Promise.all(promises);
+            setReactedUsers(results.filter((result) => result !== null));
+        };
+
+        fetchAllUsers();
+    }, [reactInfo]);
+
 
 
 
@@ -182,17 +212,69 @@ const DetailsPost = () => {
                         </button> : ''}
                     </div>
                     <h1 className="font-bold text-2xl my-4">{detailsPost.postTitle}</h1>
-                    <h1 className="mb-4">{reactInfo?.length} Likes</h1>
-                    <p>{detailsPost.postDetails}</p>
-                    {userProInfoLoad ? 
-                    <div className="flex justify-center p-3 space-x-4 border rounded-[10px] mt-10 border-[#414141]">
-                        <Skeleton height={60} width="60px" style={{ marginTop: '0', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
-                        <div className="text-left">
-                            <Skeleton height={10} width="200px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
-                            <Skeleton height={6} width="120px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
-                            <Skeleton height={6} width="150px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+
+                    <dialog id={`getWhoReacted-${detailsPost._id}`} className="modal">
+                        <div className="modal-box">
+                            <form method="dialog">
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
+                            </form>
+                            <h3 className="font-bold text-lg">People reacted on this post</h3>
+                            {
+                                reactedUsers?.length > 0 ?
+                                    reactedUsers.map(reu => {
+                                        return (
+                                            <Link key={reu?.userUid} to={`http://localhost:5173/profile/${reu.userUid}`} className='flex items-center space-x-3 rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30'>
+                                                <img className='w-10 rounded-lg aspect-square  object-cover' src={reu?.photourl} alt={reu?.name} />
+                                                <h1>{reu?.name}</h1>
+                                            </Link>
+                                        )
+                                    })
+                                    :
+                                    <h1>No Reacts Yet</h1>
+                            }
                         </div>
+                    </dialog>
+
+                    <div onClick={() => document.getElementById(`getWhoReacted-${detailsPost._id}`).showModal()} className="cursor-pointer avatar-group -space-x-3  flex justify-center items-center">
+                        {
+                            reactedUsers.length > 0 ? (
+                                reactedUsers
+                                    .sort(() => 0.5 - Math.random()) // Shuffle the array for randomness
+                                    .slice(0, 2) // Select the first 2 shuffled elements
+                                    .map((ru) => (
+                                        <div key={ru?.userUid} className="avatar">
+                                            <div className="w-4">
+                                                <img src={ru?.photourl} alt="User Avatar" />
+                                            </div>
+                                        </div>
+                                    ))
+                            ) : (
+                                <div className="avatar placeholder">
+                                    <div className="bg-neutral text-neutral-content w-4">
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        {
+                            // Check if more than 2 users reacted
+                            reactedUsers?.length > 0 ? (
+                                <h1 className="pl-3">{reactedUsers[Math.floor(Math.random() * reactedUsers.length)]?.name} and {reactedUsers.length - 1} Others</h1>
+                            ) :
+                                null
+                        }
                     </div>
+
+                    <p>{detailsPost.postDetails}</p>
+                    {userProInfoLoad ?
+                        <div className="flex justify-center p-3 space-x-4 border rounded-[10px] mt-10 border-[#414141]">
+                            <Skeleton height={60} width="60px" style={{ marginTop: '0', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                            <div className="text-left">
+                                <Skeleton height={10} width="200px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                                <Skeleton height={6} width="120px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                                <Skeleton height={6} width="150px" style={{ marginTop: '2', background: '#1d232a' }} baseColor="#1d232a" highlightColor="#323c47" />
+                            </div>
+                        </div>
                         :
                         <div className="flex justify-center p-3 space-x-4 border rounded-[10px] mt-10 border-[#414141]">
                             <Link to={`/profile/${detailsPost?.uploaderUid}`}><div className='w-14 aspect-square'><img className="rounded-[10px] w-full h-full object-cover" src={userProInfo.photourl} alt="" /></div></Link>

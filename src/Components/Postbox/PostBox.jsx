@@ -24,6 +24,8 @@ const PostBox = ({ post, onDelete }) => {
     const id = post?.uploaderUid;
     const [thisPost, setThisPost] = useState(post);
 
+    const [reactedUsers, setReactedUsers] = useState([]);
+
     useEffect(() => {
         setUserProInfoLoad(true)
         fetch(`https://cse-p-diu-server.vercel.app/users/uid/${id}`)
@@ -204,6 +206,34 @@ const PostBox = ({ post, onDelete }) => {
     };
 
 
+    useEffect(() => {
+        const fetchUserDetails = async (userUid) => {
+            try {
+                const response = await fetch(
+                    `https://cse-p-diu-server.vercel.app/users/uid/${userUid}`
+                );
+                if (!response.ok) {
+                    throw new Error("Failed to fetch user details");
+                }
+                const data = await response.json();
+                return { userUid, name: data.name, photourl: data.photourl };
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+                return null;
+            }
+        };
+
+        // Fetch details for all user UIDs
+        const fetchAllUsers = async () => {
+            const promises = reactInfo.map((info) => fetchUserDetails(info.userUid));
+            const results = await Promise.all(promises);
+            setReactedUsers(results.filter((result) => result !== null));
+        };
+
+        fetchAllUsers();
+    }, [reactInfo]);
+
+
 
 
     return (
@@ -303,7 +333,64 @@ const PostBox = ({ post, onDelete }) => {
                                             <button onClick={handleReacting} className="text-3xl mx-4 hover:scale-110">
                                                 {alreadyGaveReact(user.uid) ? <IoMdHeart className="text-[#ff0000]" /> : <IoMdHeartEmpty />}
                                             </button>
-                                            <h1>{reactInfo.length}</h1>
+
+                                            <dialog id={`getWhoReacted-${post._id}`} className="modal">
+                                                <div className="modal-box">
+                                                    <form method="dialog">
+                                                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"><AiOutlineClose /></button>
+                                                    </form>
+                                                    <h3 className="font-bold text-lg">People reacted on this post</h3>
+                                                    {
+                                                        reactedUsers?.length > 0 ?
+                                                            reactedUsers.map(reu => {
+                                                                return (
+                                                                    <Link key={reu?.userUid} to={`http://localhost:5173/profile/${reu.userUid}`} className='flex items-center space-x-3 rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30'>
+                                                                        <img className='w-10 rounded-lg aspect-square  object-cover' src={reu?.photourl} alt={reu?.name} />
+                                                                        <h1>{reu?.name}</h1>
+                                                                    </Link>
+                                                                )
+                                                            })
+                                                            :
+                                                            <h1>No Reacts Yet</h1>
+                                                    }
+                                                </div>
+                                            </dialog>
+
+                                            <div onClick={() => document.getElementById(`getWhoReacted-${post._id}`).showModal()} className="avatar-group -space-x-10 rtl:space-x-reverse flex justify-center items-center">
+                                                {
+                                                    reactedUsers.length > 0 ? (
+                                                        reactedUsers
+                                                            .sort(() => 0.5 - Math.random()) // Shuffle the array for randomness
+                                                            .slice(0, 2) // Select the first 2 shuffled elements
+                                                            .map((ru) => (
+                                                                <div key={ru?.userUid} className="avatar">
+                                                                    <div className="w-4">
+                                                                        <img src={ru?.photourl} alt="User Avatar" />
+                                                                    </div>
+                                                                </div>
+                                                            ))
+                                                    ) : (
+                                                        <div className="avatar placeholder">
+                                                            <div className="bg-neutral text-neutral-content w-4">
+                                                                <span>0</span>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                }
+                                                {
+                                                    // Check if more than 2 users reacted
+                                                    reactedUsers?.length > 2 ? (
+                                                        <div className="avatar placeholder">
+                                                            <div className="bg-neutral text-neutral-content w-4">
+                                                                <span>+{reactedUsers.length - 2}</span>
+                                                            </div>
+                                                        </div>
+                                                    ) :
+                                                        null
+                                                }
+                                            </div>
+
+                                            {/* <h1>{reactInfo.length}</h1> */}
                                         </div>
 
                                         <div>

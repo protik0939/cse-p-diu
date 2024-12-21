@@ -736,19 +736,15 @@ const courses_video_final = [
         courseTitle: "Computer Networks",
         lectureVideos: [
             {
-                lecCode: "cse313-l7",
-                lecNo: "L-7",
-                lecName: "IPv6 Slide",
+                lecCode: "cse331-ldocs",
+                lecNo: "L-0",
+                lecName: "Others Notes and Final Exam Tools",
                 subLectures: [
-                    { type: "docs", title: "Lecture-7 Slide", id: "https://drive.google.com/file/d/14oJKnyPiXvECiP_FqTeLC4-ozxQUQXzp/view?usp=sharing" },
-                ],
-            },
-            {
-                lecCode: "cse313-l8",
-                lecNo: "L-8",
-                lecName: "NAT",
-                subLectures: [
-                    { type: "docs", title: "Lecture-8 Slide (Page-709)", id: "https://drive.google.com/file/d/1-B4mBqWSWgtvNNeHQny39eYTvsF6uTyK/view?usp=sharing" },
+                    { type: "txtIns", title: "Exam Details (Only for 63_N)", id: "txtIns", des: 'Computer Networks\nCSE313  |  ZAF\nExam date: 22 December 2024, Sunday\n\nExam slot: 12:00PM - 2:00PM\nExam Room:\n    KT-320 - (44)\n    KT-514A - (8)' },
+                    { type: "txtIns", title: "Suggestion from another section", id: "txtIns", des: 'Sugeestion from Another Section\n\n1.VLSM***,FLSM\n\n2.Supernatting-(match korle ba same thakle 1 baki shob 0 hobe) less important \n\n3.NAT-What is NAT,why and how we use NAT with diagram and table, comparison between (Static NAT, dynamic NAT and PAT),Why 5 column table  is preferable over 2 column table, recognize ( which NAT is used in scenario)\n\n4.IPV6 ( .How to simplify IPV6, difference between IPV4 and IPV6, Advantage and Disadvantage ),(IPV4 to IPV6-tunneling sesh er slide)\n\n5.difference between UDP and TCP, ***structure of header file (UDP and TCP), congestion control er 3 ta scenario keno hoy and solution ,3 way handshaking for TCP(pull push),TCP overview,(4,6,7,8,19,20,21,22,23,26,27,29,30,35,38,39,40,41,42,43,44,45,46,47,48,49,50)\n\n6.what is ARP, address regulation protocol,what is Ethernet and why it is popular,ARP, Ethernet,VLAN,MPLS\n\n7.elements of wireless network ,what is wireless network,type of wireless network, difference between wireless and wired network,(***2G and 3G architecture)\n\nmobile network er update Architecture 2G 3 G,\n\n8.difference between symmetric and asymmetric, types of attack (active and passive attack).Asymmetric er (RSA algorithm er kaj and math)' },
+                    { type: "docs", title: "Previous Year Questions", id: "https://drive.google.com/file/d/11Ym3RsWBIscC-cyigeOrVVTunFRP7Pk8/view?usp=sharing" },
+                    { type: "classnote", title: "19CAB09 – DATA COMMUNICATION AND NETWORKS", id: "https://drive.google.com/file/d/1ZELv1rAe04Zc2Btbxz1nuOpCQ1cRleY7/view?usp=sharing" },
+                    { type: "classnote", title: "Computer Networking- A Top-Down Approach, 6th Edition, James F. Kurose & Keith W. Ross", id: "https://drive.google.com/file/d/1KyPHlz7niAOnFm7XwO07F5b8Yf1OGh5k/view" },
                 ],
             },
             {
@@ -760,6 +756,14 @@ const courses_video_final = [
                     { type: "docs", title: "Network Layer (Pdf)", id: "https://drive.google.com/file/d/116SvWCudgvLTZlDe6PsC7aNrXD5n-UGd/view?usp=drive_link" },
                     { type: "docs", title: "Chapter 4 Network Layer: The Data Plane", id: "https://docs.google.com/presentation/d/13fzJvjue3G7_9Sna773lGy68oyJ4Vool/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
                     { type: "docs", title: "Chapter 5 Network Layer: The Control Plane", id: "https://docs.google.com/presentation/d/1ZLuTEzkha5URQHY_SnE7Ji_W32btxsix/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "docs", title: "IPv6 in details", id: "https://drive.google.com/file/d/14oJKnyPiXvECiP_FqTeLC4-ozxQUQXzp/view?usp=sharing" },
+                    { type: "docs", title: "NAT in Details", id: "https://drive.google.com/file/d/1-B4mBqWSWgtvNNeHQny39eYTvsF6uTyK/view?usp=sharing" },
+                    { type: "video", title: "9-1 | Network Layer Introduction & Responsibilities", id: "rW1jPlYgp_0" },
+                    { type: "video", title: "9-2 | IPv4 Header Format", id: "zoFSxIuS5Ro" },
+                    { type: "video", title: "9-3 | IPv4 Header Format", id: "k8VgrqDOIUo" },
+                    { type: "video", title: "9-4 | IPv6 Header Format in Hindi | IPv4 Vs IPv6", id: "U3rGOTxwXAI" },
+                    { type: "video", title: "9-5 | IPv4 to IPv6 Transition", id: "DMnCkbcJ-qw" },
+                    { type: "video", title: "9-6 | NAT", id: "47PUj7OSGkA" },
                 ],
             },
             {
@@ -769,6 +773,19 @@ const courses_video_final = [
                 subLectures: [
                     { type: "docs", title: "Data Link Layer Slide pdf", id: "https://drive.google.com/file/d/1qOAgATLS6Axdf961aGHDjXdRW9zjE_Yp/view?usp=sharing" },
                     { type: "docs", title: "Data Link Layer Docx", id: "https://docs.google.com/document/d/1Qz7pNGwQrKR2p_IfxIkwG62MwUUdun6-/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "10-1 | Data link layer Introduction", id: "JRgmPco0KWI" },
+                    { type: "video", title: "10-2 | Stop and Wait ARQ protocol", id: "YIX1NfaUpsU" },
+                    { type: "video", title: "10-3 | Go-Back-N ARQ", id: "zc88y9HTAOA" },
+                    { type: "video", title: "10-4 | Selective Repeat ARQ", id: "08y_Vrs1vHo" },
+                    { type: "video", title: "10-5 | Various Flow Control Protocols (Prev 3 in one)", id: "yNedVgNyE8Q" },
+                    { type: "video", title: "10-6 | Framing in Data Link Layer", id: "2U6kPu0dfqI" },
+                    { type: "video", title: "10-7 | Error detection and Correction", id: "U7-h2hyM1Dc" },
+                    { type: "video", title: "10-8 | Various Medium Access Control Protocols", id: "G0h0dC4Zycs" },
+                    { type: "video", title: "10-9 | Pure Aloha", id: "WYM9nFYnYAg" },
+                    { type: "video", title: "10-10 | Pure Aloha Vs Slotted Aloha", id: "ggdeb2_z240" },
+                    { type: "video", title: "10-11 | Carrier Sense Multiple Access", id: "IftFvfSywCQ" },
+                    { type: "video", title: "10-12 | Carrier Sense Multiple Access/ Collision Detection", id: "v_z888gQWq0" },
+                    { type: "video", title: "10-13 | Ethernet Frame Format (IEEE-802.3)", id: "ewpq3qxx5Ls" },
                 ],
             },
             {
@@ -776,7 +793,18 @@ const courses_video_final = [
                 lecNo: "L-11",
                 lecName: "Transport Layer",
                 subLectures: [
-                    { type: "docs", title: "Transport Layer", id: "https://drive.google.com/file/d/1qOAgATLS6Axdf961aGHDjXdRW9zjE_Yp/view?usp=sharing" },
+                    { type: "docs", title: "Transport Layer", id: "https://docs.google.com/document/d/1c2btyAvxC_jzXcfltmiE_YdnbmHs9soT/edit" },
+                    { type: "video", title: "11-1 | Transport Layer Introduction & Responsibilities", id: "kAty4mKczEg" },
+                    { type: "video", title: "11-2.1.2 | TCP: Transmission control protocol part-1", id: "c8aet11HNxg" },
+                    { type: "video", title: "11-2.1.2 | TCP: Transmission control protocol part-2", id: "hsNuqtfxgRI" },
+                    { type: "video", title: "11-2.2 | TCP connection Establishment and connection Termination", id: "qIEHUUt2Wfc" },
+                    { type: "video", title: "11-2.3 | TCP Data Transfer | Piggybacking & Pure Acknowledgement", id: "7zPfuIf4GL0" },
+                    { type: "video", title: "11-2.4 | Connection Termination in TCP", id: "dJIAComFq9U" },
+                    { type: "video", title: "11-2.5 | TCP Congestion Control", id: "0bc_T_pEZmo" },
+                    { type: "video", title: "11-3.1 | UDP (User Datagram Protocol)", id: "HF_znV8x9a0" },
+                    { type: "video", title: "11-3.2 | Advantages of UDP protocol over TCP", id: "Zs0VixZqgzA" },
+                    { type: "video", title: "11-4 | TCP vs UDP differences", id: "jJyXpMmXJI0" },
+
                 ],
             },
             {
@@ -785,6 +813,7 @@ const courses_video_final = [
                 lecName: "Wireless Network docx",
                 subLectures: [
                     { type: "docs", title: "Wireless Network docx", id: "https://docs.google.com/document/d/1n4orr3cd3LqveyTiukbdvty60UGnGETO/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "12-1 | Wireless Network", id: "ut-EMl-uHXY" },
                 ],
             },
             {
@@ -793,6 +822,25 @@ const courses_video_final = [
                 lecName: "Network Security docx",
                 subLectures: [
                     { type: "docs", title: "Network Security docx", id: "https://docs.google.com/document/d/1NF6VV5nOH4kOqSkKvq2ydcZ_ZmVrAH1Y/edit?usp=drive_link&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "13-1 | Cryptography in computer network", id: "trHox1bN5es" },
+                    { type: "video", title: "13-2 | Symmetric Key Cryptography", id: "6AmmQiOWoXM" },
+                    { type: "video", title: "13-3 | Asymmetric key Cryptography", id: "xw19eT5thIE" },
+                    { type: "video", title: "13-4 | RSA Algorithm in Network Security", id: "VUxfDCmWM0U" },
+                    { type: "video", title: "13-5 | Types of Attacks in Network Security", id: "yj8VouY-TfQ" },
+                    { type: "video", title: "13-6 | Active Attack and its Types", id: "NiEIFTd8JH0" },
+                    { type: "video", title: "13-7 | Passive Attacks and its Types", id: "fMfn1sMh_Uk" },
+                ],
+            },
+            {
+                lecCode: "cse313-lrev",
+                lecNo: "Mid-Revision",
+                lecName: "Subnetting, suppernetting, FLSM, VLSM",
+                subLectures: [
+                    { type: "docs", title: "FLSM Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/1zn9ubTSb2fmlp3QzFu4RJsQDtXSnxIEe/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "docs", title: "VLSM Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/1iW2iRrArp0aW2ZAgMrZq5rGnv3T9OH8N/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "docs", title: "Suppernetting Slide WITH AUDIO", id: "https://docs.google.com/presentation/d/19HYeW7-HB014y3-zp9S2RGbPfKBhxKJc/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "video", title: "Rev-1 | FLSM (Solve) and VLSM (Sir's video)", id: "ocGg6hesJy0" },
+                    { type: "video", title: "Rev-2 | Suppernetting", id: "m7TwQ24lF74" },
                 ],
             },
         ],
@@ -951,7 +999,7 @@ const VideoLectures = () => {
                         {
                             currentlyPlaying ?
                                 (currentlyPlaying === 'txtIns' ?
-                                    <div className="flex flex-col items-center p-10 sm:p-5 border border-success h-full w-full rounded-lg">
+                                    <div className="flex flex-col items-center p-10 sm:p-5 border border-success h-full w-full rounded-lg overflow-auto">
                                         <div className="text-2xl font-bold text-success text-center border-b-2 border-success">
                                             {snglData?.title}
                                         </div>
