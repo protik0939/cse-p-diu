@@ -852,6 +852,17 @@ const courses_video_final = [
         courseTitle: "Object Oriented Programming - II",
         lectureVideos: [
             {
+                lecCode: "cse221-ldocs",
+                lecNo: "L-0",
+                lecName: "Others Notes and Final Exam Tools",
+                subLectures: [
+                    { type: "txtIns", title: "Exam Details (Only for 63_N)", id: "txtIns", des: 'Object Oriented Programming-II\nCSE221  |  NIB\nExam date: 24 December 2024, Tuesday\n\nExam slot: 12:00PM - 2:00PM\nExam Room:\n    KT-518 - (5)\n    KT-801A - (24)\n    KT-801B - (23)' },
+                    { type: "classnote", title: "Code for practice - NumPy", id: "https://colab.research.google.com/drive/1S8KlXpPGegcI8tFFcRHEkM_pbH3dZc2O?usp=sharing" },
+                    { type: "classnote", title: "Class Tasks", id: "https://github.com/protik0939/OOP-II-Lab-Tasks-Fall-24/tree/main" },
+                    { type: "classnote", title: "Scenerio based questions", id: "https://github.com/protik0939/Python-Lab-Report-OOP-II/tree/main" },
+                ],
+            },
+            {
                 lecCode: "cse221-l7",
                 lecNo: "L-7",
                 lecName: "OOP Concepts with Python",
@@ -867,6 +878,11 @@ const courses_video_final = [
                 lecName: "Inheritance in Python",
                 subLectures: [
                     { type: "docs", title: "Lecture-8 Slide", id: "https://drive.google.com/file/d/19bnkAl1KgYZgHrfuzdsLsk4999RbsFxv/view?usp=sharing" },
+                    { type: "video", title: "8-1 | Python Inheritence", id: "KcNXn1_owqI" },
+                    { type: "video", title: "8-2 | Multiple Inheritence", id: "NcCd2jHuLiw" },
+                    { type: "video", title: "8-3 | Multilevel Inheritence", id: "m2GXZMSKIL0" },
+                    { type: "video", title: "8-4 | Hybrid And Hierarchical Inheritance", id: "KskLMYvIuU4" },
+                    { type: "video", title: "8-5 | Overriding", id: "CaOFHuLPjo4" },
                 ],
             },
             {
@@ -875,6 +891,9 @@ const courses_video_final = [
                 lecName: "Polymorphism and Exception in Python",
                 subLectures: [
                     { type: "docs", title: "Lecture-9 Slide", id: "https://drive.google.com/file/d/1Rb7SR19_uEp7Xj7KHPL6Ybxk_g-AKMq2/view?usp=sharing" },
+                    { type: "video", title: "9-1 | Polymorphism", id: "I4dc6QI9mPo" },
+                    { type: "video", title: "9-2.1 | Exception Handling part-1", id: "wjy1wltl_Lo" },
+                    { type: "video", title: "9-2.2 | Exception Handling part-2", id: "MowhoM91yaI" },
                 ],
             },
             {
@@ -883,14 +902,19 @@ const courses_video_final = [
                 lecName: "NumPy in Python",
                 subLectures: [
                     { type: "docs", title: "Lecture-10 Slide", id: "https://drive.google.com/file/d/19J1nwV4OI5Om_72_FvqjSxhpjumbR1yx/view?usp=sharing" },
+                    { type: "docs", title: "NumPy Function, Slice & Reshape in Python", id: "https://drive.google.com/file/d/1EzhVbT9qUbeE33TGRUwj7RVQyVUSm-UC/view?usp=sharing" },
+                    { type: "video", title: "10-1 | Introduction to NumPy Library in Python", id: "ceMMJZrAXl8" },
+                    { type: "video", title: "10-2 | Numpy Operations in code", id: "xECXZ3tyONo" },
                 ],
             },
             {
                 lecCode: "cse221-l11",
                 lecNo: "L-11",
-                lecName: "NumPy Function, Slice & Reshape in Python",
+                lecName: "Abstraction",
                 subLectures: [
-                    { type: "docs", title: "Lecture-11 Slide", id: "https://drive.google.com/file/d/1EzhVbT9qUbeE33TGRUwj7RVQyVUSm-UC/view?usp=sharing" },
+                    { type: "docs", title: "Lecture-11 Slide", id: "https://docs.google.com/document/d/1Ok2Xd900SHrFJ3kQfDfEoox9keBNj96z/edit?usp=sharing&ouid=102067286472980191666&rtpof=true&sd=true" },
+                    { type: "classnote", title: "Code for Practice", id: "https://drive.google.com/file/d/1Mq1AGDP8a8H47DTPrSePYF-Usgm2OOQ2/view?usp=sharing" },
+                    { type: "video", title: "11-2 | Abstraction", id: "Cto4Bfp4ybQ" },
                 ],
             },
         ],
@@ -1032,7 +1056,7 @@ const VideoLectures = () => {
                             <button onClick={() => setSlctedLecture(courses_video_final)} className={`btn ${slctedLecture === courses_video_final ? 'border-primary bg-white' : 'border-none animate-none btn-success'} `}>Final</button>
                         </div>
                         {slctedLecture?.map((course) => (
-                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE313" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
+                            <div key={course.courseCode} className={`bg-gray-800 ${course?.courseCode == "CSE221" ? 'bg-gradient-to-r from-indigo-500 to-emerald-400' : 'bg-gray-800'} collapse`}>
                                 <input
                                     type="checkbox"
                                     className="peer"

@@ -344,7 +344,7 @@ const PostBox = ({ post, onDelete }) => {
                                                         reactedUsers?.length > 0 ?
                                                             reactedUsers.map(reu => {
                                                                 return (
-                                                                    <Link key={reu?.userUid} to={`http://localhost:5173/profile/${reu.userUid}`} className='flex items-center space-x-3 rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30'>
+                                                                    <Link key={reu?.userUid} to={`/profile/${reu.userUid}`} className='flex items-center space-x-3 rounded-2xl shadow-lg p-3 cursor-pointer hover:bg-black/30'>
                                                                         <img className='w-10 rounded-lg aspect-square  object-cover' src={reu?.photourl} alt={reu?.name} />
                                                                         <h1>{reu?.name}</h1>
                                                                     </Link>
